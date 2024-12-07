@@ -1,5 +1,4 @@
-# ADHD-Support-Application-RP-2024
-Supportive Web Application for children between 6-12 Age
+# Advanced ADHD Supportive System - NeuroAssist
 
 ### Member 1 - IT21186110 - Ekanayaka E.M.A
 
