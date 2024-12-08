@@ -41,7 +41,7 @@ between ADHD and non-ADHD individuals, Suggesting activities based on their cogn
 
 
 # Overall System Diagram
-![Untitled Diagram-Page-2 drawio (1)](https://github.com/user-attachments/assets/fe6fb785-1238-4228-95a7-01e54b39b397)
+![image](https://github.com/user-attachments/assets/ce564a68-cf1f-4396-ad4c-989a42dac9d0)
 
 # Dependencies
 
