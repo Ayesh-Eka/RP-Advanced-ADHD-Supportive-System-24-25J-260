@@ -11,7 +11,7 @@
 
 
 # Overview of the project
-### Attention Deficit Hyperactivity Disorder (ADHD) is a prevalent neurodevelopmental 
+Attention Deficit Hyperactivity Disorder (ADHD) is a prevalent neurodevelopmental 
 disorder affecting around 5% of children globally. It manifests through symptoms of 
 inattention, hyperactivity, and impulsivity, which can significantly impact a child's 
 academic performance and social interactions. Traditional interventions include 
