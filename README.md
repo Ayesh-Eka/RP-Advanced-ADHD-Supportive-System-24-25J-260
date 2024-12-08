@@ -11,7 +11,19 @@
 
 
 # Overview of the project
-### efsffsfsfsf sfsfs sfsf
+### Attention Deficit Hyperactivity Disorder (ADHD) is a prevalent neurodevelopmental 
+disorder affecting around 5% of children globally. It manifests through symptoms of 
+inattention, hyperactivity, and impulsivity, which can significantly impact a child's 
+academic performance and social interactions. Traditional interventions include 
+behavioral therapies and pharmacological treatments, which might not fully address 
+individual cognitive needs or provide personalized support.
+The advent of digital technologies, particularly in the realm of Artificial Intelligence 
+(AI) and Machine Learning (ML), presents new avenues for enhancing ADHD 
+management. These technologies offer the potential to develop personalized learning 
+and intervention tools that adapt to the unique cognitive profiles of individuals with 
+ADHD. Continuous Performance Tests (CPT) have been instrumental in assessing 
+attentional capacities in ADHD; however, integrating these assessments with AI could 
+revolutionize how interventions are tailored and delivered.
 
 
 # Overall System Diagram
