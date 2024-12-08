@@ -31,7 +31,7 @@ fun.
 
 **Daily Task Management**
 
-• AI helps organize and prioritize daily tasks, with reminders and rewards to 
+• Detect real-time interest level using educational and non-educational activities and prioritize daily tasks using ML model, with reminders and rewards to 
 encourage completion.
 
 **Bridging the cognitive gap**
