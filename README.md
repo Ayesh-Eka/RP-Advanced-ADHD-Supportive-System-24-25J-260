@@ -19,19 +19,23 @@ NeuroAssist is an AI-driven web application designed to support individuals with
 and their caregivers. It offers four key features:
 
 **ADHD Risk Prediction**
+
 • Users can assess the likelihood of ADHD through questionnaires and 
 activities, with AI providing a detailed report to aid in early diagnosis.
 
 **Social Skills Improvement**
+
 • An interactive chat and voice interface offers real-time feedback to help 
 children improve social interactions, using gamification to make learning 
 fun.
 
 **Daily Task Management**
+
 • AI helps organize and prioritize daily tasks, with reminders and rewards to 
 encourage completion.
 
 **Bridging the cognitive gap**
+
 • The system provides personalized training to bridge the cognitive gap 
 between ADHD and non-ADHD individuals, Suggesting activities based on their cognitive levels.
 
