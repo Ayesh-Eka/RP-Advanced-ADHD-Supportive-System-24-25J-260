@@ -1,4 +1,4 @@
-# Advanced ADHD Supportive System - NeuroAssist
+# Advanced ADHD Supportive System - Neuro_Assist
 
 # Group Members
 
