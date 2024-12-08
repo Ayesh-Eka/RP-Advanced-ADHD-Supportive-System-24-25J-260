@@ -45,6 +45,37 @@ between ADHD and non-ADHD individuals, Suggesting activities based on their cogn
 
 # Dependencies
 
+### Programming Languages
+- **Python 
+- **JavaScript 
+
+### Frameworks and Libraries
+- **MERN Stack**:
+  - MongoDB (Database)
+  - Express.js 
+  - React.js 
+  - Node.js 
+
+- **Python Libraries**:
+  - NumPy
+  - Pandas
+  - TensorFlow 
+  - Matplotlib
+  - pickle
+  - seaborn
+  - librosa
+  - scikit-learn
+
+### Development Tools
+- **Google Colab** 
+- **VS Code** 
+- **Postman** 
+- **Figma** 
+- **MS Planner** 
+
+### Other Tools
+- **Git** 
+
 
 
 
