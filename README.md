@@ -46,8 +46,8 @@ between ADHD and non-ADHD individuals, Suggesting activities based on their cogn
 # Dependencies
 
 ### Programming Languages
-- **Python 
-- **JavaScript 
+- **Python** 
+- **JavaScript** 
 
 ### Frameworks and Libraries
 - **MERN Stack**:
