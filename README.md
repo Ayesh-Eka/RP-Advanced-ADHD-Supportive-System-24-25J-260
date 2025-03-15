@@ -31,7 +31,7 @@ fun.
 
 **Daily Task Management**
 
-• Detect real-time interest level using educational and non-educational activities and prioritize daily tasks using ML model, with reminders and rewards to 
+• Detect real-time interest level using educational and non-educational activities and prioritize daily tasks and create basic eisenhower matrix using ML model, with reminders and rewards to 
 encourage completion.
 
 **Bridging the cognitive gap**
