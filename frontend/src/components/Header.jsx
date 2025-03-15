@@ -11,35 +11,29 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-blue-500 text-white p-4">
-      <div className="container mx-auto flex justify-between items-center">
+    <header className="bg-white shadow-md">
+      <div className="container mx-auto flex justify-between items-center p-4">
         <Link to="/" className="text-xl font-bold">
-          MyApp
+          NeuroAssist
         </Link>
         <nav>
           <ul className="flex space-x-4">
-            <li>
-              <Link to="/" className="hover:underline">
-                Home
-              </Link>
-            </li>
-            {!isLoggedIn && (
+            {!isLoggedIn ? (
               <>
                 <li>
-                  <Link to="/login" className="hover:underline">
-                    Login
+                  <Link to="/login" className="hover:text-blue-500">
+                    Sign In
                   </Link>
                 </li>
                 <li>
-                  <Link to="/register" className="hover:underline">
-                    Register
+                  <Link to="/register" className="hover:text-blue-500">
+                    Sign Up
                   </Link>
                 </li>
               </>
-            )}
-            {isLoggedIn && (
+            ) : (
               <li>
-                <button onClick={handleLogout} className="hover:underline">
+                <button onClick={handleLogout} className="hover:text-blue-500">
                   Logout
                 </button>
               </li>

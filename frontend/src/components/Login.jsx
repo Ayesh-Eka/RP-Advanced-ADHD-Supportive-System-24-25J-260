@@ -4,6 +4,7 @@ import axios from 'axios';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -11,6 +12,7 @@ const Login = () => {
       const response = await axios.post('http://localhost:5000/api/auth/login', { email, password });
       localStorage.setItem('token', response.data.token);
       alert('Login successful');
+      window.location.href = '/';
     } catch (error) {
       alert('Login failed');
     }
@@ -18,9 +20,46 @@ const Login = () => {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
-      <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="p-2 border rounded" />
-      <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className="p-2 border rounded" />
-      <button type="submit" className="p-2 bg-blue-500 text-white rounded">Login</button>
+      <div>
+        <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+          Email
+        </label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="mt-1 p-2 w-full border rounded"
+          required
+        />
+      </div>
+      <div>
+        <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+          Password
+        </label>
+        <div className="relative">
+          <input
+            type={showPassword ? 'text' : 'password'}
+            id="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="mt-1 p-2 w-full border rounded"
+            required
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
+          >
+            {showPassword ? '🙈' : '👁️'}
+          </button>
+        </div>
+      </div>
+      <button type="submit" className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+        Login
+      </button>
     </form>
   );
 };
