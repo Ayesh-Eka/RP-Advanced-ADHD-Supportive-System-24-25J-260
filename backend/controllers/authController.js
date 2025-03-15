@@ -1,5 +1,6 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
 const register = async (req, res) => {
   const { username, email, password } = req.body;
@@ -7,6 +8,7 @@ const register = async (req, res) => {
     await User.create(username, email, password);
     res.status(201).json({ message: 'User registered successfully' });
   } catch (error) {
+    console.error('Registration error:', error);
     res.status(500).json({ error: 'Registration failed' });
   }
 };
@@ -27,4 +29,13 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { register, login };
+const getProfile = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+    res.json({ user });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch profile' });
+  }
+};
+
+module.exports = { register, login, getProfile };
