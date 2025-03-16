@@ -8,6 +8,8 @@ import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
 import TextChatbot from './components/TextChatbot'; // Import TextChatbot
 import TaskForm from './pages/TaskForm';
+import MathGame from './pages/BasicMathsQuestions';
+import PaintingGame from './pages/PaintingGame';
 
 const App = () => {
   return (
@@ -23,6 +25,8 @@ const App = () => {
             <Route path="/text-chatbot" element={<TextChatbot />} /> {/* Add TextChatbot route */}
 
             <Route path="/taskform" element={<TaskForm />} />
+            <Route path="/EducationalActivity" element={<MathGame />} />
+            <Route path="/NonEducationalActivity" element={<PaintingGame />} />
           </Routes>
         </main>
         <Footer />

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import { motion, AnimatePresence } from "framer-motion"; // Import framer-motion
 
 const TaskForm = () => {
   const [formData, setFormData] = useState({
@@ -17,16 +18,41 @@ const TaskForm = () => {
   });
 
   const [taskList, setTaskList] = useState([]);
+  const [walletBalance, setWalletBalance] = useState(0); // Wallet balance state
+  const [pointsAnimation, setPointsAnimation] = useState(null); // Points animation state
+
+  // Initialize the interest level based on the default category when component mounts
+  useEffect(() => {
+    console.log('edu', localStorage.getItem("edu"));
+    console.log('non', localStorage.getItem("nonEdu"));
+    if (formData.category === "1") { // Educational
+      setFormData(prevData => ({
+        ...prevData,
+        interest_level: localStorage.getItem("edu") || ""
+      }));
+    } else if (formData.category === "0") { // Other
+      setFormData(prevData => ({
+        ...prevData,
+        interest_level: localStorage.getItem("nonEdu") || ""
+      }));
+    }
+  }, []);
 
   const handleCategoryChange = (e) => {
     const selectedCategory = e.target.value;
-    const updatedFormData = { ...formData, category: selectedCategory };
+    let interestLevel = "";
 
-    if (selectedCategory === "1") {
-      updatedFormData.interest_level = localStorage.getItem("interestLevel") || "";
+    if (selectedCategory === "1") { // Educational
+      interestLevel = localStorage.getItem("edu") || "";
+    } else if (selectedCategory === "0") { // Other
+      interestLevel = localStorage.getItem("nonEdu") || "";
     }
 
-    setFormData(updatedFormData);
+    setFormData(prevData => ({
+      ...prevData,
+      category: selectedCategory,
+      interest_level: interestLevel
+    }));
   };
 
   const handleChange = (e) => {
@@ -86,7 +112,19 @@ const TaskForm = () => {
 
   const toggleTaskCompletion = (index) => {
     const updatedTaskList = [...taskList];
-    updatedTaskList[index].completed = !updatedTaskList[index].completed;
+    const task = updatedTaskList[index];
+
+    if (!task.completed) {
+      // Add points to wallet and trigger animation
+      const points = 10; // Points to add for each task
+      setWalletBalance((prevBalance) => prevBalance + points);
+
+      // Trigger points animation
+      setPointsAnimation(`+${points}`);
+      setTimeout(() => setPointsAnimation(null), 2000); // Clear animation after 2 seconds
+    }
+
+    task.completed = !task.completed;
     setTaskList(updatedTaskList);
   };
 
@@ -125,7 +163,7 @@ const TaskForm = () => {
             <select
               name="category"
               value={formData.category}
-              onChange={handleChange}
+              onChange={handleCategoryChange}
               className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="1">Educational</option>
@@ -310,6 +348,28 @@ const TaskForm = () => {
           </table>
         </div>
       )}
+
+      {/* Wallet Balance */}
+      <div className="fixed bottom-4 right-4 bg-white p-4 rounded-lg shadow-lg">
+        <h3 className="text-xl font-bold text-gray-800">Points for complete tasks: {walletBalance}</h3>
+      </div>
+
+      {/* Points Animation */}
+      <AnimatePresence>
+        {pointsAnimation && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ duration: 0.5 }}
+            className="fixed inset-0 flex items-center justify-center"
+          >
+            <div className="bg-green-500 text-white text-6xl font-bold p-8 rounded-full shadow-lg">
+              {pointsAnimation}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
