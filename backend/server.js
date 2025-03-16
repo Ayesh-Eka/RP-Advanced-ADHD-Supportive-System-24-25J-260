@@ -5,7 +5,7 @@ const { spawn } = require('child_process'); // Import spawn to run Python script
 const db = require('./config/db'); // Import the database connection
 require('dotenv').config();
 const socialSkillsRoutes = require('./routes/socialSkillsRoutes'); // Import socialSkillsRoutes
-
+const TaskPrioritizationRoutes = require('./routes/TaskPrioritizationRoutes')
 const app = express();
 
 // Middleware
@@ -29,7 +29,7 @@ const testDatabaseConnection = async () => {
 
 // Routes
 app.use('/api/social-skills', socialSkillsRoutes); // Add socialSkillsRoutes
-
+app.use('/api/task-prioritize', TaskPrioritizationRoutes);
 
 
 // Prediction endpoint
@@ -68,3 +68,43 @@ app.listen(PORT, async () => {
   // Test the database connection when the server starts
   await testDatabaseConnection();
 });
+
+
+
+
+
+
+
+//Ranush
+app.post("/predictPriority", (req, res) => {
+  const { category, days_to_deadline, interest_level, duration, age, gender } = req.body;
+
+  const pythonProcess = spawn("python", ["/TaskPrioritizeModel/model_api_task.py", category, days_to_deadline, interest_level, duration, age, gender]);
+
+  let responseSent = false;
+
+  pythonProcess.stdout.on("data", (data) => {
+      if (!responseSent) {
+          res.json({ priority: data.toString().trim() });
+          responseSent = true;
+      }
+  });
+
+  pythonProcess.stderr.on("data", (data) => {
+      console.error(`Error: ${data}`);
+      if (!responseSent) {
+          res.status(500).json({ error: "Internal Server Error" });
+          responseSent = true;
+      }
+  });
+
+  pythonProcess.on("close", (code) => {
+      if (!responseSent) {
+          // Handle case where pythonProcess exits but no response was sent
+          res.status(500).json({ error: "Unexpected error occurred" });
+      }
+  });
+});
+
+
+
