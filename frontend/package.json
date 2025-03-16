@@ -12,6 +12,8 @@
   "dependencies": {
     "axios": "^1.8.3",
     "frontend": "file:",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^3.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-mic-recorder": "^1.1.3",

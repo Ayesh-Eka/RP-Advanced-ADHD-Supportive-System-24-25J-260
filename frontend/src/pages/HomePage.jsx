@@ -13,9 +13,9 @@ const HomePage = () => {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod, nisi ac aliquet sodales, sapien orci aliquam libero.',
     },
     {
-      title: 'Prioritize Daily Tasks',
+      title: 'Oraganize Daily Tasks',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod, nisi ac aliquet sodales, sapien orci aliquam libero.',
+        'Hello! You can organize your daily tasks and create a eisenhower matrix witout any guidance',
     },
     {
       title: 'Improve Social Skills',
