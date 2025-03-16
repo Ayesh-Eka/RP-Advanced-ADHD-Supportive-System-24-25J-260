@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Home = () => {
+const HomePage = () => {
   const features = [
     {
       title: 'ADHD Identification',
@@ -72,7 +72,7 @@ const Home = () => {
             {quickLinks.map((link, index) => (
               <a
                 key={index}
-                href="#"
+                href="/text-chatbot"
                 className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
               >
                 {link}
@@ -85,4 +85,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

@@ -18,6 +18,11 @@ const Header = () => {
         </Link>
         <nav>
           <ul className="flex space-x-4">
+            <li>
+              <Link to="/" className="hover:text-blue-500">
+                Home
+              </Link>
+            </li>
             {!isLoggedIn ? (
               <>
                 <li>
@@ -32,11 +37,18 @@ const Header = () => {
                 </li>
               </>
             ) : (
-              <li>
-                <button onClick={handleLogout} className="hover:text-blue-500">
-                  Logout
-                </button>
-              </li>
+              <>
+                <li>
+                  <Link to="/profile" className="hover:text-blue-500">
+                    Profile
+                  </Link>
+                </li>
+                <li>
+                  <button onClick={handleLogout} className="hover:text-blue-500">
+                    Logout
+                  </button>
+                </li>
+              </>
             )}
           </ul>
         </nav>
