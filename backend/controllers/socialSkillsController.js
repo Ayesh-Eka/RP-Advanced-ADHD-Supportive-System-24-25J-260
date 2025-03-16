@@ -29,7 +29,7 @@ const checkResponse = async (req, res) => {
   try {
     // Spawn the Python process to run model_api.py with the text input
     const pythonProcess = spawn('python', [
-      'model_api.py', // Path to your Python script
+      'social-skills-model/model_api.py', // Path to your Python script
       text           // Pass the text to the Python script
     ]);
 
