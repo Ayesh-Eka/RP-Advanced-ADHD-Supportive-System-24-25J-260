@@ -32,7 +32,6 @@ app.use('/api/social-skills', socialSkillsRoutes); // Add socialSkillsRoutes
 app.use('/api/task-prioritize', TaskPrioritizationRoutes);
 
 
-
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, async () => {
