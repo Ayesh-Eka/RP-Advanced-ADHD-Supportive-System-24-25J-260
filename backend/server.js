@@ -32,33 +32,6 @@ app.use('/api/social-skills', socialSkillsRoutes); // Add socialSkillsRoutes
 app.use('/api/task-prioritize', TaskPrioritizationRoutes);
 
 
-// Prediction endpoint
-app.post('/predict', (req, res) => {
-  const { text } = req.body; // Expecting text input in the request body
-
-  // Validate input data
-  if (!text) {
-    return res.status(400).json({ error: 'Text input is required' });
-  }
-
-  // Spawn the Python process to run model_api.py with the text input
-  const pythonProcess = spawn('python', [
-    'model_api.py', // Path to your Python script
-    text           // Pass the text to the Python script
-  ]);
-
-  // Capture the output from the Python script
-  pythonProcess.stdout.on('data', (data) => {
-    const prediction = data.toString().trim(); // Clean up the result
-    res.json({ prediction }); // Return the prediction as JSON
-  });
-
-  // Capture errors from the Python script
-  pythonProcess.stderr.on('data', (data) => {
-    console.error(`Error: ${data}`);
-    res.status(500).json({ error: 'Internal Server Error' });
-  });
-});
 
 // Start the server
 const PORT = process.env.PORT || 5000;
