@@ -9,7 +9,7 @@ const HomePage = () => {
       description:
         'Discover tools to help identify and manage ADHD symptoms in a fun and engaging way!',
       icon: '🧠',
-      path: '#', 
+      path: '/predict', 
     },
     {
       title: 'Cognitive Enhancement',

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
+import { useNavigate } from "react-router-dom";
 
 const DigitSpanTest = () => {
   const sequences = [
@@ -10,15 +10,16 @@ const DigitSpanTest = () => {
     [1, 3],
   ];
 
+  const colors = ["red", "blue", "green", "yellow"]; // Same colors as StroopTest
   const [currentSequenceIndex, setCurrentSequenceIndex] = useState(0);
   const [displaySequence, setDisplaySequence] = useState([]);
   const [userSequence, setUserSequence] = useState([]);
   const [score, setScore] = useState(0);
   const [showNumbers, setShowNumbers] = useState(true);
   const [result, setResult] = useState(null);
-  const [showNextGame, setShowNextGame] = useState(false);
+  const [clickedNumbers, setClickedNumbers] = useState([]); // Track clicked numbers
 
-  const navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate();
 
   useEffect(() => {
     showSequence();
@@ -37,6 +38,7 @@ const DigitSpanTest = () => {
   const handleNumberClick = (number) => {
     const newUserSequence = [...userSequence, number];
     setUserSequence(newUserSequence);
+    setClickedNumbers((prev) => [...prev, number]); // Add clicked number to the list
 
     if (newUserSequence.length === sequences[currentSequenceIndex].length) {
       checkAnswer(newUserSequence);
@@ -52,6 +54,7 @@ const DigitSpanTest = () => {
       setScore(score + 1);
     }
     setUserSequence([]);
+    setClickedNumbers([]); // Reset clicked numbers for the next sequence
     if (currentSequenceIndex < sequences.length - 1) {
       setCurrentSequenceIndex(currentSequenceIndex + 1);
     } else {
@@ -82,47 +85,61 @@ const DigitSpanTest = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-      <h1 className="text-2xl font-bold mb-4">Number Memory Game</h1>
-      <p className="mb-4 text-lg">Watch the numbers and click them in the same order!</p>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 p-6">
+      {/* Frame for the game */}
+      <div className="w-full max-w-4xl bg-white rounded-3xl shadow-2xl p-8">
+        <h1 className="text-4xl font-extrabold text-gray-800 text-center drop-shadow-md">
+          Number Memory Game
+        </h1>
+        <p className="text-lg text-gray-600 mt-2 text-center font-medium">
+          Watch the numbers and click them in the same order!
+        </p>
 
-      {/* Display the sequence */}
-      <div className="bg-white border-4 border-black text-3xl font-bold py-4 px-6 rounded-lg mb-4">
-        {showNumbers ? displaySequence.join(" ") : ""}
-      </div>
+        {/* Display the sequence */}
+        <div className="mt-8 bg-gray-50 border-4 border-gray-200 text-7xl font-extrabold py-6 px-8 rounded-xl text-center">
+          {showNumbers ? displaySequence.join(" ") : ""}
+        </div>
 
-      {/* Display number buttons */}
-      {!showNumbers && (
-        <div className="grid grid-cols-4 gap-4">
-          {[1, 2, 3, 4].map((num) => (
+        {/* Display number buttons */}
+        {!showNumbers && (
+          <div className="mt-8 grid grid-cols-2 gap-4">
+            {[1, 2, 3, 4].map((num) => (
+              <button
+                key={num}
+                className={`text-4xl font-bold py-6 px-8 rounded-xl shadow-lg transition-all duration-300 ${
+                  clickedNumbers.includes(num)
+                    ? "opacity-50 blur-sm" // Blur and reduce opacity for clicked numbers
+                    : "hover:scale-105 active:scale-95"
+                }`}
+                style={{ backgroundColor: colors[num - 1] }} // Assign colors based on number
+                onClick={() => handleNumberClick(num)}
+                disabled={clickedNumbers.includes(num)} // Disable clicked buttons
+              >
+                {num}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* Display result */}
+        {result && (
+          <div className="mt-12 text-center text-3xl font-bold text-gray-800">
+            <span className="text-6xl">{result.emoji}</span>
+            <div className="mt-4">{result.message}</div>
+            <div className="mt-2 text-2xl">
+              Score: {((score / sequences.length) * 100).toFixed(0)}%
+            </div>
+
+            {/* Next Game button */}
             <button
-              key={num}
-              className="bg-green-500 text-white text-2xl font-bold py-4 px-6 rounded-lg hover:bg-green-600"
-              onClick={() => handleNumberClick(num)}
+              className="mt-6 px-8 py-3 bg-green-500 text-white text-xl rounded-xl shadow-lg transition-all duration-300 hover:bg-green-600 hover:scale-105 active:scale-95"
+              onClick={handleNextButtonClick}
             >
-              {num}
+              Next Game
             </button>
-          ))}
-        </div>
-      )}
-
-      {/* Display result */}
-      {result && (
-        <div className="mt-6 text-2xl font-bold text-center">
-          <span className="text-3xl">{result.emoji}</span>
-          <div>{result.message}</div>
-          <div>Score: {((score / sequences.length) * 100).toFixed(0)}%</div>
-          <div>Result: {result.value}</div>
-
-          {/* Next Game button */}
-          <button
-            className="mt-4 px-8 py-3 bg-green-500 text-white text-xl rounded-xl shadow-lg transition-all duration-300 hover:bg-green-600 hover:scale-105 active:scale-95"
-            onClick={handleNextButtonClick}
-          >
-            Next Game
-          </button>
-        </div>
-      )}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

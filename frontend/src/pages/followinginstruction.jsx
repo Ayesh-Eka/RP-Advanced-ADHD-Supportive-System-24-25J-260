@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import FinalizedReport from "./FinalizedRepost"
 
 const FollowInstructionsGame = () => {
   const instructions = [
@@ -21,13 +22,15 @@ const FollowInstructionsGame = () => {
   const [currentInstructionIndex, setCurrentInstructionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [userOrder, setUserOrder] = useState([]);
-  const [timeLeft, setTimeLeft] = useState(15);
+  const [timeLeft, setTimeLeft] = useState(20); // Set time to 20 seconds
   const [tasksCompleted, setTasksCompleted] = useState(0);
   const [result, setResult] = useState(null);
   const [gameOver, setGameOver] = useState(false);
+  const [gameStarted, setGameStarted] = useState(false); // Track if the game has started
+  const [clickedObjects, setClickedObjects] = useState([]); // Track clicked objects
 
   useEffect(() => {
-    if (tasksCompleted < 5) {
+    if (gameStarted && tasksCompleted < 5) { // Ensure 5 tasks are completed
       const timer = setInterval(() => {
         setTimeLeft((prev) => {
           if (prev <= 1) {
@@ -39,10 +42,11 @@ const FollowInstructionsGame = () => {
       }, 1000);
       return () => clearInterval(timer);
     }
-  }, [tasksCompleted]);
+  }, [tasksCompleted, gameStarted]);
 
   // Handle user clicking an object
   const handleObjectClick = (object) => {
+    setClickedObjects((prev) => [...prev, object]); // Add clicked object to the list
     setUserOrder((prev) => {
       const newOrder = [...prev, object];
       if (newOrder.length === instructions[currentInstructionIndex].order.length) {
@@ -64,10 +68,11 @@ const FollowInstructionsGame = () => {
   // Move to the next instruction
   const moveToNextInstruction = () => {
     setUserOrder([]);
+    setClickedObjects([]); // Reset clicked objects
     setTasksCompleted((prev) => prev + 1);
-    setTimeLeft(15);
+    setTimeLeft(20);
 
-    if (tasksCompleted === 4) {
+    if (tasksCompleted === 4) { // Check if all 5 tasks are completed
       showResult();
     } else {
       setCurrentInstructionIndex((prev) => prev + 1);
@@ -78,12 +83,13 @@ const FollowInstructionsGame = () => {
   const handleTimeOut = () => {
     setTasksCompleted((prev) => prev + 1);
     setUserOrder([]);
+    setClickedObjects([]); // Reset clicked objects
 
-    if (tasksCompleted === 4) {
+    if (tasksCompleted === 4) { // Check if all 5 tasks are completed
       showResult();
     } else {
       setCurrentInstructionIndex((prev) => prev + 1);
-      setTimeLeft(15);
+      setTimeLeft(20);
     }
   };
 
@@ -112,13 +118,20 @@ const FollowInstructionsGame = () => {
       const response = await axios.post("http://localhost:5000/api/diagnose/predict", storedData, {
         headers: { "Content-Type": "application/json" },
       });
-
+  
       if (response.headers["content-type"].includes("application/json")) {
         const result = response.data;
         Swal.fire({
           title: "Diagnosis Result",
-          text: result.prediction === "1" ? "Positive for ADHD" : "Negative for ADHD",
+          text: result.prediction === "1" ? "There is a possibility of ADHD" : "ADHD is less likely",
           icon: result.prediction === "1" ? "warning" : "success",
+          showCancelButton: true,
+          confirmButtonText: "Go to Finalized Report",
+          cancelButtonText: "Close",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate("/finalized-report"); // Navigate to the finalized report page
+          }
         });
       } else {
         throw new Error("Invalid response format");
@@ -132,47 +145,71 @@ const FollowInstructionsGame = () => {
     }
   };
 
-  return (
-    <div className="font-sans text-center mt-8 bg-gray-100 min-h-screen">
-      <h1 className="text-3xl text-gray-800">Follow Instructions Game</h1>
-      <p className="mt-4 text-lg">Click the objects in the correct order before time runs out!</p>
+  // Handle "Start Game" button click
+  const handleStartGame = () => {
+    setGameStarted(true);
+  };
 
-      {!gameOver ? (
-        <>
-          <div className="mt-4 text-xl font-semibold">
-            {`Click the objects in this order: ${instructions[currentInstructionIndex].order.join(", ")}`}
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 p-6">
+      {/* Frame for the game */}
+      <div className="w-full max-w-4xl bg-white rounded-3xl shadow-2xl p-8">
+        <h1 className="text-4xl font-extrabold text-gray-800 text-center drop-shadow-md">
+          Follow Instructions Game
+        </h1>
+        <p className="mt-4 text-lg text-gray-600 text-center font-medium">
+          Click the objects in the correct order before time runs out!
+        </p>
+
+        {!gameStarted ? (
+          <div className="mt-8 text-center">
+            <button
+              className="px-8 py-3 bg-green-500 text-white text-xl rounded-xl shadow-lg transition-all duration-300 hover:bg-green-600 hover:scale-105 active:scale-95"
+              onClick={handleStartGame}
+            >
+              Start Game
+            </button>
           </div>
-          <div className="flex justify-center gap-6 mt-8">
-            {instructions[currentInstructionIndex].objects.map((obj) => (
-              <button
-                key={obj}
-                className={`py-4 px-6 text-xl font-bold text-white rounded-lg cursor-pointer ${colorMapping[obj]}`}
-                onClick={() => handleObjectClick(obj)}
-              >
-                {obj}
-              </button>
-            ))}
+        ) : !gameOver ? (
+          <>
+            <div className="mt-8 text-xl font-semibold text-gray-800 text-center">
+              {`Click the objects in this order: ${instructions[currentInstructionIndex].order.join(", ")}`}
+            </div>
+            <div className="flex justify-center gap-6 mt-8">
+              {instructions[currentInstructionIndex].objects.map((obj) => (
+                <button
+                  key={obj}
+                  className={`py-4 px-6 text-xl font-bold text-white rounded-lg cursor-pointer ${
+                    clickedObjects.includes(obj) ? "opacity-50 blur-sm" : "hover:scale-105"
+                  } ${colorMapping[obj]}`}
+                  onClick={() => handleObjectClick(obj)}
+                  disabled={clickedObjects.includes(obj)} // Disable clicked buttons
+                >
+                  {obj}
+                </button>
+              ))}
+            </div>
+            <div className="mt-6 text-lg text-gray-600 text-center">
+              Time left: <span className="font-semibold">{timeLeft}</span> seconds
+            </div>
+            <div className="mt-6 text-lg text-gray-600 text-center">
+              Tasks Completed: <span className="font-semibold">{tasksCompleted} / 5</span>
+            </div>
+          </>
+        ) : (
+          <div className="mt-10 text-2xl text-center">
+            <span className="text-4xl">{result.emoji}</span>
+            <div>{result.message}</div>
+            <div>Score: {result.score}</div>
+            <button
+              className="mt-6 px-8 py-3 bg-blue-600 text-white text-xl rounded-xl shadow-lg transition-all duration-300 hover:bg-blue-700 hover:scale-105 active:scale-95"
+              onClick={handleDiagnoseClick}
+            >
+              Diagnose
+            </button>
           </div>
-          <div className="mt-6 text-lg text-gray-600">
-            Time left: <span className="font-semibold">{timeLeft}</span> seconds
-          </div>
-          <div className="mt-6 text-lg text-gray-600">
-            Tasks Completed: <span className="font-semibold">{tasksCompleted} / 5</span>
-          </div>
-        </>
-      ) : (
-        <div className="mt-10 text-2xl">
-          <span className="text-4xl">{result.emoji}</span>
-          <div>{result.message}</div>
-          <div>Score: {result.score}</div>
-          <button
-            className="mt-6 px-6 py-3 bg-blue-600 text-white text-lg font-bold rounded-lg hover:bg-blue-700"
-            onClick={handleDiagnoseClick}
-          >
-            Diagnose
-          </button>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
