@@ -11,6 +11,8 @@ import BoxClickGame from "./components/BoxClickGame";
 import ImproveAttentionTask from "./components/ImproveAttentionTask";
 import ControlHyperactivity from "./components/ControlHyperactivity";
 import TrainAttentionHyperactivity from "./components/TrainAttentionHyperactivity";
+import FeedbackPage from './pages/FeedbackPage';
+
 
 const App = () => {
   return (
@@ -27,7 +29,8 @@ const App = () => {
             <Route path="/go" element={<BoxClickGame />} />
             <Route path="/improve-attention" element={<ImproveAttentionTask />} />
             <Route path="/control-impulsiveness" element={<ControlHyperactivity />} />
-           <Route path="/train-attention-hyperactivity" element={<TrainAttentionHyperactivity />} />
+            <Route path="/train-attention-hyperactivity" element={<TrainAttentionHyperactivity />} />
+            <Route path="/feedback" element={<FeedbackPage />} />
           </Routes>
         </main>
         <Footer />

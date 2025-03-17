@@ -7,6 +7,8 @@ require('dotenv').config();
 const socialSkillsRoutes = require('./routes/socialSkillsRoutes'); // Import socialSkillsRoutes
 const TaskPrioritizationRoutes = require('./routes/TaskPrioritizationRoutes');
 const CognitiveTrainingRoutes = require('./routes/cognitiveTrainingRoute');
+const authRoutes = require('./routes/authRoutes'); // Import authRoutes
+
 const app = express();
 
 // Middleware
@@ -33,6 +35,8 @@ app.use('/api/social-skills', socialSkillsRoutes); // Add socialSkillsRoutes
 app.use('/api/task-prioritize', TaskPrioritizationRoutes);
 app.use('/api/cognitive-training', CognitiveTrainingRoutes);
 
+app.use('/api/auth', authRoutes); // Add authRoutes
+
 
 // Start the server
 const PORT = process.env.PORT || 5000;
@@ -40,7 +44,7 @@ app.listen(PORT, async () => {
   console.log(`🚀 Server running on port ${PORT}`);
 
   // Test the database connection when the server starts
-  // await testDatabaseConnection();
+   await testDatabaseConnection();
 });
 
 
