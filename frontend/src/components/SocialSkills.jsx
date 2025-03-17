@@ -116,71 +116,84 @@ const SocialSkills = () => {
       Swal.fire('Error', 'Please provide a response.', 'error');
       return;
     }
-
+  
     try {
       const response = await axios.post('http://localhost:5000/api/social-skills/check-response', { text: userResponse });
       const { isPositive } = response.data;
-
+  
       // Save the user's response
       const updatedResponses = [
         ...userResponses,
         { question: questions[currentQuestionIndex].scenario, response: userResponse, isPositive },
       ];
       setUserResponses(updatedResponses);
-
+  
       if (isPositive) {
-        const utterance = new SpeechSynthesisUtterance("Great job! Your response is correct.");
-        utterance.voice = femaleVoice;
-        speechSynth.speak(utterance);
-
+        // Randomized success messages
+        const successMessages = [
+          "Awesome! You're doing great!",
+          "Fantastic! Keep up the good work!",
+          "Well done! That was a great response!",
+          "Excellent! You're on the right track!",
+        ];
+        const randomSuccessMessage = successMessages[Math.floor(Math.random() * successMessages.length)];
+  
+        if (speechSynth && femaleVoice) {
+          const utterance = new SpeechSynthesisUtterance(randomSuccessMessage);
+          utterance.voice = femaleVoice;
+          speechSynth.speak(utterance);
+        }
+  
         Swal.fire({
           title: 'Success',
-          text: 'Great job! Your response is correct.',
+          text: randomSuccessMessage,
           icon: 'success',
           confirmButtonText: 'OK'
-        }).then(() => {
-          if (currentQuestionIndex < 4) {
-            setCurrentQuestionIndex((prev) => prev + 1);
-          } else {
-            navigate('/feedback', { state: { userResponses: updatedResponses } }); // Redirect to feedback page
-          }
-          setUserResponse('');
-        });
+        }).then(() => proceedToNextQuestion(updatedResponses));
       } else {
         const correctResponses = [
           questions[currentQuestionIndex].response1,
           questions[currentQuestionIndex].response2,
           questions[currentQuestionIndex].response3,
-        ];
-
-        const formattedSuggestions = correctResponses
-          .map((response, index) => `${index + 1}. ${response}`)
-          .join('<br>');
-
-        const suggestionText = `Here are some better responses: ${correctResponses.join('. ')}`;
-        const utterance = new SpeechSynthesisUtterance(suggestionText);
-        utterance.voice = femaleVoice;
-        speechSynth.speak(utterance);
-
+        ].filter(Boolean); // Remove any undefined/null responses
+  
+        const formattedSuggestions = correctResponses.length > 0
+          ? correctResponses.map((response, index) => `${index + 1}. ${response}`).join('<br>')
+          : "Try expressing your thoughts in a friendly and positive way!";
+  
+        const suggestionText = correctResponses.length > 0
+          ? `Here are some better responses: ${correctResponses.join('. ')}`
+          : "Think about how you would respond in a kind and understanding way.";
+  
+        if (speechSynth && femaleVoice) {
+          const utterance = new SpeechSynthesisUtterance(suggestionText);
+          utterance.voice = femaleVoice;
+          speechSynth.speak(utterance);
+        }
+  
         Swal.fire({
           title: 'Oops!',
           html: `Here are some better responses:<br>${formattedSuggestions}`,
           icon: 'info',
           confirmButtonText: 'OK'
-        }).then(() => {
-          if (currentQuestionIndex < 4) {
-            setCurrentQuestionIndex((prev) => prev + 1);
-          } else {
-            navigate('/feedback', { state: { userResponses: updatedResponses } }); // Redirect to feedback page
-          }
-          setUserResponse('');
-        });
+        }).then(() => proceedToNextQuestion(updatedResponses));
       }
     } catch (error) {
       console.error('Error checking response:', error);
       Swal.fire('Error', 'Failed to check your response.', 'error');
     }
   };
+  
+  // Function to proceed to the next question or navigate to feedback
+  const proceedToNextQuestion = (updatedResponses) => {
+    if (currentQuestionIndex < 4) {
+      setCurrentQuestionIndex((prev) => prev + 1);
+    } else {
+      navigate('/feedback', { state: { userResponses: updatedResponses } });
+    }
+    setUserResponse('');
+  };
+  
 
   if (loading) {
     return <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50">Loading questions...</div>;
