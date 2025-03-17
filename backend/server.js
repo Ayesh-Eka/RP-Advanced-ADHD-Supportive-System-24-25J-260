@@ -5,8 +5,9 @@ const { spawn } = require('child_process'); // Import spawn to run Python script
 const db = require('./config/db'); // Import the database connection
 require('dotenv').config();
 const socialSkillsRoutes = require('./routes/socialSkillsRoutes'); // Import socialSkillsRoutes
+const TaskPrioritizationRoutes = require('./routes/TaskPrioritizationRoutes');
+const CognitiveTrainingRoutes = require('./routes/cognitiveTrainingRoute');
 const authRoutes = require('./routes/authRoutes'); // Import authRoutes
-const TaskPrioritizationRoutes = require('./routes/TaskPrioritizationRoutes')
 
 const app = express();
 
@@ -32,6 +33,7 @@ const testDatabaseConnection = async () => {
 // Routes
 app.use('/api/social-skills', socialSkillsRoutes); // Add socialSkillsRoutes
 app.use('/api/task-prioritize', TaskPrioritizationRoutes);
+app.use('/api/cognitive-training', CognitiveTrainingRoutes);
 
 app.use('/api/auth', authRoutes); // Add authRoutes
 
@@ -42,7 +44,7 @@ app.listen(PORT, async () => {
   console.log(`🚀 Server running on port ${PORT}`);
 
   // Test the database connection when the server starts
-  await testDatabaseConnection();
+   await testDatabaseConnection();
 });
 
 
