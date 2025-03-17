@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
 import TextChatbot from './components/TextChatbot'; // Import TextChatbot
+import FeedbackPage from './pages/FeedbackPage';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/text-chatbot" element={<TextChatbot />} /> {/* Add TextChatbot route */}
+            <Route path="/feedback" element={<FeedbackPage />} />
           </Routes>
         </main>
         <Footer />
