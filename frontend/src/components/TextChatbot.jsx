@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { useNavigate } from 'react-router-dom';
 
 const TextChatbot = () => {
   const [questions, setQuestions] = useState([]);
@@ -12,8 +12,8 @@ const TextChatbot = () => {
   const [femaleVoice, setFemaleVoice] = useState(null);
   const [isListening, setIsListening] = useState(false);
   const [speechRecognition, setSpeechRecognition] = useState(null);
-  const [userResponses, setUserResponses] = useState([]); // Track user responses
-  const navigate = useNavigate(); // Initialize useNavigate
+  const [userResponses, setUserResponses] = useState([]);
+  const navigate = useNavigate();
 
   // Initialize speech synthesis and set female voice
   useEffect(() => {
@@ -182,52 +182,56 @@ const TextChatbot = () => {
   };
 
   if (loading) {
-    return <div>Loading questions...</div>;
+    return <div className="min-h-screen flex items-center justify-center bg-gray-100">Loading questions...</div>;
   }
 
   if (questions.length === 0) {
-    return <div>No questions available. Please try again later.</div>;
+    return <div className="min-h-screen flex items-center justify-center bg-gray-100">No questions available. Please try again later.</div>;
   }
 
   const currentQuestion = questions[currentQuestionIndex];
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md w-96">
-        <h1 className="text-2xl font-bold mb-6">Social Skills Chat</h1>
-        <p className="mb-4">{currentQuestion.scenario}</p>
-        <div className="flex flex-col space-y-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 p-4">
+      <div className="bg-white rounded-lg shadow-lg w-full max-w-2xl p-6">
+        <h1 className="text-3xl font-bold text-center text-blue-800 mb-6">ADHD Social Skills Chat</h1>
+        <div className="bg-blue-100 p-4 rounded-lg mb-6">
+          <p className="text-lg text-gray-800">{currentQuestion.scenario}</p>
+        </div>
+        <div className="space-y-4">
           <input
             type="text"
-            placeholder="Your response"
+            placeholder="Type your response..."
             value={userResponse}
             onChange={(e) => setUserResponse(e.target.value)}
-            className="w-full p-2 border rounded"
+            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
             autoFocus
           />
-          <button
-            onMouseDown={startListening}
-            onMouseUp={stopListening}
-            onTouchStart={startListening}
-            onTouchEnd={stopListening}
-            className={`p-2 ${
-              isListening ? 'bg-red-500' : 'bg-purple-500'
-            } text-white rounded hover:bg-purple-600`}
-          >
-            {isListening ? 'Listening... Release to Submit' : 'Press and Hold to Speak'}
-          </button>
-          <button
-            onClick={handleSubmit}
-            className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          >
-            Submit
-          </button>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button
+              onMouseDown={startListening}
+              onMouseUp={stopListening}
+              onTouchStart={startListening}
+              onTouchEnd={stopListening}
+              className={`flex-1 p-3 ${
+                isListening ? 'bg-red-500' : 'bg-purple-500'
+              } text-white rounded-lg hover:bg-purple-600 transition-colors`}
+            >
+              {isListening ? 'Listening... Release to Submit' : '🎤 Press and Hold to Speak'}
+            </button>
+            <button
+              onClick={handleSubmit}
+              className="flex-1 p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              Submit
+            </button>
+          </div>
           <button
             onClick={speakQuestion}
-            className="p-2 bg-green-500 text-white rounded hover:bg-green-600"
+            className="w-full p-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
           >
-            Replay Question
+            🔊 Replay Question
           </button>
         </div>
       </div>

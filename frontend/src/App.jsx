@@ -15,6 +15,7 @@ import ImproveAttentionTask from "./components/ImproveAttentionTask";
 import ControlHyperactivity from "./components/ControlHyperactivity";
 import TrainAttentionHyperactivity from "./components/TrainAttentionHyperactivity";
 import FeedbackPage from './pages/FeedbackPage';
+import ChatPopup from './components/ChatPopup'; // Import ChatPopup
 
 
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
           </Routes>
         </main>
         <Footer />
+        <ChatPopup /> {/* Add ChatPopup */}
       </div>
     </Router>
   );
