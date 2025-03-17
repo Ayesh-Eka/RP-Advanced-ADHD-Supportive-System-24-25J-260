@@ -208,63 +208,65 @@ const ImproveAttentionTask = () => {
   };
 
   return (
-    <div className="game-wrapper">
+    <div className="game-wrapper3">
       {!isGameRunning && !gameOver && (
-        <div className="start-screen">
+        <div className="start-screen3">
           {/* Back Icon */}
-    <div className="back-container1" onClick={() => window.history.back()}>
+    <div className="back-container3" onClick={() => window.history.back()}>
       <span className="back-icon"><FaArrowLeft /></span>
     </div>
-          <h1>Attention Improving Game </h1>
-          <div className="go-stimulus-container"> 
-                <img className="go-stimulus" src={targetImg} alt="Go Stimulus" />
+    <br></br>
+          <b><h1>Attention Improving Game </h1></b>
+          <div className="go-stimulus-container3"> 
+                <img className="go-stimulus3" src={targetImg} alt="Go Stimulus" />
               </div>
-          <p className="instructions">
+          <p className="instructions3">
             Press the <b>spacebar</b> when you see a <b>Elephant.</b>  
             <b>Do not</b> press any key when you see other <b>animals</b>.  
             The game will run for <b>56 trials</b> for <b>2 minutes</b>.  
             Try to respond as quickly and accurately as possible. 
           </p>
-          <button className="start-button" onClick={startGame}>
+          <button className="start-button3" onClick={startGame}>
             Start Game
           </button>
         </div>
       )}
 
       {isGameRunning && (
-        <div className="game-container">
-          <div className="stimulus-container">
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
+        <div className="game-container3">
+          <div className="stimulus-container3">
+            {errorMessage && <p className="error-message3">{errorMessage}</p>}
             <img className={`stimulus ${slideIn ? "slide-in" : ""}`} src={stimulus} alt="stimulus" />
           </div>
-          <h2>Time Left: {timeLeft}s</h2>
-          <h2>Trials Left: {trialsLeft}/56</h2>
-          <div className="score-display">
+          <br/>
+          <b><h2 style={{ marginBottom: "10px" }}>Time Left: {timeLeft}s</h2>
+          <h2 style={{ marginBottom: "15px" }}>Trials Left: {trialsLeft}/56</h2>
+          <div className="score-display3" style={{ marginTop: "20px" }}>
             <span className="star-icon">⭐</span> Score: {score}
-          </div>
+          </div></b><br/>
         </div>
       )}
 
       {gameOver && !isGameOverDueToErrors && (
-        <div className="results-screen">
-          <h2>Excellent performance!</h2>
-          <div className="score-display">
+        <div className="results-screen3">
+          <b><h2>Excellent performance!</h2></b>
+          <div className="score-display3">
             <b>
             <span className="star-icon">⭐</span> Your Score: {score}
             </b>
           </div>
           <br></br>
-          <button className="start-button" onClick={() => window.location.href = '/improve-attention'}>Restart</button><br></br><br></br>
-          <button className="retest-button" onClick={() => window.location.href = '/go'}>Retest</button>
+          <button className="restart-button3" onClick={() => window.location.href = '/improve-attention'}>Restart</button>
+          <button className="retest-button3" onClick={() => window.location.href = '/go'}>Retest</button>
         </div>
       )}
 
 {isGameOverDueToErrors && ( 
-  <div className="game-over-popup"> 
-    <h2>Game Over!</h2>
-    <div className="popup-buttons">
-      <button className="play-again-btn" onClick={startGame}>Play Again</button>
-      <button className="play-later-btn" onClick={() => window.location.href = '/go'}>Play Later</button>
+  <div className="game-over-popup3"> 
+    <b><h2>Game Over!</h2></b><br/>
+    <div className="popup-buttons3">
+      <button className="play-again-btn3" onClick={startGame}>Play Again</button>
+      <button className="play-later-btn3" onClick={() => window.location.href = '/go'}>Play Later</button>
     </div>
   </div>
 )}

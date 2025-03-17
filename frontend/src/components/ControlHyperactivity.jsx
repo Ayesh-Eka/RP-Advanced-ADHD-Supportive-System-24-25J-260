@@ -191,39 +191,39 @@ const handleKeyUp = (event) => {
   };
 
   return (
-    <div className="game-wrapper">
+    <div className="game-wrapper2">
       {!isGameRunning && !gameOver && !showCalmPopup && (
-        <div className="start-screen">
+        <div className="start-screen2">
           {/* Back Icon */}
               <div className="back-container2" onClick={() => window.history.back()}>
                 <span className="back-icon"><FaArrowLeft /></span> 
-              </div>
-          <h1>Control Hyperactivity Task</h1>
-          <div className="go-stimulus-container"> 
-      <img className="go-stimulus" src={goImage} alt="Go Stimulus" />
+              </div><br/>
+         <b> <h1>Control Hyperactivity Task</h1></b>
+          <div className="go-stimulus-container2"> 
+      <img className="go-stimulus2" src={goImage} alt="Go Stimulus" />
     </div>
-          <p className="instructions">
+          <p className="instructions2">
             Press the <b>spacebar</b> when you see a <b>Child's Face. </b>  
             <b>Do not</b> press any key when you see a <b>animal</b>.  
-            The game will run for <b>56 trials</b>and last <b>2 minutes</b>.  
+            The game will run for <b>56 trials. </b> and last <b>2 minutes</b>.  
           </p>
           
 
-          <button className="start-button" onClick={startGame}>
+          <button className="start-button2" onClick={startGame}>
             Start Game
           </button>
         </div>
       )}
 
       {isGameRunning && (
-        <div className="game-container">
-          <div className="stimulus-container">
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
-            <img className={`stimulus ${slideIn ? "slide-in" : ""}`} src={stimulus} alt="stimulus" />
+        <div className="game-container2"><br/>
+          <div className="stimulus-container2">
+            {errorMessage && <p className="error-message2">{errorMessage}</p>}
+            <img className={`stimulus ${slideIn ? "slide-in" : ""}`} src={stimulus} alt="stimulus" /><br/>
           </div>
-          <h2>Time Left: {timeLeft}s</h2>
-          <h2>Trials Left: {trialsLeft}/56</h2>
-          <div className="score-display">
+          <b><h2 style={{ marginBottom: "15px" }}>Time Left: {timeLeft}s</h2>
+          <h2 style={{ marginBottom: "20px" }}>Trials Left: {trialsLeft}/56</h2></b>
+          <div className="score-display2" style={{ marginBottom: "15px" }}>
             <b>
             <span className="star-icon">⭐</span> Your Score: {score}
             </b>
@@ -231,23 +231,23 @@ const handleKeyUp = (event) => {
         </div>
       )}
       {gameOver && (
-        <div className="results-screen">
-          <h2>Excellent performance!</h2>
+        <div className="results-screen2">
+         <b> <h2>Excellent performance!</h2></b>
     
-          <div className="score-display">
+          <div className="score-display2">
             <b>
             <span className="star-icon">⭐</span> Your Score: {score}
             </b>
           </div>
           <br></br>
-          <button className="start-button" onClick={() => window.location.href = '/control-impulsiveness'}>Restart</button><br></br><br></br>
-          <button className="retest-button" onClick={() => window.location.href = '/go'}>Retest</button>
+          <button className="restart-button2" onClick={() => window.location.href = '/control-impulsiveness'}>Restart</button>
+          <button className="retest-button2" onClick={() => window.location.href = '/go'}>Retest</button>
         </div>
       )}
 
       {showCalmPopup && ( 
-        <div className="game-over-popup">
-          <h2>Take a deep breath! Try again in 5 seconds.</h2>
+        <div className="game-over-popup2">
+          <b><h2>Take a deep breath! Try again in 5 seconds.</h2></b>
         </div>
       )}
     </div>

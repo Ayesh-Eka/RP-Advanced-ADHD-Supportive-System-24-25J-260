@@ -9,21 +9,26 @@ const TrainAttentionHyperactivity = () => {
   return (
     <div className="train-container">
       <div className="train-box"> 
-        <h2>Boost Attention and Impulse Regulation</h2>
-        {/* Back Icon */}
-        <div className="back-container" onClick={() => window.history.back()}>
+         {/* Back Icon */}
+         <div className="back-container4" onClick={() => window.history.back()}>
         <span className="back-icon"><FaArrowLeft /></span> 
         </div>
-        <p>
-        Below, we suggest two training activities. 
+        <br></br>
+        <div className="training-box">
+        <b><h2 style={{color:"#6a5acd"}}>Boost Attention and Impulse Regulation</h2></b>
+        </div>
+       
+        <div className="instruction4"><p>
+        Below, we suggest <b>two training activities</b>. 
         Choose one and let your child play.
-        After completing the game, if you wish, you can take the screening test again or try the second cognitive activity.
+        After completing the game, if you wish, <b>you can take the screening test again</b> or try the second cognitive activity.
         </p>
+        </div>
         <div className="button-group">
-          <button className="game-button" onClick={() => navigate("/improve-attention")}>
+          <button className="game-button1" onClick={() => navigate("/improve-attention")}>
             Play Improve Attention Task
           </button>
-          <button className="game-button" onClick={() => navigate("/control-impulsiveness")}>
+          <button className="game-button2" onClick={() => navigate("/control-impulsiveness")}>
             Play Control Hyperactivity Game
           </button>
         </div>
