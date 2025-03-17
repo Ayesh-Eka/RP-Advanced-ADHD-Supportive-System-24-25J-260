@@ -1,0 +1,1013 @@
+Age,Gender,Omission,Commission,RT,ADHD Level
+12,Male,9,10,687.57,Combined Deficits
+11,Female,4,2,608.42,Low Attention
+10,Female,1,9,690.74,High Impulsivity
+12,Female,8,9,578.48,Combined Deficits
+11,Female,10,2,572.69,Low Attention
+12,Male,10,5,664.92,Combined Deficits
+12,Male,1,6,698,High Impulsivity
+12,Male,5,2,642.92,Low Attention
+10,Male,5,2,527.3,Low Attention
+10,Female,1,4,670.19,High Impulsivity
+12,Male,3,2,650.38,Low Attention
+11,Female,1,6,694.3,High Impulsivity
+12,Male,3,2,577.43,Low Attention
+12,Male,1,8,526.45,High Impulsivity
+12,Male,1,9,639.23,High Impulsivity
+10,Male,10,2,554.98,Low Attention
+12,Male,9,6,580.7,Combined Deficits
+11,Male,1,7,624.75,High Impulsivity
+12,Female,1,6,503.45,High Impulsivity
+10,Female,1,6,631.93,High Impulsivity
+11,Female,1,6,587.06,High Impulsivity
+12,Male,3,8,550.21,Combined Deficits
+10,Male,10,10,575.43,Combined Deficits
+11,Male,1,9,534.81,High Impulsivity
+12,Female,1,8,506.56,High Impulsivity
+11,Male,4,2,545.89,Low Attention
+11,Female,1,5,539.59,High Impulsivity
+10,Female,1,7,500.78,High Impulsivity
+12,Male,1,8,567.09,High Impulsivity
+10,Male,1,6,518.29,High Impulsivity
+11,Male,1,9,606.58,High Impulsivity
+11,Male,4,10,555.61,Combined Deficits
+12,Female,6,2,696.4,Low Attention
+12,Male,1,7,692.87,High Impulsivity
+12,Female,1,5,582.42,High Impulsivity
+10,Male,6,7,522.39,Combined Deficits
+12,Female,9,2,536.47,Low Attention
+11,Female,5,2,594.19,Low Attention
+10,Female,1,5,549.91,High Impulsivity
+10,Male,1,5,635.42,High Impulsivity
+10,Male,1,7,582.86,High Impulsivity
+11,Female,1,9,520.84,High Impulsivity
+10,Male,1,6,543.84,High Impulsivity
+12,Male,3,2,593.6,Low Attention
+11,Female,7,2,650.32,Low Attention
+12,Female,10,2,534.06,Low Attention
+11,Male,6,2,515.52,Low Attention
+10,Female,1,9,603.26,High Impulsivity
+12,Female,1,7,613.06,High Impulsivity
+11,Female,6,2,599.47,Low Attention
+10,Female,3,4,558.07,Combined Deficits
+10,Female,9,7,618.04,Combined Deficits
+12,Male,6,5,619.9,Combined Deficits
+10,Male,1,10,591.46,High Impulsivity
+10,Male,1,4,623.05,High Impulsivity
+10,Female,1,10,693.44,High Impulsivity
+10,Male,8,10,590.01,Combined Deficits
+12,Male,1,7,637.59,High Impulsivity
+10,Female,6,2,539.28,Low Attention
+10,Female,8,2,519.17,Low Attention
+11,Male,4,10,649.25,Combined Deficits
+11,Male,10,2,500.91,Low Attention
+11,Male,1,7,554.76,High Impulsivity
+11,Female,10,9,588.56,Combined Deficits
+11,Female,9,2,513.78,Low Attention
+10,Female,1,8,611.12,High Impulsivity
+12,Female,8,2,630.47,Low Attention
+12,Female,7,2,501.31,Low Attention
+12,Female,1,6,555.05,High Impulsivity
+12,Female,3,2,562.64,Low Attention
+10,Male,8,9,609.92,Combined Deficits
+12,Male,3,2,559.3,Low Attention
+11,Male,3,2,608.79,Low Attention
+10,Male,3,5,618.06,Combined Deficits
+11,Male,7,7,616.57,Combined Deficits
+12,Male,6,2,502.59,Low Attention
+11,Male,8,6,612.87,Combined Deficits
+12,Male,1,8,664.12,High Impulsivity
+11,Male,4,2,567.58,Low Attention
+10,Female,8,8,643.18,Combined Deficits
+12,Male,1,7,641.23,High Impulsivity
+10,Male,1,10,553.69,High Impulsivity
+12,Female,3,2,527.38,Low Attention
+10,Female,6,4,602.77,Combined Deficits
+10,Male,8,7,640.2,Combined Deficits
+10,Female,1,9,693.79,High Impulsivity
+12,Male,1,5,545.11,High Impulsivity
+11,Male,1,10,644.39,High Impulsivity
+11,Female,7,2,515.1,Low Attention
+12,Female,10,2,665.49,Low Attention
+11,Male,1,4,676.71,High Impulsivity
+10,Female,6,2,579.45,Low Attention
+12,Male,8,2,674.51,Low Attention
+10,Female,1,6,657.02,High Impulsivity
+12,Male,6,2,553.96,Low Attention
+10,Female,9,4,623.27,Combined Deficits
+12,Male,6,10,545.57,Combined Deficits
+10,Male,1,6,642.04,High Impulsivity
+11,Male,1,9,643.92,High Impulsivity
+11,Female,9,2,573.03,Low Attention
+12,Male,3,2,519.43,Low Attention
+12,Male,3,2,663.16,Low Attention
+11,Female,1,6,554.35,High Impulsivity
+10,Male,7,2,633.12,Low Attention
+12,Female,1,5,562.98,High Impulsivity
+10,Female,1,5,694.17,High Impulsivity
+10,Female,1,5,533.32,High Impulsivity
+12,Female,10,2,677.62,Low Attention
+12,Male,1,5,645.85,High Impulsivity
+10,Female,9,6,507.69,Combined Deficits
+11,Male,4,4,519.29,Combined Deficits
+12,Male,3,2,566.49,Low Attention
+11,Male,8,2,630.55,Low Attention
+10,Female,9,8,583.21,Combined Deficits
+10,Female,5,2,590.98,Low Attention
+10,Female,3,9,580.89,Combined Deficits
+12,Female,5,8,559.78,Combined Deficits
+12,Female,9,2,665.1,Low Attention
+12,Female,4,5,652.63,Combined Deficits
+10,Female,6,2,641.09,Low Attention
+10,Female,1,9,566.66,High Impulsivity
+10,Female,1,7,535.86,High Impulsivity
+11,Male,1,9,553.05,High Impulsivity
+11,Female,1,9,680.62,High Impulsivity
+10,Female,1,4,640.13,High Impulsivity
+12,Male,1,5,566.21,High Impulsivity
+11,Female,5,2,574.42,Low Attention
+12,Female,8,4,608.66,Combined Deficits
+10,Male,10,4,584.73,Combined Deficits
+10,Female,5,2,547.16,Low Attention
+12,Male,8,4,532.56,Combined Deficits
+10,Male,8,7,627.07,Combined Deficits
+12,Female,9,2,678.64,Low Attention
+10,Male,9,6,682.79,Combined Deficits
+11,Male,1,7,676.38,High Impulsivity
+10,Female,4,8,668.52,Combined Deficits
+12,Female,1,4,509.8,High Impulsivity
+12,Male,6,2,542.07,Low Attention
+12,Male,3,6,667.86,Combined Deficits
+12,Male,1,7,671.98,High Impulsivity
+10,Female,3,9,507.25,Combined Deficits
+10,Male,4,10,543.3,Combined Deficits
+12,Male,9,7,653.23,Combined Deficits
+10,Male,1,8,680.94,High Impulsivity
+12,Male,3,2,655.13,Low Attention
+12,Female,10,2,580.63,Low Attention
+11,Male,9,7,582.68,Combined Deficits
+11,Female,1,10,615.81,High Impulsivity
+10,Female,1,10,583.85,High Impulsivity
+10,Male,4,7,532.22,Combined Deficits
+11,Female,7,10,590.68,Combined Deficits
+10,Male,8,2,563.14,Low Attention
+11,Male,9,2,601.65,Low Attention
+12,Male,4,7,692.85,Combined Deficits
+12,Male,3,2,567.81,Low Attention
+10,Male,5,2,539.25,Low Attention
+12,Female,5,2,527.91,Low Attention
+12,Male,1,10,603.55,High Impulsivity
+10,Female,10,2,624.34,Low Attention
+10,Female,1,8,520.23,High Impulsivity
+11,Male,7,10,624.64,Combined Deficits
+12,Male,7,2,540.12,Low Attention
+11,Female,4,2,537.78,Low Attention
+12,Female,1,5,547.27,High Impulsivity
+12,Female,4,2,605.43,Low Attention
+11,Male,1,10,641.77,High Impulsivity
+12,Male,9,5,613.11,Combined Deficits
+11,Male,6,7,656.88,Combined Deficits
+11,Female,1,5,678.94,High Impulsivity
+11,Male,5,2,570.49,Low Attention
+10,Male,6,5,534.04,Combined Deficits
+10,Female,5,8,571.51,Combined Deficits
+10,Male,9,2,535.87,Low Attention
+11,Male,6,6,628.26,Combined Deficits
+10,Female,8,9,632.69,Combined Deficits
+10,Female,4,2,506.91,Low Attention
+10,Male,9,8,523.09,Combined Deficits
+12,Female,4,9,634.69,Combined Deficits
+12,Male,3,10,671.9,Combined Deficits
+11,Female,8,5,699.56,Combined Deficits
+12,Female,5,2,696.52,Low Attention
+10,Female,4,9,502.06,Combined Deficits
+10,Male,1,8,520.56,High Impulsivity
+12,Female,1,6,591.23,High Impulsivity
+11,Female,10,7,506.64,Combined Deficits
+12,Female,10,2,651.69,Low Attention
+10,Male,9,10,543.27,Combined Deficits
+10,Male,1,6,688.28,High Impulsivity
+12,Female,1,8,543.45,High Impulsivity
+12,Female,6,8,510.25,Combined Deficits
+11,Female,1,6,578.27,High Impulsivity
+10,Male,5,5,584.57,Combined Deficits
+11,Female,6,2,524.18,Low Attention
+10,Male,4,2,638.11,Low Attention
+10,Female,10,8,508.85,Combined Deficits
+11,Male,6,2,516.82,Low Attention
+12,Female,7,2,553.79,Low Attention
+12,Male,10,7,598.71,Combined Deficits
+10,Male,4,2,670.06,Low Attention
+10,Female,1,9,569.53,High Impulsivity
+12,Male,8,2,625.3,Low Attention
+12,Male,4,2,690.45,Low Attention
+10,Female,1,8,680.97,High Impulsivity
+12,Female,4,2,601.64,Low Attention
+12,Female,6,5,581.86,Combined Deficits
+10,Female,1,6,631.94,High Impulsivity
+12,Female,1,4,611.33,High Impulsivity
+11,Male,1,5,667.59,High Impulsivity
+10,Male,5,10,615.2,Combined Deficits
+11,Female,6,6,597.26,Combined Deficits
+12,Female,1,10,606.35,High Impulsivity
+12,Female,8,2,615.13,Low Attention
+10,Female,1,9,689.35,High Impulsivity
+12,Female,4,8,595.69,Combined Deficits
+11,Male,7,7,513.62,Combined Deficits
+12,Female,1,6,500.21,High Impulsivity
+11,Female,1,5,641.29,High Impulsivity
+10,Female,10,8,551.1,Combined Deficits
+12,Male,3,6,625.02,Combined Deficits
+10,Female,9,5,616.82,Combined Deficits
+10,Female,1,4,594.55,High Impulsivity
+10,Male,1,5,567.22,High Impulsivity
+11,Female,6,2,658.58,Low Attention
+12,Female,3,2,639.56,Low Attention
+10,Female,8,5,507.21,Combined Deficits
+11,Male,1,5,570.25,High Impulsivity
+11,Female,4,2,583.22,Low Attention
+10,Male,6,2,677.33,Low Attention
+10,Female,3,9,652.5,Combined Deficits
+10,Female,4,2,629.05,Low Attention
+11,Male,1,4,620.8,High Impulsivity
+12,Male,3,9,622.22,Combined Deficits
+11,Male,8,2,693.04,Low Attention
+10,Male,8,2,505.95,Low Attention
+11,Male,6,8,666.38,Combined Deficits
+12,Male,5,2,537.06,Low Attention
+11,Female,3,9,516.42,Combined Deficits
+12,Male,9,2,622.08,Low Attention
+10,Female,8,4,692.21,Combined Deficits
+12,Male,1,9,516.67,High Impulsivity
+11,Female,1,6,636.7,High Impulsivity
+11,Female,1,6,554.14,High Impulsivity
+10,Male,10,8,605.09,Combined Deficits
+12,Female,1,4,571.34,High Impulsivity
+11,Male,5,2,611.5,Low Attention
+10,Female,6,10,652.78,Combined Deficits
+12,Male,7,2,636.11,Low Attention
+10,Male,1,7,668.55,High Impulsivity
+12,Male,10,2,615.53,Low Attention
+11,Female,9,4,533.86,Combined Deficits
+11,Male,5,2,686.99,Low Attention
+10,Male,1,4,679.69,High Impulsivity
+10,Female,1,9,684.21,High Impulsivity
+11,Male,1,4,636.7,High Impulsivity
+10,Female,8,2,691.44,Low Attention
+12,Female,4,6,589.92,Combined Deficits
+12,Female,1,6,598.01,High Impulsivity
+10,Male,5,8,656.05,Combined Deficits
+11,Male,1,5,600.08,High Impulsivity
+11,Male,6,5,620.77,Combined Deficits
+10,Male,9,2,607.88,Low Attention
+10,Male,6,4,501.02,Combined Deficits
+10,Male,1,5,627.82,High Impulsivity
+11,Male,1,10,590.95,High Impulsivity
+12,Female,1,5,543.92,High Impulsivity
+10,Male,1,9,589.36,High Impulsivity
+12,Female,9,2,519.23,Low Attention
+12,Female,1,10,656.68,High Impulsivity
+12,Female,5,2,565.32,Low Attention
+10,Female,4,2,543.68,Low Attention
+11,Female,6,2,636.44,Low Attention
+12,Female,3,9,553.29,Combined Deficits
+10,Male,1,5,606.24,High Impulsivity
+12,Male,7,9,692.05,Combined Deficits
+10,Male,9,9,528.82,Combined Deficits
+12,Male,7,4,620.93,Combined Deficits
+10,Male,6,7,572.53,Combined Deficits
+10,Male,1,10,604.82,High Impulsivity
+11,Male,8,4,617.14,Combined Deficits
+10,Male,1,10,553.38,High Impulsivity
+10,Male,5,2,579.35,Low Attention
+11,Male,8,6,548.71,Combined Deficits
+11,Male,3,7,618.65,Combined Deficits
+10,Male,3,2,594.73,Low Attention
+12,Male,4,9,615.63,Combined Deficits
+12,Male,7,2,650,Low Attention
+10,Male,1,9,605.75,High Impulsivity
+10,Female,1,7,535.39,High Impulsivity
+10,Female,1,6,590.84,High Impulsivity
+10,Female,10,2,664.83,Low Attention
+12,Male,1,5,692.83,High Impulsivity
+10,Female,3,2,543.96,Low Attention
+11,Female,1,10,524.98,High Impulsivity
+11,Male,7,5,562.16,Combined Deficits
+12,Female,1,7,650.68,High Impulsivity
+12,Male,8,9,606.56,Combined Deficits
+10,Female,4,2,559.9,Low Attention
+12,Male,9,2,515.8,Low Attention
+12,Male,6,2,539.57,Low Attention
+10,Male,7,2,588.33,Low Attention
+11,Male,7,8,613.75,Combined Deficits
+11,Female,5,8,618.7,Combined Deficits
+10,Female,3,10,618.41,Combined Deficits
+11,Male,3,2,637.88,Low Attention
+11,Female,1,9,613.86,High Impulsivity
+10,Female,5,10,624.55,Combined Deficits
+12,Female,3,8,581.43,Combined Deficits
+10,Female,4,2,603.28,Low Attention
+11,Female,6,4,640.75,Combined Deficits
+12,Male,7,5,577.86,Combined Deficits
+10,Male,9,2,631.03,Low Attention
+11,Male,9,9,641.47,Combined Deficits
+10,Female,1,9,512.79,High Impulsivity
+10,Male,1,9,558.47,High Impulsivity
+10,Male,3,2,641.57,Low Attention
+10,Male,4,5,588.96,Combined Deficits
+11,Female,7,4,666.97,Combined Deficits
+12,Female,10,2,567.57,Low Attention
+10,Female,1,5,660.11,High Impulsivity
+10,Male,3,2,510.41,Low Attention
+12,Female,1,8,653.81,High Impulsivity
+12,Male,1,7,616.58,High Impulsivity
+11,Male,6,8,531.53,Combined Deficits
+10,Female,5,2,557.05,Low Attention
+10,Male,4,2,595.23,Low Attention
+12,Male,6,2,696.86,Low Attention
+10,Female,5,2,607.53,Low Attention
+12,Female,1,8,537.02,High Impulsivity
+12,Male,8,2,597.48,Low Attention
+12,Female,1,6,604.73,High Impulsivity
+10,Male,8,9,596.72,Combined Deficits
+12,Male,6,2,692.93,Low Attention
+12,Female,1,9,682.13,High Impulsivity
+12,Female,8,2,575.46,Low Attention
+11,Male,1,8,691.9,High Impulsivity
+10,Male,8,2,508.67,Low Attention
+12,Male,1,7,660.26,High Impulsivity
+11,Female,1,6,695.61,High Impulsivity
+12,Male,3,6,614.5,Combined Deficits
+10,Female,7,2,627.38,Low Attention
+12,Female,8,2,576.11,Low Attention
+10,Female,1,7,680.46,High Impulsivity
+12,Female,9,5,524.71,Combined Deficits
+11,Male,1,4,535.13,High Impulsivity
+12,Female,3,9,647.09,Combined Deficits
+10,Male,10,2,560.08,Low Attention
+12,Female,10,2,503.36,Low Attention
+12,Male,1,4,688.3,High Impulsivity
+11,Female,3,9,540.22,Combined Deficits
+11,Male,1,4,567.92,High Impulsivity
+12,Female,5,4,675.21,Combined Deficits
+11,Female,4,2,503.34,Low Attention
+10,Female,7,4,516.25,Combined Deficits
+11,Female,8,2,505.67,Low Attention
+10,Female,4,2,501.48,Low Attention
+11,Female,9,7,634.25,Combined Deficits
+12,Male,5,7,527.86,Combined Deficits
+12,Male,1,10,584.82,High Impulsivity
+12,Male,9,4,613.69,Combined Deficits
+11,Male,1,6,698.59,High Impulsivity
+10,Female,1,9,544.2,High Impulsivity
+10,Female,4,2,629.49,Low Attention
+12,Male,7,2,633.51,Low Attention
+10,Male,10,7,643.05,Combined Deficits
+12,Male,8,9,632.36,Combined Deficits
+11,Female,5,6,696.49,Combined Deficits
+11,Male,5,6,554.85,Combined Deficits
+10,Female,1,6,674.7,High Impulsivity
+12,Male,10,2,548.67,Low Attention
+11,Male,8,2,558.87,Low Attention
+11,Male,8,7,567.44,Combined Deficits
+12,Male,3,2,577.39,Low Attention
+11,Female,7,9,603.4,Combined Deficits
+10,Female,3,10,636.45,Combined Deficits
+10,Female,8,10,567.52,Combined Deficits
+11,Male,3,2,673.72,Low Attention
+11,Female,7,8,660.03,Combined Deficits
+10,Female,10,2,523.34,Low Attention
+12,Male,7,4,528.4,Combined Deficits
+12,Male,5,9,510.31,Combined Deficits
+10,Female,4,2,570.76,Low Attention
+11,Male,6,2,511.44,Low Attention
+11,Male,7,8,659.01,Combined Deficits
+10,Male,3,2,639.65,Low Attention
+11,Male,1,10,641.29,High Impulsivity
+11,Male,5,2,663.85,Low Attention
+12,Female,3,2,555.11,Low Attention
+11,Male,8,2,572.27,Low Attention
+11,Male,8,2,544.51,Low Attention
+10,Male,1,8,535.13,High Impulsivity
+11,Female,1,4,624.63,High Impulsivity
+11,Female,9,2,656.37,Low Attention
+12,Female,4,2,595.57,Low Attention
+12,Female,4,2,670.99,Low Attention
+10,Male,1,4,523.49,High Impulsivity
+10,Male,7,2,523.52,Low Attention
+12,Female,1,8,601.25,High Impulsivity
+11,Female,4,8,567.81,Combined Deficits
+11,Female,9,9,624.14,Combined Deficits
+11,Male,10,2,658.49,Low Attention
+12,Male,9,2,516.37,Low Attention
+11,Female,3,6,615.81,Combined Deficits
+12,Female,5,4,690.08,Combined Deficits
+10,Female,5,9,659.1,Combined Deficits
+10,Female,7,8,528.35,Combined Deficits
+12,Male,1,9,644.65,High Impulsivity
+10,Male,9,2,696.27,Low Attention
+10,Female,5,5,618.9,Combined Deficits
+11,Male,1,8,676.27,High Impulsivity
+10,Male,1,6,549.97,High Impulsivity
+10,Male,8,2,594.73,Low Attention
+11,Female,10,2,649.41,Low Attention
+10,Female,7,6,529.68,Combined Deficits
+11,Male,10,2,648.08,Low Attention
+10,Female,1,9,681.29,High Impulsivity
+10,Male,9,4,520.4,Combined Deficits
+11,Female,8,10,523.89,Combined Deficits
+10,Male,1,4,699.28,High Impulsivity
+11,Female,10,2,648.81,Low Attention
+12,Female,1,10,678.62,High Impulsivity
+11,Female,6,2,544.18,Low Attention
+10,Male,4,2,653.32,Low Attention
+11,Male,10,2,576.97,Low Attention
+10,Female,7,10,519.25,Combined Deficits
+12,Female,1,8,613.58,High Impulsivity
+10,Female,8,2,592.57,Low Attention
+10,Female,6,2,591.88,Low Attention
+12,Female,1,7,565.27,High Impulsivity
+12,Female,1,7,619.22,High Impulsivity
+11,Male,1,6,695.51,High Impulsivity
+10,Male,3,2,562,Low Attention
+10,Male,9,6,505.39,Combined Deficits
+12,Male,10,2,645.1,Low Attention
+12,Female,10,7,560.22,Combined Deficits
+12,Male,9,7,686.78,Combined Deficits
+12,Female,6,2,622.68,Low Attention
+12,Female,1,4,605.43,High Impulsivity
+12,Male,5,8,622.75,Combined Deficits
+10,Female,4,10,518.07,Combined Deficits
+12,Female,10,2,665.08,Low Attention
+10,Male,7,8,594.81,Combined Deficits
+10,Male,4,4,517.71,Combined Deficits
+12,Male,1,6,696.29,High Impulsivity
+10,Male,1,9,581.96,High Impulsivity
+11,Male,3,2,553.96,Low Attention
+10,Female,4,2,539.15,Low Attention
+11,Male,3,2,613.83,Low Attention
+10,Male,7,2,564.64,Low Attention
+10,Female,1,10,613.88,High Impulsivity
+11,Male,1,9,601.27,High Impulsivity
+11,Male,6,2,651.99,Low Attention
+12,Male,5,5,500.11,Combined Deficits
+11,Female,1,7,563.3,High Impulsivity
+11,Female,9,2,544.84,Low Attention
+11,Female,1,10,696.26,High Impulsivity
+12,Female,5,2,605.26,Low Attention
+12,Female,8,4,602.33,Combined Deficits
+11,Male,4,9,657.71,Combined Deficits
+11,Male,4,2,640.27,Low Attention
+11,Female,1,7,607.34,High Impulsivity
+10,Male,10,2,621.08,Low Attention
+11,Male,6,2,556.79,Low Attention
+12,Female,7,2,692.24,Low Attention
+11,Female,1,7,556.58,High Impulsivity
+10,Male,5,2,652.59,Low Attention
+12,Female,1,4,648.28,High Impulsivity
+10,Male,1,7,503.71,High Impulsivity
+12,Male,1,9,528.52,High Impulsivity
+10,Female,7,2,600.88,Low Attention
+10,Female,1,10,576.36,High Impulsivity
+12,Female,6,9,597.41,Combined Deficits
+10,Male,7,2,629.33,Low Attention
+11,Female,4,8,697.47,Combined Deficits
+10,Male,6,10,657.78,Combined Deficits
+11,Male,5,9,641.57,Combined Deficits
+10,Male,1,5,533.04,High Impulsivity
+12,Female,10,10,507.04,Combined Deficits
+12,Female,1,5,573.63,High Impulsivity
+11,Female,1,4,518.62,High Impulsivity
+11,Male,9,2,692.12,Low Attention
+11,Female,6,7,696.06,Combined Deficits
+12,Female,3,7,647.3,Combined Deficits
+10,Male,10,4,654.97,Combined Deficits
+11,Female,9,5,621.32,Combined Deficits
+12,Female,1,6,558.87,High Impulsivity
+10,Male,1,10,683.8,High Impulsivity
+11,Male,10,2,523.16,Low Attention
+11,Female,1,7,650.08,High Impulsivity
+11,Male,3,7,629.48,Combined Deficits
+12,Female,1,10,501.08,High Impulsivity
+11,Male,9,2,609.92,Low Attention
+12,Female,6,2,689.77,Low Attention
+12,Male,7,2,666.72,Low Attention
+12,Female,1,10,644.63,High Impulsivity
+11,Male,1,8,580.64,High Impulsivity
+11,Female,1,6,563.44,High Impulsivity
+10,Female,4,2,668.12,Low Attention
+11,Female,1,6,578.85,High Impulsivity
+11,Female,5,7,531.33,Combined Deficits
+10,Male,8,2,549.7,Low Attention
+12,Male,1,3,541.29,None
+12,Male,2,1,594.79,None
+12,Male,0,0,556.08,None
+12,Female,1,2,469.36,None
+10,Female,1,1,584.07,None
+10,Male,0,0,380.67,None
+11,Female,0,2,498.43,None
+10,Male,1,1,477.76,None
+10,Male,0,3,420.49,None
+11,Female,0,3,433.74,None
+11,Female,2,2,509.65,None
+10,Male,2,2,483.3,None
+10,Female,1,1,475.51,None
+12,Female,0,0,539.19,None
+10,Male,0,0,379.78,None
+10,Male,0,3,587.85,None
+10,Female,0,3,505.44,None
+10,Female,2,2,547.32,None
+12,Male,1,0,509.28,None
+11,Male,2,0,508.68,None
+11,Female,2,0,363.64,None
+10,Male,1,1,358.43,None
+11,Female,1,0,597.29,None
+10,Female,1,1,393.41,None
+12,Female,0,3,487.48,None
+10,Female,1,3,485.06,None
+11,Male,0,2,548.23,None
+10,Male,2,3,393.88,None
+11,Male,2,3,476.36,None
+12,Male,2,1,483.21,None
+10,Male,1,3,388.27,None
+11,Male,1,3,383.3,None
+12,Female,0,2,564.7,None
+12,Male,2,3,590.4,None
+12,Male,2,1,539.99,None
+10,Female,0,0,459.16,None
+10,Male,1,0,390.5,None
+12,Male,1,0,523.07,None
+11,Female,2,1,563.52,None
+12,Female,1,2,494.9,None
+11,Female,1,3,357.64,None
+10,Male,2,0,563.86,None
+11,Male,1,1,488.01,None
+12,Male,1,3,442.59,None
+12,Female,1,2,571.49,None
+12,Male,2,0,514.65,None
+11,Male,0,3,410.48,None
+10,Female,2,0,475.86,None
+11,Male,0,3,589.72,None
+10,Female,0,3,529.68,None
+11,Male,0,2,596.58,None
+12,Female,1,3,522.84,None
+11,Female,2,2,543.1,None
+12,Male,1,0,519.96,None
+12,Male,1,3,392.3,None
+10,Male,0,3,372.39,None
+10,Male,0,2,471.06,None
+10,Female,0,0,528.05,None
+10,Female,2,1,561.95,None
+12,Male,1,0,469.75,None
+11,Female,1,1,366.57,None
+12,Female,2,0,504.47,None
+10,Male,2,2,450.4,None
+12,Female,1,3,556.07,None
+11,Male,2,2,525.44,None
+10,Male,0,1,466.85,None
+10,Female,0,2,400.09,None
+10,Male,1,2,355.45,None
+12,Female,1,2,535.58,None
+12,Male,1,3,479.22,None
+12,Female,1,0,412.9,None
+12,Female,1,0,506.99,None
+12,Female,1,2,530.72,None
+11,Male,2,2,425.46,None
+10,Female,1,1,565.06,None
+11,Male,2,3,542.51,None
+12,Male,1,1,450.54,None
+12,Male,1,3,388.86,None
+12,Female,0,3,424.52,None
+11,Male,2,2,487.69,None
+10,Female,2,0,514.62,None
+11,Female,2,1,379.77,None
+10,Male,0,2,442.16,None
+10,Female,1,3,417.81,None
+12,Male,1,2,526.8,None
+11,Female,2,3,419.06,None
+10,Female,0,0,554.25,None
+11,Female,2,1,412.71,None
+12,Female,2,0,470.16,None
+12,Female,0,2,492.24,None
+11,Female,1,1,582.44,None
+11,Male,0,3,473.71,None
+12,Male,1,1,510.12,None
+11,Female,2,3,535.79,None
+10,Female,1,3,437.25,None
+12,Male,1,0,589.32,None
+11,Female,2,1,359,None
+12,Male,1,3,490.94,None
+10,Male,2,2,406.3,None
+12,Female,0,2,430.08,None
+11,Female,1,2,464.26,None
+12,Female,1,1,361.45,None
+10,Female,0,3,551.98,None
+11,Female,1,3,378.3,None
+11,Male,1,3,369.81,None
+11,Male,1,1,461.59,None
+10,Female,2,3,500.9,None
+10,Female,0,2,484.06,None
+11,Male,2,2,587.82,None
+12,Male,0,0,394.51,None
+10,Male,1,3,388.36,None
+10,Male,0,0,411.48,None
+12,Male,2,3,374.62,None
+12,Male,0,0,472.89,None
+12,Male,0,1,380.1,None
+12,Female,2,0,519.08,None
+11,Male,0,0,594.54,None
+10,Male,0,0,354.28,None
+12,Male,0,1,540.87,None
+12,Male,1,1,468.7,None
+11,Female,0,3,406.15,None
+10,Female,1,2,420.38,None
+11,Male,0,2,394.23,None
+11,Female,0,1,532.67,None
+11,Male,2,2,597.27,None
+12,Male,1,3,431.41,None
+12,Male,1,1,369.61,None
+12,Male,1,0,573.93,None
+10,Male,0,2,436,None
+11,Female,1,3,451.35,None
+12,Male,2,3,450.34,None
+10,Male,0,0,404.85,None
+10,Male,1,1,488.68,None
+10,Male,0,2,422.17,None
+12,Male,2,3,580.82,None
+11,Female,2,0,479.71,None
+12,Female,1,0,508.29,None
+12,Male,1,1,420.91,None
+10,Male,1,0,560.16,None
+11,Female,1,3,368.4,None
+11,Male,0,3,563.89,None
+12,Female,2,2,388.71,None
+12,Female,1,0,569.06,None
+10,Female,0,1,369.13,None
+12,Male,1,3,539.11,None
+11,Male,2,0,459.65,None
+10,Female,1,1,438.35,None
+12,Male,0,3,386.17,None
+12,Male,2,1,424.57,None
+12,Male,1,1,398.99,None
+12,Male,1,0,382.33,None
+11,Male,1,0,376.83,None
+10,Female,1,2,537.03,None
+12,Female,2,2,585.68,None
+11,Female,0,1,576.34,None
+11,Female,0,2,597.22,None
+10,Female,2,3,421.93,None
+10,Male,0,1,524.68,None
+10,Male,2,3,481.14,None
+11,Male,1,3,426.78,None
+12,Male,0,2,431.84,None
+10,Female,1,2,479.33,None
+10,Male,1,1,376.56,None
+12,Male,0,3,420.37,None
+12,Male,2,2,502.14,None
+12,Male,0,0,371.6,None
+10,Female,1,2,359.51,None
+10,Female,0,0,429.72,None
+11,Male,2,2,482.92,None
+10,Male,2,2,424.76,None
+12,Female,2,0,439.34,None
+10,Female,2,2,521.45,None
+12,Male,1,0,367.3,None
+10,Female,1,1,562.9,None
+10,Female,0,2,351.35,None
+11,Female,0,3,498.52,None
+11,Male,2,1,403.87,None
+11,Female,1,1,394.85,None
+12,Female,0,2,495.76,None
+11,Female,2,0,461.78,None
+10,Male,1,2,554.44,None
+10,Male,2,2,381.77,None
+10,Male,1,2,412.58,None
+11,Male,2,0,598.7,None
+11,Male,1,1,408.33,None
+11,Female,1,2,502.65,None
+12,Male,0,2,447.8,None
+10,Male,2,3,555.14,None
+12,Female,0,2,422.68,None
+11,Male,2,2,482.52,None
+11,Female,0,2,522.13,None
+10,Female,1,1,415.02,None
+12,Male,1,1,371.53,None
+12,Male,0,0,418.92,None
+12,Male,1,1,591.27,None
+10,Female,2,1,357.57,None
+10,Female,2,3,510.56,None
+11,Male,1,2,400.97,None
+12,Male,2,3,435.08,None
+10,Male,8,2,549.7,Low Attention
+12,Male,1,3,541.29,None
+12,Male,2,1,594.79,None
+12,Male,0,0,556.08,None
+12,Female,1,2,469.36,None
+10,Female,1,1,584.07,None
+10,Male,0,0,380.67,None
+11,Female,0,2,498.43,None
+10,Male,1,1,477.76,None
+10,Male,0,3,420.49,None
+11,Female,0,3,433.74,None
+11,Female,2,2,509.65,None
+10,Male,2,2,483.3,None
+10,Female,1,1,475.51,None
+12,Female,0,0,539.19,None
+10,Male,0,0,379.78,None
+10,Male,0,3,587.85,None
+10,Female,0,3,505.44,None
+10,Female,2,2,547.32,None
+12,Male,1,0,509.28,None
+11,Male,2,0,508.68,None
+11,Female,2,0,363.64,None
+10,Male,1,1,358.43,None
+11,Female,1,0,597.29,None
+10,Female,1,1,393.41,None
+12,Female,0,3,487.48,None
+10,Female,1,3,485.06,None
+11,Male,0,2,548.23,None
+10,Male,2,3,393.88,None
+11,Male,2,3,476.36,None
+12,Male,2,1,483.21,None
+10,Male,1,3,388.27,None
+11,Male,1,3,383.3,None
+12,Female,0,2,564.7,None
+12,Male,2,3,590.4,None
+12,Male,2,1,539.99,None
+10,Female,0,0,459.16,None
+10,Male,1,0,390.5,None
+12,Male,1,0,523.07,None
+11,Female,2,1,563.52,None
+12,Female,1,2,494.9,None
+11,Female,1,3,357.64,None
+10,Male,2,0,563.86,None
+11,Male,1,1,488.01,None
+12,Male,1,3,442.59,None
+12,Female,1,2,571.49,None
+12,Male,2,0,514.65,None
+11,Male,0,3,410.48,None
+10,Female,2,0,475.86,None
+11,Male,0,3,589.72,None
+10,Female,0,3,529.68,None
+11,Male,0,2,596.58,None
+12,Female,1,3,522.84,None
+11,Female,2,2,543.1,None
+12,Male,1,0,519.96,None
+12,Male,1,3,392.3,None
+10,Male,0,3,372.39,None
+10,Male,0,2,471.06,None
+10,Female,0,0,528.05,None
+10,Female,2,1,561.95,None
+12,Male,1,0,469.75,None
+11,Female,1,1,366.57,None
+12,Female,2,0,504.47,None
+10,Male,2,2,450.4,None
+12,Female,1,3,556.07,None
+11,Male,2,2,525.44,None
+10,Male,0,1,466.85,None
+10,Female,0,2,400.09,None
+10,Male,1,2,355.45,None
+12,Female,1,2,535.58,None
+12,Male,1,3,479.22,None
+12,Female,1,0,412.9,None
+12,Female,1,0,506.99,None
+12,Female,1,2,530.72,None
+11,Male,2,2,425.46,None
+10,Female,1,1,565.06,None
+11,Male,2,3,542.51,None
+12,Male,1,1,450.54,None
+12,Male,1,3,388.86,None
+12,Female,0,3,424.52,None
+11,Male,2,2,487.69,None
+10,Female,2,0,514.62,None
+11,Female,2,1,379.77,None
+10,Male,0,2,442.16,None
+10,Female,1,3,417.81,None
+12,Male,1,2,526.8,None
+11,Female,2,3,419.06,None
+10,Female,0,0,554.25,None
+11,Female,2,1,412.71,None
+12,Female,2,0,470.16,None
+12,Female,0,2,492.24,None
+11,Female,1,1,582.44,None
+11,Male,0,3,473.71,None
+12,Male,1,1,510.12,None
+11,Female,2,3,535.79,None
+10,Female,1,3,437.25,None
+12,Male,1,0,589.32,None
+11,Female,2,1,359,None
+12,Male,1,3,490.94,None
+10,Male,2,2,406.3,None
+12,Female,0,2,430.08,None
+11,Female,1,2,464.26,None
+10,Male,8,2,549.7,Low Attention
+12,Male,1,3,541.29,None
+12,Male,2,1,594.79,None
+12,Male,0,0,556.08,None
+12,Female,1,2,469.36,None
+10,Female,1,1,584.07,None
+10,Male,0,0,380.67,None
+11,Female,0,2,498.43,None
+10,Male,1,1,477.76,None
+10,Male,0,3,420.49,None
+11,Female,0,3,433.74,None
+11,Female,2,2,509.65,None
+10,Male,2,2,483.3,None
+10,Female,1,1,475.51,None
+12,Female,0,0,539.19,None
+10,Male,0,0,379.78,None
+10,Male,0,3,587.85,None
+10,Female,0,3,505.44,None
+10,Female,2,2,547.32,None
+12,Male,1,0,509.28,None
+11,Male,2,0,508.68,None
+11,Female,2,0,363.64,None
+10,Male,1,1,358.43,None
+11,Female,1,0,597.29,None
+10,Female,1,1,393.41,None
+12,Female,0,3,487.48,None
+10,Female,1,3,485.06,None
+11,Male,0,2,548.23,None
+10,Male,2,3,393.88,None
+11,Male,2,3,476.36,None
+12,Male,2,1,483.21,None
+10,Male,1,3,388.27,None
+11,Male,1,3,383.3,None
+12,Female,0,2,564.7,None
+12,Male,2,3,590.4,None
+12,Male,2,1,539.99,None
+10,Female,0,0,459.16,None
+10,Male,1,0,390.5,None
+12,Male,1,0,523.07,None
+11,Female,2,1,563.52,None
+12,Female,1,2,494.9,None
+11,Female,1,3,357.64,None
+10,Male,2,0,563.86,None
+11,Male,1,1,488.01,None
+12,Male,1,3,442.59,None
+12,Female,1,2,571.49,None
+12,Male,2,0,514.65,None
+11,Male,0,3,410.48,None
+10,Female,2,0,475.86,None
+11,Male,0,3,589.72,None
+10,Female,0,3,529.68,None
+11,Male,0,2,596.58,None
+12,Female,1,3,522.84,None
+11,Female,2,2,543.1,None
+12,Male,1,0,519.96,None
+12,Male,1,3,392.3,None
+10,Male,0,3,372.39,None
+10,Male,0,2,471.06,None
+10,Female,0,0,528.05,None
+10,Female,2,1,561.95,None
+12,Male,1,0,469.75,None
+11,Female,1,1,366.57,None
+12,Female,2,0,504.47,None
+10,Male,2,2,450.4,None
+12,Female,1,3,556.07,None
+11,Male,2,2,525.44,None
+10,Male,0,1,466.85,None
+10,Female,0,2,400.09,None
+10,Male,1,2,355.45,None
+12,Female,1,2,535.58,None
+12,Male,1,3,479.22,None
+12,Female,1,0,412.9,None
+12,Female,1,0,506.99,None
+12,Female,1,2,530.72,None
+11,Male,2,2,425.46,None
+10,Female,1,1,565.06,None
+11,Male,2,3,542.51,None
+12,Male,1,1,450.54,None
+12,Male,1,3,388.86,None
+12,Female,0,3,424.52,None
+11,Male,2,2,487.69,None
+10,Female,2,0,514.62,None
+11,Female,2,1,379.77,None
+10,Male,0,2,442.16,None
+10,Female,1,3,417.81,None
+12,Male,1,2,526.8,None
+11,Female,2,3,419.06,None
+10,Female,0,0,554.25,None
+11,Female,2,1,412.71,None
+12,Female,2,0,470.16,None
+12,Female,0,2,492.24,None
+11,Female,1,1,582.44,None
+11,Male,0,3,473.71,None
+12,Male,1,1,510.12,None
+11,Female,2,3,535.79,None
+10,Female,1,3,437.25,None
+12,Male,1,0,589.32,None
+11,Female,2,1,359,None
+12,Male,1,3,490.94,None
+10,Male,2,2,406.3,None
+12,Female,0,2,430.08,None
+11,Female,1,2,464.26,None
+10,Male,5,2,527.3,Low Attention
+10,Female,1,4,670.19,High Impulsivity
+12,Male,3,2,650.38,Low Attention
+11,Female,1,6,694.3,High Impulsivity
+12,Male,3,2,577.43,Low Attention
+12,Male,1,8,526.45,High Impulsivity
+12,Male,1,9,639.23,High Impulsivity
+10,Male,10,2,554.98,Low Attention
+12,Male,9,6,580.7,Combined Deficits
+11,Male,1,7,624.75,High Impulsivity
+12,Female,1,6,503.45,High Impulsivity
+10,Female,1,6,631.93,High Impulsivity
+11,Female,1,6,587.06,High Impulsivity
+12,Male,3,8,550.21,Combined Deficits
+10,Male,10,10,575.43,Combined Deficits
+11,Male,1,9,534.81,High Impulsivity
+12,Female,1,8,506.56,High Impulsivity
+11,Male,4,2,545.89,Low Attention
+11,Female,1,5,539.59,High Impulsivity
+10,Female,1,7,500.78,High Impulsivity
+12,Male,1,8,567.09,High Impulsivity
+10,Male,1,6,518.29,High Impulsivity
+11,Male,1,9,606.58,High Impulsivity
+11,Male,4,10,555.61,Combined Deficits
+12,Female,6,2,696.4,Low Attention
+12,Male,1,7,692.87,High Impulsivity
+12,Female,1,5,582.42,High Impulsivity
+10,Male,6,7,522.39,Combined Deficits
+12,Female,9,2,536.47,Low Attention
+11,Female,5,2,594.19,Low Attention
+10,Female,1,5,549.91,High Impulsivity
+12,Male,9,10,687.57,Combined Deficits
+11,Female,4,2,608.42,Low Attention
+10,Female,1,9,690.74,High Impulsivity
+12,Female,8,9,578.48,Combined Deficits
+11,Female,10,2,572.69,Low Attention
+12,Male,10,5,664.92,Combined Deficits
+12,Male,1,6,698,High Impulsivity
+12,Male,5,2,642.92,Low Attention
+10,Male,5,2,527.3,Low Attention
+10,Female,1,4,670.19,High Impulsivity
+12,Male,3,2,650.38,Low Attention
+11,Female,1,6,694.3,High Impulsivity
+12,Male,3,2,577.43,Low Attention
+12,Male,1,8,526.45,High Impulsivity
+12,Male,1,9,639.23,High Impulsivity
+10,Male,10,2,554.98,Low Attention
+12,Male,9,6,580.7,Combined Deficits
+11,Male,1,7,624.75,High Impulsivity
+12,Female,1,6,503.45,High Impulsivity
+10,Female,1,6,631.93,High Impulsivity
+11,Female,1,6,587.06,High Impulsivity
+12,Male,3,8,550.21,Combined Deficits
+10,Male,10,10,575.43,Combined Deficits
+11,Male,1,9,534.81,High Impulsivity
+12,Female,1,8,506.56,High Impulsivity
+11,Male,4,2,545.89,Low Attention
+11,Female,1,5,539.59,High Impulsivity
+10,Female,1,7,500.78,High Impulsivity
+12,Male,1,8,567.09,High Impulsivity
+10,Male,1,6,518.29,High Impulsivity
+11,Male,1,9,606.58,High Impulsivity
+11,Male,4,10,555.61,Combined Deficits
+12,Female,6,2,696.4,Low Attention
+12,Male,1,7,692.87,High Impulsivity
+12,Female,1,5,582.42,High Impulsivity
+10,Male,6,7,522.39,Combined Deficits
+12,Female,9,2,536.47,Low Attention
+11,Female,5,2,594.19,Low Attention
+10,Female,1,5,549.91,High Impulsivity
+12,Male,9,10,687.57,Combined Deficits
+11,Female,4,2,608.42,Low Attention
+10,Female,1,9,690.74,High Impulsivity
+12,Female,8,9,578.48,Combined Deficits
+11,Female,10,2,572.69,Low Attention
+12,Male,10,5,664.92,Combined Deficits
+12,Male,1,6,698,High Impulsivity
+12,Male,5,2,642.92,Low Attention
+10,Male,5,2,527.3,Low Attention
+10,Female,1,4,670.19,High Impulsivity
+12,Male,3,2,650.38,Low Attention
+11,Female,1,6,694.3,High Impulsivity
+12,Male,3,2,577.43,Low Attention
+12,Male,1,8,526.45,High Impulsivity
+12,Male,1,9,639.23,High Impulsivity
+10,Male,10,2,554.98,Low Attention
+12,Male,9,6,580.7,Combined Deficits
+11,Male,1,7,624.75,High Impulsivity
+12,Female,1,6,503.45,High Impulsivity
+10,Female,1,6,631.93,High Impulsivity
+11,Female,1,6,587.06,High Impulsivity
+12,Male,3,8,550.21,Combined Deficits
+10,Male,10,10,575.43,Combined Deficits
+11,Male,1,9,534.81,High Impulsivity
+12,Female,1,8,506.56,High Impulsivity
+11,Male,4,2,545.89,Low Attention
+11,Female,1,5,539.59,High Impulsivity
+10,Female,1,7,500.78,High Impulsivity
+12,Male,1,8,567.09,High Impulsivity
+10,Male,1,6,518.29,High Impulsivity
+11,Male,1,9,606.58,High Impulsivity
+11,Male,4,10,555.61,Combined Deficits
+12,Female,6,2,696.4,Low Attention
+12,Male,1,7,692.87,High Impulsivity
+12,Female,1,5,582.42,High Impulsivity
+10,Male,6,7,522.39,Combined Deficits
+12,Female,9,2,536.47,Low Attention
+11,Female,5,2,594.19,Low Attention
+10,Female,1,5,549.91,High Impulsivity
