@@ -25,7 +25,7 @@ exports.predictDisease = (req, res) => {
         avoids_sustained_mental_effort
     } = req.body;
 
-    const pythonProcess = spawn("python3", [
+    const pythonProcess = spawn("python", [
         "disease_detection_Model/model_diagnose.py",
         age, family_history, birth_trauma, premature, behavior_age,
         life_events, focus_difficulty, careless_mistakes, easily_distracted,

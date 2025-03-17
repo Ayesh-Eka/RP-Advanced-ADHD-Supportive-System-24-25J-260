@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const FollowInstructionsGame = () => {
   const instructions = [
@@ -39,6 +41,7 @@ const FollowInstructionsGame = () => {
     }
   }, [tasksCompleted]);
 
+  // Handle user clicking an object
   const handleObjectClick = (object) => {
     setUserOrder((prev) => {
       const newOrder = [...prev, object];
@@ -49,6 +52,7 @@ const FollowInstructionsGame = () => {
     });
   };
 
+  // Check if the user's order matches the correct order
   const checkAnswer = (newOrder) => {
     const correctOrder = instructions[currentInstructionIndex].order;
     if (JSON.stringify(newOrder) === JSON.stringify(correctOrder)) {
@@ -57,6 +61,7 @@ const FollowInstructionsGame = () => {
     moveToNextInstruction();
   };
 
+  // Move to the next instruction
   const moveToNextInstruction = () => {
     setUserOrder([]);
     setTasksCompleted((prev) => prev + 1);
@@ -69,6 +74,7 @@ const FollowInstructionsGame = () => {
     }
   };
 
+  // Handle timeout
   const handleTimeOut = () => {
     setTasksCompleted((prev) => prev + 1);
     setUserOrder([]);
@@ -81,18 +87,49 @@ const FollowInstructionsGame = () => {
     }
   };
 
+  // Show the final result and save it to local storage
   const showResult = () => {
     const percentage = (score / 5) * 100;
+    const followingInstructions = percentage < 50 ? 1 : 0; // 1 if score < 50%, else 0
     setResult({
       emoji: percentage < 50 ? "😢" : "😊",
       message: percentage < 50 ? "Let's try again!" : "Very Good!",
       score: `${percentage}%`,
     });
     setGameOver(true);
+
+    // Save the result to local storage
+    const storedData = JSON.parse(localStorage.getItem("userInputs")) || {};
+    storedData.following_instructions = followingInstructions; // Add the result to the stored data
+    localStorage.setItem("userInputs", JSON.stringify(storedData));
+    console.log("FollowInstructionsGame result saved to local storage:", storedData);
   };
 
-  const handleDiagnoseClick = () => {
-    alert("Diagnosis feature coming soon!");
+  // Handle "Diagnose" button click
+  const handleDiagnoseClick = async () => {
+    const storedData = JSON.parse(localStorage.getItem("userInputs")) || {};
+    try {
+      const response = await axios.post("http://localhost:5000/api/diagnose/predict", storedData, {
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (response.headers["content-type"].includes("application/json")) {
+        const result = response.data;
+        Swal.fire({
+          title: "Diagnosis Result",
+          text: result.prediction === "1" ? "Positive for ADHD" : "Negative for ADHD",
+          icon: result.prediction === "1" ? "warning" : "success",
+        });
+      } else {
+        throw new Error("Invalid response format");
+      }
+    } catch (error) {
+      Swal.fire({
+        title: "Error!",
+        text: "Failed to get diagnosis. Please check if the backend is running.",
+        icon: "error",
+      });
+    }
   };
 
   return (
