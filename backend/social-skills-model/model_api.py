@@ -2,7 +2,7 @@ import sys
 import pickle
 
 # Load the trained model (make sure it's in the correct path)
-with open('nlp_model.dat', 'rb') as f:
+with open('social-skills-model/nlp_model.dat', 'rb') as f:
     model = pickle.load(f)
 
 # Read the input text from the command-line argument

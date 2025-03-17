@@ -11,6 +11,16 @@ import PredictionForm from './components/PredictionForm';
 import StroopTest from './pages/stroop';
 import DigitSpanTest from './pages/digitspan';
 import FollowInstructionsGame from './pages/followinginstruction';
+import TaskForm from './pages/TaskForm';
+import MathGame from './pages/BasicMathsQuestions';
+import PaintingGame from './pages/PaintingGame';
+import BoxClickGame from "./components/BoxClickGame";
+import ImproveAttentionTask from "./components/ImproveAttentionTask";
+import ControlHyperactivity from "./components/ControlHyperactivity";
+import TrainAttentionHyperactivity from "./components/TrainAttentionHyperactivity";
+import FeedbackPage from './pages/FeedbackPage';
+import ChatPopup from './components/ChatPopup'; // Import ChatPopup
+
 
 
 const App = () => {
@@ -29,10 +39,21 @@ const App = () => {
             <Route path="/stroop" element={<StroopTest />} />
             <Route path="/digit-span" element={<DigitSpanTest />} />
             <Route path="/follow-instructions" element={<FollowInstructionsGame />} />
+            <Route path="/text-chatbot" element={<TextChatbot />} /> {/* Add TextChatbot route */}
+            <Route path="/taskform" element={<TaskForm />} />
+            <Route path="/EducationalActivity" element={<MathGame />} />
+            <Route path="/NonEducationalActivity" element={<PaintingGame />} />
+            <Route path="/go" element={<BoxClickGame />} />
+            <Route path="/improve-attention" element={<ImproveAttentionTask />} />
+            <Route path="/control-impulsiveness" element={<ControlHyperactivity />} />
+            <Route path="/train-attention-hyperactivity" element={<TrainAttentionHyperactivity />} />
+            <Route path="/feedback" element={<FeedbackPage />} />
+
 
           </Routes>
         </main>
         <Footer />
+        <ChatPopup /> {/* Add ChatPopup */}
       </div>
     </Router>
   );
