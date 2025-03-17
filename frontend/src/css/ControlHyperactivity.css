@@ -1,41 +1,41 @@
 /* General Background - Light Pastel Blue */
-.game-wrapper {
+.game-wrapper2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 80vh;
     background: linear-gradient(to right, #ffadad, #ffd6a5, #fdffb6, #caffbf, #9bf6ff, #a0c4ff, #bdb2ff);
   }
   
   /* Container with soft pastel border */
-  .game-container {
+  .game-container2 {
     text-align: center;
     background: white;
     padding: 20px;
     width: 500px;
-    height: 400px;
+    height: 420px;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: border-color 0.3s ease-in-out;
   }
   
   /* Error Outline */
-  .error-outline {
+  .error-outline2 {
     border: 3px solid #ff6b6b !important; /* Muted red for error */
   }
   
   /* Stimulus (Image) */
-  .stimulus-container {
+  .stimulus-container2 {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 200px;
-    background-color: #ffffff;
-    padding: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 240px;
+  background-color: #ffffff;
+  padding: 20px;
   }
   
-  .stimulus-box {
+  .stimulus-box2 {
     width: 400px;
     height: 400px;
     background-color: white;
@@ -70,14 +70,14 @@
   }
   
   /* Error Message */
-  .error-message {
+  .error-message2 {
     color: #ff6b6b; /* Muted red */
     font-size: 18px;
     margin-bottom: 10px;
   }
   
   /* Start Screen - Muted Pastel Theme */
-  .start-screen {
+  .start-screen2 {
     background: #fff9db; /* Soft pastel yellow */
     padding: 20px;
     border-radius: 10px;
@@ -90,7 +90,7 @@
   }
   
   /* Title */
-  .start-screen h1 {
+  .start-screen2 h1 {
     font-size: 24px;
     color: #6a5acd; /* Muted pastel purple */
     margin-bottom: 20px;
@@ -113,7 +113,7 @@
   }
   
   /* Start Button */
-  .start-button {
+  .start-button2 {
     width: 100%;
     padding: 12px;
     font-size: 18px;
@@ -125,17 +125,17 @@
     transition: 0.3s;
   }
   
-  .start-button:disabled {
+  .start-button2:disabled {
     background-color: #c7fed8; /* Muted pastel lavender */
     cursor: not-allowed;
   }
   
-  .start-button:hover:not(:disabled) {
+  .start-button2:hover:not(:disabled) {
     background-color: #45a049; /* Slightly deeper pastel blue */
   }
   
   /* Game Instructions - Muted Pastel Brown */
-  .instructions {
+  .instructions2 {
     font-size: 16px;
     color: #5c4033; /* Soft brown */
     background: #fde9c9; /* Light pastel peach */
@@ -147,13 +147,13 @@
   }
   
   /* Highlight Important Words */
-  .instructions strong {
+  .instructions2 strong {
     color: #d97706; /* Warm muted orange */
   }
   
   
   /* Overlay for Readability */
-  .start-overlay {
+  .start-overlay2 {
     background: #fff9db;
     padding: 20px;
     border-radius: 10px;
@@ -191,7 +191,7 @@
   }
 
   /* Game Over Popup - Pastel Rainbow Theme */
-.game-over-popup {
+.game-over-popup2 {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -220,14 +220,14 @@
 }
 
 /* Game Over Text */
-.game-over-popup h2 {
+.game-over-popup2 h2 {
     font-size: 24px;
     color: #6a5acd; /* Muted pastel purple */
     margin-bottom: 15px;
 }
 
 /* Game Over Message */
-.game-over-popup p {
+.game-over-popup2 p {
     font-size: 18px;
     color: #5c4033; /* Soft brown */
     background: rgba(255, 255, 255, 0.7);
@@ -256,27 +256,27 @@
 }
 
 /* Play Again Button - Pastel Green */
-.play-again-btn {
+.play-again-btn2 {
     background-color: #4CAF50;
     color: white;
 }
 
-.play-again-btn:hover {
+.play-again-btn2:hover {
     background-color: #45a049;
 }
 
 /* Play Later Button - Pastel Blue */
-.play-later-btn {
+.play-later-btn2 {
     background-color: #a0c4ff;
     color: white;
 }
 
-.play-later-btn:hover {
+.play-later-btn2:hover {
     background-color: #89b0ff;
 }
 
 /* Game Over (Thank You) Screen */
-.results-screen {
+.results-screen2 {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -288,19 +288,18 @@
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
-    border: 2px solid #ffcc99; /* Pastel orange */
     animation: fadeIn 0.5s ease-in-out;
   }
   
   /* Thank You Title */
-  .results-screen h2 {
+  .results-screen2 h2 {
     font-size: 24px;
     color: #6a5acd; /* Pastel red */
     margin-bottom: 20px;
   }
   
   /* Restart Button */
-  .start-button {
+  .start-button2 {
     padding: 10px 10px;
     font-size: 18px;
     background-color: #4CAF50; /* Pastel pink */
@@ -313,18 +312,18 @@
   }
   
   /* Hover Effect for Restart Button */
-  .start-button:hover {
+  .start-button2:hover {
     background-color: #45a049; /* Slightly deeper pastel pink */
   }
 
-  .go-stimulus-container {
+  .go-stimulus-container2 {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 15px;
   }
   
-  .go-stimulus {
+  .go-stimulus2 {
     width: 80px;  /* Adjust size for a small circle */
     height: 80px;
     border-radius: 50%; 
@@ -341,8 +340,8 @@
   
   /* Positioning */
   position: absolute;
-  top: 205px;  /* Distance from the top */
-  left: 558px; /* Distance from the left */
+  top: 170px;  /* Distance from the top */
+  left: 570px; /* Distance from the left */
 }
 
 /* Hover effect */
@@ -356,7 +355,37 @@
   margin-right: 8px;
 }
 
+.restart-button2{
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 17px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  flex: 1;
+  margin: 0 5px;
+}
 
-  
+.restart-button2:hover{
+  background-color: #45a049;
+}
+
+.retest-button2{
+  background-color: #a0acfe;
+  color: white;
+  padding: 10px 18px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  flex: 1;
+  margin: 0 5px;
+}
+.retest-button2:hover{
+  background-color: #5890ff;
+}
 
   
