@@ -3,7 +3,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 
-const TextChatbot = () => {
+const SocialSkills = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userResponse, setUserResponse] = useState('');
@@ -122,10 +122,11 @@ const TextChatbot = () => {
       const { isPositive } = response.data;
 
       // Save the user's response
-      setUserResponses((prevResponses) => [
-        ...prevResponses,
+      const updatedResponses = [
+        ...userResponses,
         { question: questions[currentQuestionIndex].scenario, response: userResponse, isPositive },
-      ]);
+      ];
+      setUserResponses(updatedResponses);
 
       if (isPositive) {
         const utterance = new SpeechSynthesisUtterance("Great job! Your response is correct.");
@@ -141,7 +142,7 @@ const TextChatbot = () => {
           if (currentQuestionIndex < 4) {
             setCurrentQuestionIndex((prev) => prev + 1);
           } else {
-            navigate('/feedback', { state: { userResponses } }); // Redirect to feedback page
+            navigate('/feedback', { state: { userResponses: updatedResponses } }); // Redirect to feedback page
           }
           setUserResponse('');
         });
@@ -170,7 +171,7 @@ const TextChatbot = () => {
           if (currentQuestionIndex < 4) {
             setCurrentQuestionIndex((prev) => prev + 1);
           } else {
-            navigate('/feedback', { state: { userResponses } }); // Redirect to feedback page
+            navigate('/feedback', { state: { userResponses: updatedResponses } }); // Redirect to feedback page
           }
           setUserResponse('');
         });
@@ -182,17 +183,17 @@ const TextChatbot = () => {
   };
 
   if (loading) {
-    return <div className="min-h-screen flex items-center justify-center bg-gray-100">Loading questions...</div>;
+    return <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50">Loading questions...</div>;
   }
 
   if (questions.length === 0) {
-    return <div className="min-h-screen flex items-center justify-center bg-gray-100">No questions available. Please try again later.</div>;
+    return <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50">No questions available. Please try again later.</div>;
   }
 
   const currentQuestion = questions[currentQuestionIndex];
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-500 p-4">
       <div className="bg-white rounded-lg shadow-lg w-full max-w-2xl p-6">
         <h1 className="text-3xl font-bold text-center text-blue-800 mb-6">ADHD Social Skills Chat</h1>
         <div className="bg-blue-100 p-4 rounded-lg mb-6">
@@ -239,4 +240,4 @@ const TextChatbot = () => {
   );
 };
 
-export default TextChatbot;
+export default SocialSkills;

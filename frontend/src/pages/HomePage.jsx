@@ -9,14 +9,14 @@ const HomePage = () => {
       description:
         'Discover tools to help identify and manage ADHD symptoms in a fun and engaging way!',
       icon: '🧠',
-      path: '#', 
+      path: '/predict', 
     },
     {
       title: 'Cognitive Enhancement',
       description:
         'Boost your brainpower with games and activities designed to improve focus and memory!',
       icon: '🚀',
-      path: '#',
+      path: '/go',
     },
     {
       title: 'Organize Daily Tasks',
@@ -30,20 +30,10 @@ const HomePage = () => {
       description:
         'Learn how to make friends, communicate better, and build confidence through interactive lessons!',
       icon: '🤝',
-      path: '#',
+      path: '/SocialSkills',
     },
   ];
 
-  const quickLinks = [
-    'ADHD Analyzer',
-    'Cognitive Enhancement',
-    'Manage Daily Tasks',
-    'Develop Social Skills',
-    'Prioritization',
-    'Check Progress',
-    'Social Skills Chat',
-    'ChatBuddy',
-  ];
 
   return (
     <div>
@@ -84,34 +74,8 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* Quick Links Section */}
-      <div className="bg-gradient-to-r from-pink-500 to-orange-400 py-12">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold text-white mb-8">
-            Quick Links
-          </h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            {quickLinks.map((link, index) => (
-              <a
-                key={index}
-                href="/text-chatbot"
-                className="bg-white text-purple-700 px-6 py-3 rounded-full hover:bg-purple-100 hover:text-purple-900 transition-all duration-300 shadow-md"
-              >
-                {link}
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
+      
 
-      {/* Fun Footer */}
-      <div className="bg-gray-800 py-8">
-        <div className="container mx-auto text-center">
-          <p className="text-white">
-            Made with ❤️ for kids aged 6-12 | © 2023 NeuroAssist
-          </p>
-        </div>
-      </div>
     </div>
   );
 };
