@@ -1,0 +1,76 @@
+.train-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #ffadad, #ffd6a5, #fdffb6, #caffbf, #9bf6ff, #a0c4ff, #bdb2ff);
+  }
+  
+  .train-box {
+    background: #fff9db;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    width: 400px;
+    border: 4px solid #a7f3d0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .train-box h2 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .train-box p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .game-button {
+    padding: 10px 10px;
+    font-size: 18px;
+    background-color: #4CAF50; /* Pastel pink */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    align-self: center;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 340px;
+  }
+  
+  .game-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Back icon container */
+.back-container {
+  align-items: center;
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+  
+  /* Positioning */
+  position: absolute;
+  top: 220px;  /* Distance from the top */
+  left: 558px; /* Distance from the left */
+}
+
+/* Hover effect */
+.back-container:hover {
+  color: #000000;
+}
+
+/* Back icon styling */
+.back-icon {
+  font-size: 15px;
+  margin-right: 8px;
+}
