@@ -8,6 +8,7 @@ const socialSkillsRoutes = require('./routes/socialSkillsRoutes'); // Import soc
 const TaskPrioritizationRoutes = require('./routes/TaskPrioritizationRoutes');
 const CognitiveTrainingRoutes = require('./routes/cognitiveTrainingRoute');
 const authRoutes = require('./routes/authRoutes'); // Import authRoutes
+const chatRoutes = require('./routes/chatRoutes'); // Import chatRoutes
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.use('/api/task-prioritize', TaskPrioritizationRoutes);
 app.use('/api/cognitive-training', CognitiveTrainingRoutes);
 
 app.use('/api/auth', authRoutes); // Add authRoutes
+app.use('/api/chat', chatRoutes); // Add chatRoutes
 
 
 // Start the server
