@@ -5,6 +5,7 @@ const { spawn } = require('child_process'); // Import spawn to run Python script
 const db = require('./config/db'); // Import the database connection
 require('dotenv').config();
 const socialSkillsRoutes = require('./routes/socialSkillsRoutes'); // Import socialSkillsRoutes
+const authRoutes = require('./routes/authRoutes'); // Import authRoutes
 
 const app = express();
 
@@ -29,6 +30,8 @@ const testDatabaseConnection = async () => {
 
 // Routes
 app.use('/api/social-skills', socialSkillsRoutes); // Add socialSkillsRoutes
+
+app.use('/api/auth', authRoutes); // Add authRoutes
 
 
 // Start the server
