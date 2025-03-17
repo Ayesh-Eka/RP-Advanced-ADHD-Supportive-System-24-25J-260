@@ -7,6 +7,9 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
 import TextChatbot from './components/TextChatbot'; // Import TextChatbot
+import TaskForm from './pages/TaskForm';
+import MathGame from './pages/BasicMathsQuestions';
+import PaintingGame from './pages/PaintingGame';
 import BoxClickGame from "./components/BoxClickGame";
 import ImproveAttentionTask from "./components/ImproveAttentionTask";
 import ControlHyperactivity from "./components/ControlHyperactivity";
@@ -26,11 +29,15 @@ const App = () => {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/text-chatbot" element={<TextChatbot />} /> {/* Add TextChatbot route */}
+            <Route path="/taskform" element={<TaskForm />} />
+            <Route path="/EducationalActivity" element={<MathGame />} />
+            <Route path="/NonEducationalActivity" element={<PaintingGame />} />
             <Route path="/go" element={<BoxClickGame />} />
             <Route path="/improve-attention" element={<ImproveAttentionTask />} />
             <Route path="/control-impulsiveness" element={<ControlHyperactivity />} />
             <Route path="/train-attention-hyperactivity" element={<TrainAttentionHyperactivity />} />
             <Route path="/feedback" element={<FeedbackPage />} />
+
           </Routes>
         </main>
         <Footer />
