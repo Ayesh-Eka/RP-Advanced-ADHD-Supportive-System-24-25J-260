@@ -40,55 +40,56 @@ const StroopTest = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
-      <h1 className="text-3xl font-bold text-gray-700">Color Game for Toddlers</h1>
-      <p className="text-lg text-gray-600 mt-2">What color is the word?</p>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 p-6">
+      <h1 className="text-4xl font-extrabold text-white drop-shadow-md">Color Challenge</h1>
+      <p className="text-lg text-white mt-2 font-medium drop-shadow">Identify the color of the word</p>
+
       {!showResult ? (
         <>
-          <div className="mt-6 text-6xl font-bold p-6 border-4 border-black rounded-lg" style={{ color }}>
+          <div className="mt-8 text-7xl font-extrabold p-6 border-4 border-white bg-white shadow-lg rounded-xl transition-transform duration-300 transform hover:scale-105" style={{ color }}>
             {word}
           </div>
-          <div className="mt-6 flex space-x-4">
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
             {colors.map((col) => (
               <button
                 key={col}
-                className={`px-6 py-3 text-xl font-bold text-white rounded-lg shadow-md`} 
+                className="px-8 py-4 text-2xl font-bold text-white rounded-xl shadow-lg transition-all duration-300 hover:scale-105 active:scale-95"
                 style={{ backgroundColor: col }}
                 onClick={() => checkAnswer(col)}
               >
-                {col}
+                {col.charAt(0).toUpperCase() + col.slice(1)}
               </button>
             ))}
           </div>
         </>
       ) : (
-        <div className="mt-8 text-center text-2xl font-bold text-gray-700">
+        <div className="mt-12 text-center text-3xl font-bold text-white">
           {score / totalQuestions >= 0.5 ? (
             <>
-              <span className="text-4xl">😊</span>
-              <div>Very Good!</div>
+              <span className="text-6xl">🎉</span>
+              <div className="mt-4">Great Job!</div>
             </>
           ) : (
             <>
-              <span className="text-4xl">😢</span>
-              <div>Let's try again!</div>
+              <span className="text-6xl">😢</span>
+              <div className="mt-4">Try Again!</div>
             </>
           )}
-          <div className="mt-2">Score: {(score / totalQuestions) * 100}%</div>
-          {/* <button
-            className="mt-4 px-6 py-2 bg-blue-500 text-white text-lg rounded-lg hover:bg-blue-600"
+          <div className="mt-2 text-2xl">Score: {(score / totalQuestions) * 100}%</div>
+
+          <button
+            className="mt-6 px-8 py-3 bg-blue-600 text-white text-xl rounded-xl shadow-lg transition-all duration-300 hover:bg-blue-700 hover:scale-105 active:scale-95"
             onClick={() => {
               setScore(0);
               setCurrentQuestion(0);
               setShowResult(false);
             }}
           >
-            </button> */}
-            {/* Play Again */}
-          
-          {/* Next button to show DigitSpanTest */}
+            Play Again
+          </button>
+
           <button
-            className="mt-4 px-6 py-2 bg-green-500 text-white text-lg rounded-lg hover:bg-green-600"
+            className="mt-4 px-8 py-3 bg-green-500 text-white text-xl rounded-xl shadow-lg transition-all duration-300 hover:bg-green-600 hover:scale-105 active:scale-95"
             onClick={handleNextButtonClick}
           >
             Next Game
