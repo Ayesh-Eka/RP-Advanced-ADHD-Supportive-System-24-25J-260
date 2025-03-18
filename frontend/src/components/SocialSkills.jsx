@@ -208,7 +208,7 @@ const SocialSkills = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-500 p-4">
       <div className="bg-white rounded-lg shadow-lg w-full max-w-2xl p-6">
-        <h1 className="text-3xl font-bold text-center text-blue-800 mb-6">ADHD Social Skills Chat</h1>
+        <h1 className="text-3xl font-bold text-center text-blue-800 mb-6">CHATTY CHAMPIONS</h1>
         <div className="bg-blue-100 p-4 rounded-lg mb-6">
           <p className="text-lg text-gray-800">{currentQuestion.scenario}</p>
         </div>
