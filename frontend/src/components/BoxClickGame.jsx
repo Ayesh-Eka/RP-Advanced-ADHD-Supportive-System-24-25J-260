@@ -201,21 +201,21 @@ const renderRecommendation = () => {
         <p>
           <b>Your child shows signs of attention difficulties.
             Engaging in activities that improve concentration and attention span could be beneficial.</b> <br/><br/>
-            <Link to="/improve-attention">Click here</Link> to see suggested activity.
+            <Link to="/improve-attention" className="click-here1">Click here</Link> to see suggested activity.
         </p>
       );
     case "High Impulsivity":
       return (
-        <p><b>Your child exhibits signs of high activity levels and impulsiveness. 
+        <p><b>Your child exhibits signs of hyperactivity levels and impulsiveness. 
           They may find it challenging to sit still or wait for turns. 
-          Activities that promote self-control and patience can help.</b> <br/><br/><Link to="/control-impulsiveness">Click here</Link> to see suggested activity.
+          Activities that promote self-control and patience can help.</b> <br/><br/><Link to="/control-impulsiveness" className="click-here1">Click here</Link> to see suggested activity.
         </p>
       );
     case "Combined Deficits":
       return (
         <p><b>Your child shows signs of both attention difficulties and hyperactivity. 
           They may struggle with focus and staying still for extended periods. 
-          Focus-based exercises and calming activities can support their development</b> <br/><br/> <Link to="/train-attention-hyperactivity">Click here</Link> to see suggested activity.
+          Focus-based exercises and calming activities can support their development</b> <br/><br/> <Link to="/train-attention-hyperactivity" className="click-here1">Click here</Link> to see suggested activity.
         </p>
       );
     case "None":
@@ -256,19 +256,19 @@ const renderRecommendation = () => {
     <div>
     <div className="game-wrapper1">
       {!isGameRunning && !gameOver && (
-        <div className="start-screen">
+        <div className="start-screen1">
           {/* Animal images placed in corners */}
         {/* <img className="corner-image top-left" src={animal1} alt="Animal 1" />
         <img className="corner-image bottom-right" src={animal4} alt="Animal 1" /> */}
 
-          <div className="start-overlay"> {/* New overlay for readability */}
-            <h1>Brain Performance Test</h1>
+          <div className="start-overlay1"> {/* New overlay for readability */}
+            <h1><b>Brain Performance Test</b></h1>
   
-            <div className="go-stimulus-container"> 
-                <img className="go-stimulus" src={targetImg} alt="Go Stimulus" />
+            <div className="go-stimulus-container1"> 
+                <img className="go-stimulus1" src={targetImg} alt="Go Stimulus" />
               </div>
 
-            <p className="instructions">
+            <p className="instructions1">
             Press the <b>spacebar</b> when you see a <b>child’s face</b>.  
             <b>Do not</b> press any key when you see an <b>animal</b>.  
 
@@ -284,7 +284,7 @@ const renderRecommendation = () => {
           Based on their performance, we will suggest activities to help strengthen their focus and self-control.
             </p>
   
-            <div className="input-group1">
+            <div className="input-group3">
               <input 
                 type="number" 
                 placeholder="Enter Age" 
@@ -295,17 +295,18 @@ const renderRecommendation = () => {
                 required 
               />
             </div>
-            <br></br>
+           <br></br>
   
-            <div className="input-group">
+            <div className="input-group2">
               <select value={gender} onChange={(e) => setGender(e.target.value)} required>
                 <option value="">Select Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </select>
             </div>
+            <br></br>
   
-            <button className="start-button" onClick={startGame} disabled={!age || !gender} style={{ backgroundColor: (!age || !gender) ? "#a2a2a2" : "#4CAF50", cursor: (!age || !gender) ? "not-allowed" : "pointer" }}>
+            <button className="start-button1" onClick={startGame} disabled={!age || !gender} style={{ backgroundColor: (!age || !gender) ? "#a2a2a2" : "#4CAF50", cursor: (!age || !gender) ? "not-allowed" : "pointer" }}>
               Start Game
             </button>
           </div>
@@ -313,37 +314,40 @@ const renderRecommendation = () => {
       )}
   
   {isGameRunning && (
-  <div className="game-container">
-    <div className="stimulus-container">
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+  <div className="game-container1">
+    <div className="stimulus-container1">
+      {errorMessage && <p className="error-message1">{errorMessage}</p>}
       <img className={`stimulus ${slideIn ? "slide-in" : ""}`} src={stimulus} alt="stimulus" />
     </div>
-    <h2>Time Left: {timeLeft}s</h2>
-    <h2>Trials Left: {trialsLeft}/56</h2>
+    <br></br>
+    <b><h2 style={{ marginBottom: "10px" }}>Time Left: {timeLeft}s</h2>
+    <h2 style={{ marginBottom: "15px" }}>Trials Left: {trialsLeft}/56</h2></b>
   </div>
 )}
 
   
 {gameOver && (
-  <div className="results-container"> {/* ✅ White box container */}
-    <h2>Thank You</h2>
-    <p>Age: {age}</p>
-    <p>Gender: {gender}</p>
-    <p>Errors of Omission: {omissionErrorsRef.current}</p>
-    <p>Errors of Commission: {commissionErrorsRef.current}</p>
-    <p>Average Reaction Time: {
+  <div className="results-container1"> {/* ✅ White box container */}
+    <b><h2>Thank You</h2></b><br></br>
+   
+    <p>Age:    {age}</p>
+    <p>Gender:    {gender}</p>
+    <p>Errors of Omission:   {omissionErrorsRef.current}</p>
+    <p>Errors of Commission:  {commissionErrorsRef.current}</p>
+    <p>Average Reaction Time:  {
       (reactionTimesRef.current.length > 0
         ? (reactionTimesRef.current.reduce((sum, time) => sum + time, 0) / reactionTimesRef.current.length).toFixed(2)
         : "0.00") // Prevent division by zero 
     } ms</p>
-
+    
     {/* New section to display ADHD level prediction */}
     <p><strong>Cognitive Defects:</strong> {adhdLevel}</p> <br/>
-
+   
      {/* Display personalized recommendation */}
-     <div className="recommendation">{renderRecommendation()}</div>
+     <div className="recommendation1">{renderRecommendation()}</div>
+  
 
-    <button className="restart-button" onClick={() => window.location.reload()}>Retest</button>
+    <button className="restart-button1" onClick={() => window.location.reload()}>Retest</button>
   </div>
 )}
 

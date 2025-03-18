@@ -8,7 +8,7 @@
 }
 
 /* Container with soft pastel border */
-.game-container {
+.game-container1 {
   text-align: center;
   background: white;
   padding: 20px;
@@ -20,22 +20,22 @@
 }
 
 /* Error Outline */
-.error-outline {
+.error-outline1 {
   border: 3px solid #ff6b6b !important; /* Muted red for error */
 }
 
 /* Stimulus (Image) */
-.stimulus-container {
+.stimulus-container1 {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 200px;
+  height: 240px;
   background-color: #ffffff;
   padding: 20px;
 }
 
-.stimulus-box {
+.stimulus-box1 {
   width: 400px;
   height: 400px;
   background-color: white;
@@ -70,40 +70,40 @@
 }
 
 /* Error Message */
-.error-message {
+.error-message1 {
   color: #ff6b6b; /* Muted red */
   font-size: 18px;
   margin-bottom: 10px;
 }
 
 /* Start Screen - Muted Pastel Theme */
-.start-screen {
+.start-screen1 {
   background: #fff9db; /* Soft pastel yellow */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   text-align: center;
-  max-width: 400px;
+  max-width: 530px;
   width: 100%;
   margin: auto;
   border: 4px solid #a7f3d0; /* Muted pastel green */
 }
 
 /* Title */
-.start-screen h1 {
+.start-screen1 h1 {
   font-size: 24px;
   color: #6a5acd; /* Muted pastel purple */
   margin-bottom: 20px;
 }
 
 /* Input Fields */
-.input-group {
+.input-group1 {
   margin-bottom: 15px;
 }
 
-.input-group input,
-.input-group select {
-  width: 390px;
+.input-group3 input,
+.input-group3 select {
+  width: 440px;
   padding: 10px;
   font-size: 16px;
   border: 2px solid #fbcfe8; /* Soft pastel pink */
@@ -113,8 +113,8 @@
 }
 
 /* Start Button */
-.start-button {
-  width: 100%;
+.start-button1 {
+  width: 40%;
   padding: 12px;
   font-size: 18px;
   background-color: #4CAF50; /* Soft pastel blue */
@@ -125,17 +125,17 @@
   transition: 0.3s;
 }
 
-.start-button:disabled {
+.start-button1:disabled {
   background-color:#6c6c6c;
   cursor: not-allowed;
 }
 
-.start-button:hover:not(:disabled) {
+.start-button1:hover:not(:disabled) {
   background-color: #45a049; /* Slightly deeper pastel blue */
 }
 
 /* Game Instructions - Muted Pastel Brown */
-.instructions {
+.instructions1 {
   font-size: 16px;
   color: #5c4033; /* Soft brown */
   background: #fde9c9; /* Light pastel peach */
@@ -147,13 +147,13 @@
 }
 
 /* Highlight Important Words */
-.instructions strong {
+.instructions1 strong {
   color: #d97706; /* Warm muted orange */
 }
 
 
 /* Overlay for Readability */
-.start-overlay {
+.start-overlay1 {
   background: #fff9db;
   padding: 20px;
   border-radius: 10px;
@@ -179,8 +179,8 @@
 }
 
 /* Input Fields */
-.input-group input,
-.input-group select {
+.input-group2 input,
+.input-group2 select {
   width: 100%;
   padding: 10px;
   font-size: 16px;
@@ -202,60 +202,70 @@
 }
 
 
-.go-stimulus-container {
+.go-stimulus-container1 {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 15px;
 }
 
-.go-stimulus {
+.go-stimulus1 {
   width: 80px;  /* Adjust size for a small circle */
   height: 80px;
   border-radius: 50%; 
   object-fit: cover; 
   border: 3px solid #4CAF50; 
 }
-.results-container {
+.results-container1 {
   background: #fff9db; /* ✅ White box */
   padding: 20px;
   border-radius: 10px; /* ✅ Smooth rounded corners */
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* ✅ Subtle shadow effect */
   text-align: center;
-  width: 80%;
+  width: 100%;
   border: 4px solid #a7f3d0;
-  max-width: 400px; /* ✅ Prevents too wide display */
+  max-width: 500px; /* ✅ Prevents too wide display */
   margin: 30px auto; /* ✅ Centers the box */
 }
 
-.results-container h2 {
-  color: #333; /* Darker text for better readability */
-  margin-bottom: 10px;
+.results-container1 h2 {
+  color: #6a5acd; /* Darker text for better readability */
+  margin-bottom: 9px;
+  font-size: x-large;
 }
 
-.results-container p {
+.results-container1 p {
   color: #555;
   font-size: 16px;
   margin: 5px 0;
 }
 
-.restart-button {
+.restart-button1 {
   background: #4CAF50; /* ✅ Green button (consistent with other styles) */
   color: white;
   border: none;
-  padding: 10px 15px;
-  font-size: 16px;
+  width: 30%;
+  padding: 10px 10px;
+  font-size: 17px;
   cursor: pointer;
   border-radius: 5px;
   margin-top: 15px;
   transition: 0.3s ease;
 }
 
-.restart-button:hover {
+.restart-button1:hover {
   background: #388E3C; /* ✅ Darker green on hover */
 }
 
 
+.results-data {
+  text-align: left;
+  margin-left: 10px; /* Optional spacing */
+}
+
+.click-here1{
+  color: #1c00cf;
+}
 
 
 

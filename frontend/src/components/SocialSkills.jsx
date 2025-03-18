@@ -3,7 +3,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 
-const TextChatbot = () => {
+const SocialSkills = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userResponse, setUserResponse] = useState('');
@@ -116,83 +116,97 @@ const TextChatbot = () => {
       Swal.fire('Error', 'Please provide a response.', 'error');
       return;
     }
-
+  
     try {
       const response = await axios.post('http://localhost:5000/api/social-skills/check-response', { text: userResponse });
       const { isPositive } = response.data;
-
+  
       // Save the user's response
-      setUserResponses((prevResponses) => [
-        ...prevResponses,
+      const updatedResponses = [
+        ...userResponses,
         { question: questions[currentQuestionIndex].scenario, response: userResponse, isPositive },
-      ]);
-
+      ];
+      setUserResponses(updatedResponses);
+  
       if (isPositive) {
-        const utterance = new SpeechSynthesisUtterance("Great job! Your response is correct.");
-        utterance.voice = femaleVoice;
-        speechSynth.speak(utterance);
-
+        // Randomized success messages
+        const successMessages = [
+          "Awesome! You're doing great!",
+          "Fantastic! Keep up the good work!",
+          "Well done! That was a great response!",
+          "Excellent! You're on the right track!",
+        ];
+        const randomSuccessMessage = successMessages[Math.floor(Math.random() * successMessages.length)];
+  
+        if (speechSynth && femaleVoice) {
+          const utterance = new SpeechSynthesisUtterance(randomSuccessMessage);
+          utterance.voice = femaleVoice;
+          speechSynth.speak(utterance);
+        }
+  
         Swal.fire({
           title: 'Success',
-          text: 'Great job! Your response is correct.',
+          text: randomSuccessMessage,
           icon: 'success',
           confirmButtonText: 'OK'
-        }).then(() => {
-          if (currentQuestionIndex < 4) {
-            setCurrentQuestionIndex((prev) => prev + 1);
-          } else {
-            navigate('/feedback', { state: { userResponses } }); // Redirect to feedback page
-          }
-          setUserResponse('');
-        });
+        }).then(() => proceedToNextQuestion(updatedResponses));
       } else {
         const correctResponses = [
           questions[currentQuestionIndex].response1,
           questions[currentQuestionIndex].response2,
           questions[currentQuestionIndex].response3,
-        ];
-
-        const formattedSuggestions = correctResponses
-          .map((response, index) => `${index + 1}. ${response}`)
-          .join('<br>');
-
-        const suggestionText = `Here are some better responses: ${correctResponses.join('. ')}`;
-        const utterance = new SpeechSynthesisUtterance(suggestionText);
-        utterance.voice = femaleVoice;
-        speechSynth.speak(utterance);
-
+        ].filter(Boolean); // Remove any undefined/null responses
+  
+        const formattedSuggestions = correctResponses.length > 0
+          ? correctResponses.map((response, index) => `${index + 1}. ${response}`).join('<br>')
+          : "Try expressing your thoughts in a friendly and positive way!";
+  
+        const suggestionText = correctResponses.length > 0
+          ? `Here are some better responses: ${correctResponses.join('. ')}`
+          : "Think about how you would respond in a kind and understanding way.";
+  
+        if (speechSynth && femaleVoice) {
+          const utterance = new SpeechSynthesisUtterance(suggestionText);
+          utterance.voice = femaleVoice;
+          speechSynth.speak(utterance);
+        }
+  
         Swal.fire({
           title: 'Oops!',
           html: `Here are some better responses:<br>${formattedSuggestions}`,
           icon: 'info',
           confirmButtonText: 'OK'
-        }).then(() => {
-          if (currentQuestionIndex < 4) {
-            setCurrentQuestionIndex((prev) => prev + 1);
-          } else {
-            navigate('/feedback', { state: { userResponses } }); // Redirect to feedback page
-          }
-          setUserResponse('');
-        });
+        }).then(() => proceedToNextQuestion(updatedResponses));
       }
     } catch (error) {
       console.error('Error checking response:', error);
       Swal.fire('Error', 'Failed to check your response.', 'error');
     }
   };
+  
+  // Function to proceed to the next question or navigate to feedback
+  const proceedToNextQuestion = (updatedResponses) => {
+    if (currentQuestionIndex < 4) {
+      setCurrentQuestionIndex((prev) => prev + 1);
+    } else {
+      navigate('/feedback', { state: { userResponses: updatedResponses } });
+    }
+    setUserResponse('');
+  };
+  
 
   if (loading) {
-    return <div className="min-h-screen flex items-center justify-center bg-gray-100">Loading questions...</div>;
+    return <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50">Loading questions...</div>;
   }
 
   if (questions.length === 0) {
-    return <div className="min-h-screen flex items-center justify-center bg-gray-100">No questions available. Please try again later.</div>;
+    return <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50">No questions available. Please try again later.</div>;
   }
 
   const currentQuestion = questions[currentQuestionIndex];
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-500 p-4">
       <div className="bg-white rounded-lg shadow-lg w-full max-w-2xl p-6">
         <h1 className="text-3xl font-bold text-center text-blue-800 mb-6">ADHD Social Skills Chat</h1>
         <div className="bg-blue-100 p-4 rounded-lg mb-6">
@@ -239,4 +253,4 @@ const TextChatbot = () => {
   );
 };
 
-export default TextChatbot;
+export default SocialSkills;
