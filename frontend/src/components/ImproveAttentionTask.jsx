@@ -208,70 +208,93 @@ const ImproveAttentionTask = () => {
   };
 
   return (
-    <div className="game-wrapper3">
-      {!isGameRunning && !gameOver && (
-        <div className="start-screen3">
-          {/* Back Icon */}
-    <div className="back-container3" onClick={() => window.history.back()}>
-      <span className="back-icon"><FaArrowLeft /></span>
-    </div>
-    <br></br>
-          <b><h1>Attention Improving Game </h1></b>
-          <div className="go-stimulus-container3"> 
-                <img className="go-stimulus3" src={targetImg} alt="Go Stimulus" />
-              </div>
-          <p className="instructions3">
-            Press the <b>spacebar</b> when you see a <b>Elephant.</b>  
-            <b>Do not</b> press any key when you see other <b>animals</b>.  
-            The game will run for <b>56 trials</b> for <b>2 minutes</b>.  
-            Try to respond as quickly and accurately as possible. 
-          </p>
-          <button className="start-button3" onClick={startGame}>
-            Start Game
-          </button>
+    <div className="flex justify-center items-center h-screen bg-gradient-to-r from-blue-200 via-purple-200 to-purple-300">
+    {!isGameRunning && !gameOver && (
+      <div className="bg-[#F5F1E9] p-5 rounded-lg shadow-lg max-w-md w-full border-4 border-green-200 text-center mx-auto">
+        <br />
+        <h1 className="text-2xl font-bold text-purple-600 mb-5">Attention Improving Game</h1>
+        <div className="flex justify-center items-center mb-4">
+          <img
+            className="w-20 h-20 rounded-full object-cover border-4 border-green-600"
+            src={targetImg}
+            alt="Go Stimulus"
+          />
         </div>
-      )}
+        <p className="text-left text-brown-700 bg-yellow-100 p-3 rounded mb-4 leading-relaxed" style={{ color: '#5c4033', backgroundColor: '#fde9c9' }}>
+          Press the <b>spacebar</b> when you see a <b>Elephant.</b>{' '}
+          <b>Do not</b> press any key when you see other <b>animals</b>. The game will run for{' '}
+          <b>56 trials</b> for <b>2 minutes</b>. Try to respond as quickly and accurately as possible.
+        </p>
+        <button
+          className="w-full py-3 text-lg bg-green-600 text-white rounded hover:bg-green-700 disabled:bg-green-200 disabled:cursor-not-allowed transition"
+          onClick={startGame}
+          disabled={false /* adjust if needed */}
+        >
+          Start Game
+        </button>
+      </div>
+    )}
 
       {isGameRunning && (
-        <div className="game-container3">
-          <div className="stimulus-container3">
+        <div className="text-center bg-white p-5 w-[500px] h-[410px] rounded-lg shadow-md border-2 border-transparent transition-all duration-300">
+        <div className="flex flex-col items-center justify-center h-[240px] bg-white p-5">
             {errorMessage && <p className="error-message3">{errorMessage}</p>}
             <img className={`stimulus ${slideIn ? "slide-in" : ""}`} src={stimulus} alt="stimulus" />
           </div>
           <br/>
-          <b><h2 style={{ marginBottom: "10px" }}>Time Left: {timeLeft}s</h2>
-          <h2 style={{ marginBottom: "15px" }}>Trials Left: {trialsLeft}/56</h2>
-          <div className="score-display3" style={{ marginTop: "20px" }}>
-            <span className="star-icon">⭐</span> Score: {score}
-          </div></b><br/>
+          <h2 className="mb-2 font-bold text-xl">Time Left: {timeLeft}s</h2>
+        <h2 className="mb-4 font-bold text-xl">Trials Left: {trialsLeft}/56</h2>
+        <div className="mt-5 font-bold text-xl flex items-center justify-center space-x-2">
+          <span className="text-yellow-400 text-2xl">⭐</span> Score: {score}
         </div>
-      )}
+        <br />
+      </div>
+    )}
 
-      {gameOver && !isGameOverDueToErrors && (
-        <div className="results-screen3">
-          <b><h2>Excellent performance!</h2></b>
-          <div className="score-display3">
-            <b>
-            <span className="star-icon">⭐</span> Your Score: {score}
-            </b>
-          </div>
-          <br></br>
-          <button className="restart-button3" onClick={() => window.location.href = '/improve-attention'}>Restart</button>
-          <button className="retest-button3" onClick={() => window.location.href = '/go'}>Retest</button>
+    {gameOver && !isGameOverDueToErrors && (
+      <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#F5F1E9] border-4 border-green-200 p-7 w-[400px] rounded-lg shadow-md text-center animate-fadeIn">
+        <h2 className="text-2xl font-bold text-purple-600 mb-5">Excellent performance!</h2>
+        <div className="font-bold text-xl flex items-center justify-center space-x-2 mb-5">
+          <span className="text-yellow-400 text-2xl">⭐</span> Your Score: {score}
         </div>
-      )}
+        <br />
+        <div className="flex space-x-4 justify-center">
+          <button
+            className="flex-1 bg-green-600 text-white py-3 rounded hover:bg-green-700 transition"
+            onClick={() => window.location.href = '/improve-attention'}
+          >
+            Restart
+          </button>
+          <button
+            className="flex-1 bg-blue-400 text-white py-3 rounded hover:bg-blue-500 transition"
+            onClick={() => window.location.href = '/go'}
+          >
+            Retest
+          </button>
+        </div>
+      </div>
+    )}
 
-{isGameOverDueToErrors && ( 
-  <div className="game-over-popup3"> 
-    <b><h2>Game Over!</h2></b><br/>
-    <div className="popup-buttons3">
-      <button className="play-again-btn3" onClick={startGame}>Play Again</button>
-      <button className="play-later-btn3" onClick={() => window.location.href = '/go'}>Play Later</button>
-    </div>
+    {isGameOverDueToErrors && (
+      <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#F5F1E9] border-4 border-green-200 p-7 w-[480px] h-[200px] rounded-lg shadow-md text-center animate-fadeIn">
+        <h2 className="text-3xl font-bold text-purple-600 mb-4">Game Over!</h2><br/>
+        <div className="flex space-x-4 justify-center">
+          <button
+            className="flex-1 bg-green-600 text-white py-3 rounded hover:bg-green-700 transition"
+            onClick={startGame}
+          >
+            Play Again
+          </button>
+          <button
+            className="flex-1 bg-blue-400 text-white py-3 rounded hover:bg-blue-500 transition"
+            onClick={() => window.location.href = '/go'}
+          >
+            Play Later
+          </button>
+        </div>
+      </div>
+    )}
   </div>
-)}
-
-    </div>
   );
 };
 
