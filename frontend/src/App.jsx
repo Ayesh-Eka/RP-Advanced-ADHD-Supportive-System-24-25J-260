@@ -23,6 +23,10 @@ import ChatPopup from './components/ChatPopup';
 import AttentionAdvice from './components/AttentionAdvice';
 import HyperactivityAdvice from './components/HyperactivityAdvice';
 import CombineAdvice from './components/CombineAdvice';
+import FinalizedReport from './pages/FinalizedRepost';
+
+
+
 
 
 
@@ -53,6 +57,7 @@ const App = () => {
             <Route path="/hyperactivity-advice" element={<HyperactivityAdvice />} />
             <Route path="/combine-advice" element={<CombineAdvice />} />
             <Route path="/feedback" element={<FeedbackPage />} />
+            <Route path="/finalized-report" element={<FinalizedReport />} />
 
 
           </Routes>

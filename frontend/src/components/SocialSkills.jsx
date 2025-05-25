@@ -48,10 +48,21 @@ const SocialSkills = () => {
         setIsListening(false);
       };
       recognition.onerror = (event) => {
-        console.error('Speech recognition error:', event.error);
-        setIsListening(false);
-        Swal.fire('Error', 'Speech recognition failed. Please try again.', 'error');
-      };
+          console.error('Speech recognition error:', event.error);
+          setIsListening(false);
+
+          let errorMessage = 'Speech recognition failed.';
+          if (event.error === 'not-allowed') {
+            errorMessage = 'Microphone permission denied.';
+          } else if (event.error === 'network') {
+            errorMessage = 'No internet connection detected.';
+          } else if (event.error === 'service-not-allowed') {
+            errorMessage = 'Speech service is blocked on this browser.';
+          }
+
+          Swal.fire('Error', errorMessage, 'error');
+        };
+
       recognition.onend = () => {
         setIsListening(false);
       };
@@ -111,78 +122,83 @@ const SocialSkills = () => {
   };
 
   // Handle form submission
-  const handleSubmit = async () => {
-    if (!userResponse) {
-      Swal.fire('Error', 'Please provide a response.', 'error');
-      return;
-    }
-  
-    try {
-      const response = await axios.post('http://localhost:5000/api/social-skills/check-response', { text: userResponse });
-      const { isPositive } = response.data;
-  
-      // Save the user's response
-      const updatedResponses = [
-        ...userResponses,
-        { question: questions[currentQuestionIndex].scenario, response: userResponse, isPositive },
+const handleSubmit = async () => {
+  if (!userResponse) {
+    Swal.fire('Error', 'Please provide a response.', 'error');
+    return;
+  }
+
+  const currentQuestion = questions[currentQuestionIndex];
+
+  try {
+    const response = await axios.post('http://localhost:5000/api/social-skills/check-response', {
+      text: userResponse,
+      question: currentQuestion.scenario,
+    });
+
+    const { isPositive } = response.data;
+
+    const updatedResponses = [
+      ...userResponses,
+      { question: currentQuestion.scenario, response: userResponse, isPositive },
+    ];
+    setUserResponses(updatedResponses);
+
+    if (isPositive) {
+      const successMessages = [
+        "Awesome! You're doing great!",
+        "Fantastic! Keep up the good work!",
+        "Well done! That was a great response!",
+        "Excellent! You're on the right track!",
       ];
-      setUserResponses(updatedResponses);
-  
-      if (isPositive) {
-        // Randomized success messages
-        const successMessages = [
-          "Awesome! You're doing great!",
-          "Fantastic! Keep up the good work!",
-          "Well done! That was a great response!",
-          "Excellent! You're on the right track!",
-        ];
-        const randomSuccessMessage = successMessages[Math.floor(Math.random() * successMessages.length)];
-  
-        if (speechSynth && femaleVoice) {
-          const utterance = new SpeechSynthesisUtterance(randomSuccessMessage);
-          utterance.voice = femaleVoice;
-          speechSynth.speak(utterance);
-        }
-  
-        Swal.fire({
-          title: 'Success',
-          text: randomSuccessMessage,
-          icon: 'success',
-          confirmButtonText: 'OK'
-        }).then(() => proceedToNextQuestion(updatedResponses));
-      } else {
-        const correctResponses = [
-          questions[currentQuestionIndex].response1,
-          questions[currentQuestionIndex].response2,
-          questions[currentQuestionIndex].response3,
-        ].filter(Boolean); // Remove any undefined/null responses
-  
-        const formattedSuggestions = correctResponses.length > 0
-          ? correctResponses.map((response, index) => `${index + 1}. ${response}`).join('<br>')
-          : "Try expressing your thoughts in a friendly and positive way!";
-  
-        const suggestionText = correctResponses.length > 0
-          ? `Here are some better responses: ${correctResponses.join('. ')}`
-          : "Think about how you would respond in a kind and understanding way.";
-  
-        if (speechSynth && femaleVoice) {
-          const utterance = new SpeechSynthesisUtterance(suggestionText);
-          utterance.voice = femaleVoice;
-          speechSynth.speak(utterance);
-        }
-  
-        Swal.fire({
-          title: 'Oops!',
-          html: `Here are some better responses:<br>${formattedSuggestions}`,
-          icon: 'info',
-          confirmButtonText: 'OK'
-        }).then(() => proceedToNextQuestion(updatedResponses));
+      const randomSuccessMessage = successMessages[Math.floor(Math.random() * successMessages.length)];
+
+      if (speechSynth && femaleVoice) {
+        const utterance = new SpeechSynthesisUtterance(randomSuccessMessage);
+        utterance.voice = femaleVoice;
+        speechSynth.speak(utterance);
       }
-    } catch (error) {
-      console.error('Error checking response:', error);
-      Swal.fire('Error', 'Failed to check your response.', 'error');
+
+      Swal.fire({
+        title: 'Success',
+        text: randomSuccessMessage,
+        icon: 'success',
+        confirmButtonText: 'OK'
+      }).then(() => proceedToNextQuestion(updatedResponses));
+    } else {
+      const correctResponses = [
+        currentQuestion.response1,
+        currentQuestion.response2,
+        currentQuestion.response3,
+      ].filter(Boolean);
+
+      const formattedSuggestions = correctResponses.length > 0
+        ? correctResponses.map((response, index) => `${index + 1}. ${response}`).join('<br>')
+        : "Try expressing your thoughts in a friendly and positive way!";
+
+      const suggestionText = correctResponses.length > 0
+        ? `Here are some better responses: ${correctResponses.join('. ')}`
+        : "Think about how you would respond in a kind and understanding way.";
+
+      if (speechSynth && femaleVoice) {
+        const utterance = new SpeechSynthesisUtterance(suggestionText);
+        utterance.voice = femaleVoice;
+        speechSynth.speak(utterance);
+      }
+
+      Swal.fire({
+        title: 'Oops!',
+        html: `Here are some better responses:<br>${formattedSuggestions}`,
+        icon: 'info',
+        confirmButtonText: 'OK'
+      }).then(() => proceedToNextQuestion(updatedResponses));
     }
-  };
+  } catch (error) {
+    console.error('Error checking response:', error);
+    Swal.fire('Error', 'Failed to check your response.', 'error');
+  }
+};
+
   
   // Function to proceed to the next question or navigate to feedback
   const proceedToNextQuestion = (updatedResponses) => {
@@ -208,7 +224,7 @@ const SocialSkills = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-500 p-4">
       <div className="bg-white rounded-lg shadow-lg w-full max-w-2xl p-6">
-        <h1 className="text-3xl font-bold text-center text-blue-800 mb-6">ADHD Social Skills Chat</h1>
+        <h1 className="text-3xl font-bold text-center text-blue-800 mb-6">CHATTY CHAMPIONS</h1>
         <div className="bg-blue-100 p-4 rounded-lg mb-6">
           <p className="text-lg text-gray-800">{currentQuestion.scenario}</p>
         </div>

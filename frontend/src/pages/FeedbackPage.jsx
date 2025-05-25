@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 const FeedbackPage = () => {
   const location = useLocation();
@@ -8,17 +11,79 @@ const FeedbackPage = () => {
   // Calculate the score
   const score = userResponses.filter((response) => response.isPositive).length;
 
-  // Provide advice based on the score
-  const advice =
-    score >= 4
-      ? "Excellent! You have great social skills. Keep up the good work!"
-      : score >= 2
-      ? "Good job! You have decent social skills, but there's room for improvement. Keep practicing!"
-      : "You might want to work on your social skills. Don't worry, practice makes perfect!";
+const [advice, setAdvice] = useState("Loading personalized advice...");
+
+
+    useEffect(() => {
+  const fetchAdvice = async () => {
+    try {
+      const res = await axios.post('http://localhost:5000/api/social-skills/get-advice', {
+        score,
+        responses: userResponses,
+      });
+      setAdvice(res.data.advice);
+    } catch (error) {
+      console.error('Failed to get advice from OpenAI:', error);
+      setAdvice("We couldn't fetch personalized advice right now. Please try again later.");
+    }
+  };
+
+  fetchAdvice();
+}, [score, userResponses]);
+
+
+        const downloadReport = () => {
+      const input = document.getElementById('feedback-report');
+      if (!input) {
+        console.error('Report element not found');
+        return;
+      }
+
+      window.scrollTo(0, 0); // Ensure the full content is rendered
+
+      html2canvas(input, {
+        scale: 2,
+        useCORS: true,
+      }).then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+
+        const pdf = new jsPDF('p', 'mm', 'a4');
+        const pageWidth = 210; // A4 size: 210mm wide
+        const pageHeight = 297; // A4 height: 297mm
+        const imgWidth = pageWidth;
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+        let position = 0;
+
+        if (imgHeight < pageHeight) {
+          // Single-page PDF
+          pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+        } else {
+          // Multi-page PDF
+          let remainingHeight = imgHeight;
+
+          while (remainingHeight > 0) {
+            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+            remainingHeight -= pageHeight;
+            position -= pageHeight;
+
+            if (remainingHeight > 0) {
+              pdf.addPage();
+            }
+          }
+        }
+
+        pdf.save('feedback-report.pdf');
+      });
+    };
+
+
+
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-purple-50 p-4 sm:p-6 lg:p-8">
-      <div className="bg-white p-6 sm:p-8 lg:p-10 rounded-2xl shadow-2xl w-full max-w-2xl transform transition-all ">
+      <div id="feedback-report" className="bg-white p-6 sm:p-8 lg:p-10 rounded-2xl shadow-2xl w-full max-w-2xl transform transition-all ">
         {/* Header */}
         <h1 className="text-3xl sm:text-4xl font-bold text-center text-purple-800 mb-6">
           Feedback Report
@@ -68,12 +133,18 @@ const FeedbackPage = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-8 text-center">
+        <div className="mt-8 text-center space-x-4">
           <button
             onClick={() => window.location.href = '/'} // Home
             className="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-all text-sm sm:text-base"
           >
             Home
+          </button>
+          <button
+            onClick={downloadReport} // Download Report
+            className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all text-sm sm:text-base"
+          >
+            Download Report
           </button>
         </div>
       </div>
