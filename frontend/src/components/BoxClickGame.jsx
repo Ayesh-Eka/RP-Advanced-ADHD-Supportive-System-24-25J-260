@@ -144,6 +144,7 @@ const BoxClickGame = () => {
       commissionErrorsRef.current += 1;
       setErrorMessage("Wrong Response! Do not press for animals.");
       setIsError(true);
+      
     }
 
     setTrialsLeft((prev) => prev - 1);
@@ -200,26 +201,35 @@ const renderRecommendation = () => {
       return (
         <p>
           <b>Your child shows signs of attention difficulties.
-            Engaging in activities that improve concentration and attention span could be beneficial.</b> <br/><br/>
-            <Link to="/improve-attention" className="click-here1">Click here</Link> to see suggested activity.
+            Engaging in activities that improve concentration and attention span could be beneficial.</b> <br/><hr class="my-4 border-t-2 border-gray-600" />
+            ඔබේ දරුවා අවධානය යොමු කිරීමේ අපහසුතා පෙන්නුම් කරයි.
+            අවධානය යොමු කිරීමේ කාලය වැඩි දියුණු කරන ක්‍රියාකාරකම්වල යෙදීම ප්‍රයෝජනවත් විය හැකිය.
+            යෝජිත ක්‍රියාකාරකම් බැලීමට "Click here" යන වචනය මත ක්ලික් කරන්න.<br/><br/><Link to="/attention-advice" className="click-here1">Click here</Link> to see suggested activity.
         </p>
       );
     case "High Impulsivity":
       return (
         <p><b>Your child exhibits signs of hyperactivity levels and impulsiveness. 
           They may find it challenging to sit still or wait for turns. 
-          Activities that promote self-control and patience can help.</b> <br/><br/><Link to="/control-impulsiveness" className="click-here1">Click here</Link> to see suggested activity.
+          Activities that promote self-control and patience can help.</b> <br/><hr class="my-4 border-t-2 border-gray-600" />
+          ඔබේ දරුවා අධි ක්‍රියාකාරීත්වයේ සහ ආවේගශීලීත්වයේ ලක්ෂණ පෙන්නුම් කරයි. ඔවුන්ට වාඩි වී 
+            සිටීම හෝ වාරය එනතුරු බලා සිටීම අභියෝගාත්මක විය හැකිය. 
+            ස්වයං පාලනය සහ ඉවසීම ප්‍රවර්ධනය කරන ක්‍රියාකාරකම් උපකාරී විය හැකිය.යෝජිත ක්‍රියාකාරකම් බැලීමට "Click here" යන වචනය මත ක්ලික් කරන්න.<br/><br/><Link to="/hyperactivity-advice" className="click-here1">Click here</Link> to see suggested activity.
         </p>
       );
     case "Combined Deficits":
       return (
         <p><b>Your child shows signs of both attention difficulties and hyperactivity. 
           They may struggle with focus and staying still for extended periods. 
-          Focus-based exercises and calming activities can support their development</b> <br/><br/> <Link to="/train-attention-hyperactivity" className="click-here1">Click here</Link> to see suggested activity.
+          Focus-based exercises and calming activities can support their development</b> <br/><hr class="my-4 border-t-2 border-gray-600" />
+          ඔබේ දරුවා අවධානය යොමු කිරීමේ අපහසුතා සහ අධි ක්‍රියාකාරීත්වය යන දෙකෙහිම ලක්ෂණ පෙන්නුම් කරයි. ඔවුන්ට අවධානය යොමු කිරීමට සහ දිගු වේලාවක් නිශ්චලව සිටීමට අපහසු විය හැකිය. 
+          අවධානය යොමු කිරීම පදනම් කරගත් ව්‍යායාම සහ සන්සුන් කිරීමේ ක්‍රියාකාරකම් ඔවුන්ගේ වර්ධනයට සහාය විය හැකිය.යෝජිත ක්‍රියාකාරකම් බැලීමට "Click here" යන වචනය මත ක්ලික් කරන්න.<br/><br/> <Link to="/combine-advice" className="click-here1">Click here</Link> to see suggested activity.
         </p>
       );
     case "None":
-      return <p><b>Excellent performance! Your child’s cognitive skills are well-developed, and they did a great job!</b></p>;
+      return <p><b>Excellent performance! Your child’s cognitive skills are well-developed, and did a great job!</b>
+       <br/> <hr class="my-4 border-t-2 border-gray-600" />
+       විශිෂ්ට කාර්ය සාධනයක්! ඔබේ දරුවාගේ සංජානන කුසලතා හොඳින් වර්ධනය වී ඇති අතර, විශිෂ්ට කාර්යයක් කළා!<br/><br/></p>;
     default:
       return <p>Processing results...</p>;
   }
@@ -227,6 +237,14 @@ const renderRecommendation = () => {
 
 
   useEffect(() => {
+
+    const handleSpacebar = (event) => {
+      if (event.code === "Space") {
+        event.preventDefault(); // Stop the page from scrolling
+      }
+    };
+
+    
 
     if (isGameRunning) {
       window.addEventListener("keydown", handleKeyDown);
@@ -253,107 +271,147 @@ const renderRecommendation = () => {
   };
 
   return (
-    <div>
-    <div className="game-wrapper1">
+    <div >
       {!isGameRunning && !gameOver && (
-        <div className="start-screen1">
-          {/* Animal images placed in corners */}
-        {/* <img className="corner-image top-left" src={animal1} alt="Animal 1" />
-        <img className="corner-image bottom-right" src={animal4} alt="Animal 1" /> */}
+        <div className="flex justify-center items-center min-h-[190vh] bg-gradient-to-r from-blue-200 via-purple-200 to-purple-300 py-20">
+        <div className="bg-[#F5F1E9] p-5 rounded-lg shadow-2xl text-center max-w-[1100px] w-full  relative">
+          {/* Optional Animal Images */}
+          {/* <img className="absolute top-5 left-5 w-[400px] z-0" src={animal1} alt="Animal 1" />
+          <img className="absolute bottom-5 right-5 w-[400px] z-0" src={animal4} alt="Animal 4" /> */}
 
-          <div className="start-overlay1"> {/* New overlay for readability */}
-            <h1><b>Brain Performance Test</b></h1>
-  
-            <div className="go-stimulus-container1"> 
-                <img className="go-stimulus1" src={targetImg} alt="Go Stimulus" />
-              </div>
+          <div className="bg-[#F5F1E9] p-5 rounded-lg z-10 relative">
+            <h1 className="text-3xl font-bold text-purple-600 mb-7">Welcome to the Cognitive Assessment!</h1>
 
-            <p className="instructions1">
-            Press the <b>spacebar</b> when you see a <b>child’s face</b>.  
-            <b>Do not</b> press any key when you see an <b>animal</b>.  
+            
 
-    
+            <p className="text-[16px] text-brown-800 bg-[#F5F1E9] p-3 rounded-md mb-4 text-left leading-relaxed">
+              <div className="flex justify-center items-center font-bold mb-4">•  You will see a series of images displayed one at a time on the screen. Press the spacebar when you see a child’s face as quickly and accurately as you can. / ඔබට තිරය මත එකින් එක රූප මාලාවක් පෙනෙනු ඇත. ළමා මුහුණක් දුටු විට පමණක් ඔබට හැකි ඉක්මනින් space bar එක ඔබන්න.
+              </div>  
+              <div className="flex justify-center items-center mb-4">
+              <img className="w-28 h-28 rounded-full object-cover border-4 border-green-500" src={targetImg} alt="Go Stimulus" />
+            </div>   <br />
+            <div className="flex justify-center font-bold items-center mb-4"> •	Do not press any key when you see an animal. Stay still and wait for the next image.A new image will appear right after, so be ready to watch carefully again. /
+            සතෙකු දුටු විට කිසිදු යතුරක් ඔබන්න එපා. නිශ්චලව සිට ඊළඟ රූපය එනතෙක් රැඳී සිටින්න. එබැවින් නැවත සූදානම්ව සිටින්න.
+              </div> 
 
-            The game has <b>56 trials</b> and lasts for <b>2 minutes</b>.  
-            Encourage your child to respond as <b>quickly</b> and <b>accurately</b> as possible.
+              <div className="flex justify-center items-center mb-4">
+              <img className="w-28 h-28 rounded-full object-cover border-4 border-green-500 mx-6" src={animal1} alt="No-Go Stimulus" />
+              <img className="w-28 h-28 rounded-full object-cover border-4 border-green-500 mx-6" src={animal2} alt="No-Go Stimulus" />
+              <img className="w-28 h-28 rounded-full object-cover border-4 border-green-500 mx-6" src={animal3} alt="No-Go Stimulus" />
+              <img className="w-28 h-28 rounded-full object-cover border-4 border-green-500 mx-6" src={animal4} alt="No-Go Stimulus" />
+              <img className="w-28 h-28 rounded-full object-cover border-4 border-green-500 mx-6" src={animal5} alt="No-Go Stimulus" />
+            </div>   <br />
+           
+              <br />
+              <b>Tips for parents:</b><br /> Teach your child the above tips.The game has <b>56 trials</b> and lasts for <b>2 minutes</b>.  
+              Encourage your child to respond as <b>quickly</b> and <b>accurately</b> as possible. Suitable for children under 12 years old.<br /><br />
+              
+              <b>Why is this important?</b><br />
+              This test helps us identify your child's attention and impulse control skills.  
+              Based on their performance, we will suggest activities to help strengthen their focus and self-control.
 
-            <br /> <br />
+              <hr class="my-4 border-t-2 border-gray-600" /><br />
+            
+              <b>දෙමාපියන් සඳහා උපදෙස්:</b><br /> ඉහත උපදෙස් ඔබේ දරුවාට උගන්වන්න. 
+ක්‍රීඩාවට <b>වාර 56</b> ක් ඇති අතර එය <b>මිනිත්තු 2 ක් </b> පවතී. <b>හැකි ඉක්මනින්</b> සහ <b>නිවැරදිව</b> ප්‍රතිචාර දැක්වීමට ඔබේ දරුවා දිරිමත් කරන්න. වයස අවුරුදු 12 ට අඩු දරුවන්ට වඩා ප්‍රායෝගික වේ.
 
-           <b>Why is this important ?  </b>   <br />
-          This test helps us identify your child's attention and impulse control skills.  
-          Based on their performance, we will suggest activities to help strengthen their focus and self-control.
+              <br /><br />
+
+              <b>මෙය වැදගත් වන්නේ ඇයි?</b><br />
+              මෙම පරීක්ෂණය ඔබේ දරුවාගේ අවධානය සහ ආවේග පාලන කුසලතා හඳුනා ගැනීමට උපකාරී වේ.
+              ඔවුන්ගේ කාර්ය සාධනය මත පදනම්ව, ඔවුන්ගේ අවධානය සහ ස්වයං පාලනය ශක්තිමත් කිරීමට උපකාරී වන ක්‍රියාකාරකම් අපි යෝජනා කරන්නෙමු.
             </p>
-  
-            <div className="input-group3">
+
+            
+
+            <div className="mb-4">
               <input 
                 type="number" 
                 placeholder="Enter Age" 
                 value={age} 
                 onChange={(e) => setAge(e.target.value)} 
                 min="1" 
-                max="13" 
+                max="13"
                 required 
+                className="w-[500px] p-3 text-base shadow-xl border-2 border-gray-500 rounded-md bg-white text-gray-800"
               />
             </div>
-           <br></br>
-  
-            <div className="input-group2">
-              <select value={gender} onChange={(e) => setGender(e.target.value)} required>
+
+            <div className="mb-4">
+              <select 
+                value={gender} 
+                onChange={(e) => setGender(e.target.value)} 
+                required 
+                className="w-[500px] p-3 text-base border-2 border-gray-500 rounded-md shadow-xl bg-white text-gray-800"
+              >
                 <option value="">Select Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </select>
             </div>
             <br></br>
-  
-            <button className="start-button1" onClick={startGame} disabled={!age || !gender} style={{ backgroundColor: (!age || !gender) ? "#a2a2a2" : "#4CAF50", cursor: (!age || !gender) ? "not-allowed" : "pointer" }}>
+           
+            <button 
+              className={`w-[30%] py-3 text-lg text-white rounded-md transition ${
+                !age || !gender ? "bg-gray-500 cursor-not-allowed" : "bg-green-600 hover:bg-green-700 cursor-pointer"
+              }`}
+              onClick={startGame}
+              disabled={!age || !gender}
+            >
               Start Game
             </button>
-          </div>
+            </div> 
+        </div>
         </div>
       )}
-  
+     
+   
   {isGameRunning && (
-  <div className="game-container1">
-    <div className="stimulus-container1">
-      {errorMessage && <p className="error-message1">{errorMessage}</p>}
+  <div className="flex justify-center items-center min-h-[90vh] bg-gradient-to-r from-blue-200 via-purple-200 to-purple-300  py-20">
+  <div className="text-center bg-[#F5F1E9] p-5 w-[500px] h-[400px] rounded-lg shadow-md border-4 border-transparent transition-all duration-300" >
+  <div className="flex flex-col justify-center items-center h-[240px] bg-[#F5F1E9] p-5">
+    {errorMessage && <p className="text-red-500 text-lg mb-2">{errorMessage}</p>}
       <img className={`stimulus ${slideIn ? "slide-in" : ""}`} src={stimulus} alt="stimulus" />
     </div>
     <br></br>
-    <b><h2 style={{ marginBottom: "10px" }}>Time Left: {timeLeft}s</h2>
-    <h2 style={{ marginBottom: "15px" }}>Trials Left: {trialsLeft}/56</h2></b>
+    <b><h2 className="text-lg font-bold mb-2">Time Left: {timeLeft}s</h2>
+    <h2 className="text-lg font-bold mb-4">Trials Left: {trialsLeft}/56</h2></b>
+  </div>
   </div>
 )}
 
   
 {gameOver && (
-  <div className="results-container1"> {/* ✅ White box container */}
-    <b><h2>Thank You</h2></b><br></br>
-   
-    <p>Age:    {age}</p>
-    <p>Gender:    {gender}</p>
-    <p>Errors of Omission:   {omissionErrorsRef.current}</p>
-    <p>Errors of Commission:  {commissionErrorsRef.current}</p>
-    <p>Average Reaction Time:  {
-      (reactionTimesRef.current.length > 0
-        ? (reactionTimesRef.current.reduce((sum, time) => sum + time, 0) / reactionTimesRef.current.length).toFixed(2)
-        : "0.00") // Prevent division by zero 
-    } ms</p>
-    
-    {/* New section to display ADHD level prediction */}
-    <p><strong>Cognitive Defects:</strong> {adhdLevel}</p> <br/>
-   
-     {/* Display personalized recommendation */}
-     <div className="recommendation1">{renderRecommendation()}</div>
-  
+  <div className="flex justify-center items-center min-h-[105vh] bg-gradient-to-r from-blue-200 via-purple-200 to-purple-300  py-20">
+        <div className="bg-[#F5F1E9] p-5 text-[17px] rounded-lg shadow-2xl text-center  max-w-[800px]  mx-auto mt-8">
+          <h2 className="text-purple-600 mb-4 text-3xl font-bold">Thank You</h2><br/>
+          <p className="text-gray-700  ">Age: {age}</p>
+          <p className="text-gray-700 ">Gender: {gender}</p>
+          <p className="text-gray-700 ">Errors of Omission: {omissionErrorsRef.current}</p>
+          <p className="text-gray-700 ">Errors of Commission: {commissionErrorsRef.current}</p>
+          <p className="text-gray-700 ">
+            Average Reaction Time: {
+              (reactionTimesRef.current.length > 0
+                ? (reactionTimesRef.current.reduce((sum, time) => sum + time, 0) / reactionTimesRef.current.length).toFixed(2)
+                : "0.00")
+            } ms
+          </p>
+          <div ><p className="font-semibold mt-4">Cognitive Defects: {adhdLevel}</p><br/>
+          <div className="" >{renderRecommendation()}</div></div> <br/>
+          
 
-    <button className="restart-button1" onClick={() => window.location.reload()}>Retest</button>
-  </div>
-)}
-
+          <button 
+            className="bg-green-600 text-white px-4 w-[30%] py-3 text-lg rounded-md mt-4 hover:bg-green-700 transition"
+            onClick={() => window.location.reload()}
+          >
+            Retest
+          </button><br/>
+        </div>
+        </div>
+      )}
+      
     </div>
 
-    </div>
   );
   
 };

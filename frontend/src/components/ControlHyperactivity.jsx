@@ -191,6 +191,25 @@ const handleKeyUp = (event) => {
   };
 
   return (
+    <div className="flex justify-center items-center h-screen bg-gradient-to-r from-blue-200 via-purple-200 to-purple-300">
+  {!isGameRunning && !gameOver && !showCalmPopup && (
+    <div className="bg-[#F5F1E9] p-6 rounded-xl shadow-lg text-center w-full max-w-md border-4 border-green-200">
+      <br />
+      <h1 className="text-2xl font-bold text-purple-600 mb-5">Control Hyperactivity Task</h1>
+      <div className="flex justify-center items-center mb-4">
+        <img className="w-20 h-20 rounded-full object-cover border-4 border-green-600" src={goImage} alt="Go Stimulus" />
+      </div>
+      <p className="text-sm text-brown-800 bg-orange-100 p-3 rounded mb-4 text-left leading-relaxed">
+        Press the <b>spacebar</b> when you see a <b>Child's Face.</b>
+        <b> Do not</b> press any key when you see an <b>animal</b>.
+        The game will run for <b>56 trials</b> and last <b>2 minutes</b>.
+      </p>
+      <button
+        className="w-full py-3 text-lg bg-green-600 text-white rounded hover:bg-green-700 transition"
+        onClick={startGame}
+      >
+        Start Game
+      </button>
     <div className="game-wrapper2">
       {!isGameRunning && !gameOver && !showCalmPopup && (
         <div className="start-screen2">
@@ -202,33 +221,23 @@ const handleKeyUp = (event) => {
           <div className="go-stimulus-container2"> 
       <img className="go-stimulus2" src={goImage} alt="Go Stimulus" />
     </div>
-          <p className="instructions2">
-            Press the <b>spacebar</b> when you see a <b>Child's Face. </b>  
-            <b>Do not</b> press any key when you see a <b>animal</b>.  
-            The game will run for <b>56 trials. </b> and last <b>2 minutes</b>.  
-          </p>
-          
-
-          <button className="start-button2" onClick={startGame}>
-            Start Game
-          </button>
-        </div>
       )}
 
       {isGameRunning && (
-        <div className="game-container2"><br/>
-          <div className="stimulus-container2">
-            {errorMessage && <p className="error-message2">{errorMessage}</p>}
+        <div className="text-center bg-white p-6 w-[500px] h-[420px] rounded-lg shadow-md">
+        <br />
+        <div className="flex flex-col justify-center items-center h-[240px] bg-white p-4">
+          {errorMessage && <p className="text-red-400 text-lg mb-2">{errorMessage}</p>}
             <img className={`stimulus ${slideIn ? "slide-in" : ""}`} src={stimulus} alt="stimulus" /><br/>
           </div>
-          <b><h2 style={{ marginBottom: "15px" }}>Time Left: {timeLeft}s</h2>
-          <h2 style={{ marginBottom: "20px" }}>Trials Left: {trialsLeft}/56</h2></b>
-          <div className="score-display2" style={{ marginBottom: "15px" }}>
-            <b>
-            <span className="star-icon">⭐</span> Your Score: {score}
-            </b>
-          </div>
-        </div>
+          <h2 className="font-bold mb-3">Time Left: {timeLeft}s</h2>
+      <h2 className="font-bold mb-5">Trials Left: {trialsLeft}/56</h2>
+      <div className="mb-3">
+        <b>
+          <span>⭐</span> Your Score: {score}
+        </b>
+      </div>
+    </div>
       )}
       {gameOver && (
         <div className="results-screen2">

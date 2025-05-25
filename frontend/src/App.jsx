@@ -19,8 +19,12 @@ import ImproveAttentionTask from "./components/ImproveAttentionTask";
 import ControlHyperactivity from "./components/ControlHyperactivity";
 import TrainAttentionHyperactivity from "./components/TrainAttentionHyperactivity";
 import FeedbackPage from './pages/FeedbackPage';
-import ChatPopup from './components/ChatPopup'; // Import ChatPopup
+import ChatPopup from './components/ChatPopup';
+import AttentionAdvice from './components/AttentionAdvice';
+import HyperactivityAdvice from './components/HyperactivityAdvice';
+import CombineAdvice from './components/CombineAdvice';
 import FinalizedReport from './pages/FinalizedRepost';
+
 
 
 
@@ -49,6 +53,9 @@ const App = () => {
             <Route path="/improve-attention" element={<ImproveAttentionTask />} />
             <Route path="/control-impulsiveness" element={<ControlHyperactivity />} />
             <Route path="/train-attention-hyperactivity" element={<TrainAttentionHyperactivity />} />
+            <Route path="/attention-advice" element={<AttentionAdvice />} />
+            <Route path="/hyperactivity-advice" element={<HyperactivityAdvice />} />
+            <Route path="/combine-advice" element={<CombineAdvice />} />
             <Route path="/feedback" element={<FeedbackPage />} />
             <Route path="/finalized-report" element={<FinalizedReport />} />
 
