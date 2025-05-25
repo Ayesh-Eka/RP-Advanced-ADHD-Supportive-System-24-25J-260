@@ -9,7 +9,7 @@ const CombineAdvice = () => {
 
   return (
     <div className="min-h-[270vh] flex justify-center items-center h-screen bg-gradient-to-r from-blue-200 via-purple-200 to-purple-300">
-      <div className="bg-[#F5F1E9] p-5 rounded-lg shadow-2xl p-6  text-center w-[1400px]">
+      <div className="bg-[#F5F1E9]  rounded-lg shadow-2xl p-6  text-center w-[1400px]">
         <div className="mb-4">
           <h2 className="text-3xl font-bold text-[#6a5acd]">Let's Boost Attention and Control Hyperactivity of Your Kid</h2>
         </div>

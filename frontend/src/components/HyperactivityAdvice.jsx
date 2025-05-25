@@ -27,7 +27,7 @@ const HyperactivityAdvice = () => {
           ඔබට නැවත පරීක්ෂණයට පෙනී සිටිය හැකිය, නැතහොත් වෙනත් සංජානන ක්‍රියාකාරකම් උත්සාහ කළ හැකිය.
           </p>
         </div>
-        <div className=" text-left text-[15px] text-[#5c4033] font-bold bg-[#F2E6D9] p-3 rounded-md mb-4 leading-relaxed text-base leading-10">
+        <div className=" text-left text-[15px] text-[#5c4033] font-bold bg-[#F2E6D9] p-3 rounded-md mb-4 leading-relaxed text-base">
         <div className="mx-20"></div>
         🕒 Maintain a consistent daily schedule for activities such as waking up, meals, homework, play, and bedtime. Predictable routines help your child feel secure and reduce restlessness. / අවදි වීම, ආහාර ගැනීම, ගෙදර වැඩ, සෙල්ලම් කිරීම සහ නින්දට යාම වැනි ක්‍රියාකාරකම් සඳහා ස්ථාවර දෛනික කාලසටහනක් පවත්වා ගන්න. පුරෝකථනය කළ හැකි දින චර්යාවන් ඔබේ දරුවාට ආරක්ෂිත බවක් දැනීමට සහ නොසන්සුන්තාවය අඩු කිරීමට උපකාරී වේ. <br /><br />
         🏡  Set up a quiet, clutter-free space where your child can focus on tasks like studying or reading. Use visual aids like charts, calendars, and timers to help them stay on track. / ඔබේ දරුවාට පාඩම් කිරීම හෝ කියවීම වැනි කාර්යයන් කෙරෙහි අවධානය යොමු කළ හැකි නිහඬ, අවුල් සහගත නොවන ඉඩක් සකසන්න. ඔවුන්ට මාර්ගයේ රැඳී සිටීමට උපකාර කිරීම සඳහා ප්‍රස්ථාර, දින දර්ශන සහ ටයිමර් වැනි දෘශ්‍ය ආධාරක භාවිතා කරන්න. <br /><br />
@@ -35,7 +35,7 @@ const HyperactivityAdvice = () => {
         🔢 When asking your child to make a decision, limit the number of options. For example, ask “Do you want to do your homework now or after your snack?” This reduces decision fatigue and impulsive behavior. / ඔබේ දරුවාගෙන් තීරණයක් ගැනීමට ඉල්ලා සිටින විට, විකල්ප ගණන සීමා කරන්න. උදාහරණයක් ලෙස, "ඔබට දැන් ගෙදර වැඩ කරන්න අවශ්‍යද නැත්නම් ඔබේ කෑම වේලෙන් පසුවද?" යනුවෙන් අසන්න. මෙය තීරණ ගැනීමේ තෙහෙට්ටුව සහ ආවේගශීලී හැසිරීම් අඩු කරයි.<br /><br />
         🌟 Recognize and praise your child’s efforts and good behavior immediately and consistently. Small rewards, like stickers or extra playtime, can reinforce positive actions and encourage self-control. / ඔබේ දරුවාගේ උත්සාහයන් සහ යහපත් හැසිරීම වහාම සහ අඛණ්ඩව හඳුනාගෙන ප්‍රශංසා කරන්න. ස්ටිකර් හෝ අමතර ක්‍රීඩා කාලය වැනි කුඩා ත්‍යාග මගින් ධනාත්මක ක්‍රියාවන් ශක්තිමත් කළ හැකි අතර ස්වයං පාලනය දිරිමත් කළ හැකිය. <br /><br />
   🎮  Give your child to play Hyperactivity Control games that displays below / ඔබේ දරුවාට පහත දැක්වෙන අධි ක්‍රියාකාරීත්ව පාලන ක්‍රීඩා කිරීමට දෙන්න.<br /> 
-  <div className="text-left text-[20px] text-[#5c4033] bg-[#F2E6D9] p-3 rounded-md mb-4 mx-20 leading-relaxed text-base leading-10">
+  <div className="text-left text-[20px] text-[#5c4033] bg-[#F2E6D9] p-3 rounded-md mb-4 mx-20 leading-relaxed text-base">
   •{" "}
   <a href="https://freesimon.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800">
   Simon Says 

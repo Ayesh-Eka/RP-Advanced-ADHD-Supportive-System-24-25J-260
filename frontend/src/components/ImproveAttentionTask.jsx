@@ -208,7 +208,6 @@ const ImproveAttentionTask = () => {
   };
 
   return (
-
     <div className="flex justify-center items-center h-screen bg-gradient-to-r from-blue-200 via-purple-200 to-purple-300">
     {!isGameRunning && !gameOver && (
       <div className="bg-[#F5F1E9] p-5 rounded-lg shadow-lg max-w-md w-full border-4 border-green-200 text-center mx-auto">
@@ -220,29 +219,6 @@ const ImproveAttentionTask = () => {
             src={targetImg}
             alt="Go Stimulus"
           />
-
-    <div className="game-wrapper3">
-      {!isGameRunning && !gameOver && (
-        <div className="start-screen3">
-          {/* Back Icon */}
-    {/* <div className="back-container3" onClick={() => window.history.back()}>
-      <span className="back-icon"><FaArrowLeft /></span>
-    </div> */}
-    <br></br>
-          <b><h1>Attention Improving Game </h1></b>
-          <div className="go-stimulus-container3"> 
-                <img className="go-stimulus3" src={targetImg} alt="Go Stimulus" />
-              </div>
-          <p className="instructions3">
-            Press the <b>spacebar</b> when you see a <b>Elephant.</b>  
-            <b>Do not</b> press any key when you see other <b>animals</b>.  
-            The game will run for <b>56 trials</b> for <b>2 minutes</b>.  
-            Try to respond as quickly and accurately as possible. 
-          </p>
-          <button className="start-button3" onClick={startGame}>
-            Start Game
-          </button>
-
         </div>
         <p className="text-left text-brown-700 bg-yellow-100 p-3 rounded mb-4 leading-relaxed" style={{ color: '#5c4033', backgroundColor: '#fde9c9' }}>
           Press the <b>spacebar</b> when you see a <b>Elephant.</b>{' '}
