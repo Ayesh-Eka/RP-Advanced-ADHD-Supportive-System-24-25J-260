@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 import FinalizedReport from "./FinalizedRepost"
 
 const FollowInstructionsGame = () => {
@@ -93,57 +94,78 @@ const FollowInstructionsGame = () => {
     }
   };
 
-  // Show the final result and save it to local storage
-  const showResult = () => {
-    const percentage = (score / 5) * 100;
-    const followingInstructions = percentage < 50 ? 1 : 0; // 1 if score < 50%, else 0
-    setResult({
-      emoji: percentage < 50 ? "😢" : "😊",
-      message: percentage < 50 ? "Let's try again!" : "Very Good!",
-      score: `${percentage}%`,
-    });
-    setGameOver(true);
+      const showResult = () => {
+        const percentage = (score / 5) * 100;
+        const followingInstructions = percentage < 50 ? 1 : 0; // 1 if score < 50%, else 0
 
-    // Save the result to local storage
-    const storedData = JSON.parse(localStorage.getItem("userInputs")) || {};
-    storedData.following_instructions = followingInstructions; // Add the result to the stored data
-    localStorage.setItem("userInputs", JSON.stringify(storedData));
-    console.log("FollowInstructionsGame result saved to local storage:", storedData);
-  };
+        setResult({
+          emoji: percentage < 50 ? "😢" : "😊",
+          message: percentage < 50 ? "Let's try again!" : "Very Good!",
+          score: `${percentage}%`,
+        });
+
+        setGameOver(true);
+
+        // Save the result to local storage
+        const storedData = JSON.parse(localStorage.getItem("userInputs")) || {};
+        storedData.following_instructions = followingInstructions; // 1 or 0
+        storedData.following_instructions_score = percentage.toFixed(0); // Save raw score %
+        localStorage.setItem("userInputs", JSON.stringify(storedData));
+
+        console.log("FollowInstructionsGame result saved to local storage:", storedData);
+      };
+
+
+  const navigate = useNavigate();
 
   // Handle "Diagnose" button click
-  const handleDiagnoseClick = async () => {
-    const storedData = JSON.parse(localStorage.getItem("userInputs")) || {};
-    try {
-      const response = await axios.post("http://localhost:5000/api/diagnose/predict", storedData, {
+const handleDiagnoseClick = async () => {
+  const storedData = JSON.parse(localStorage.getItem("userInputs")) || {};
+  try {
+    const response = await axios.post(
+      "http://localhost:5000/api/diagnose/predict",
+      storedData,
+      {
         headers: { "Content-Type": "application/json" },
-      });
-  
-      if (response.headers["content-type"].includes("application/json")) {
-        const result = response.data;
-        Swal.fire({
-          title: "Diagnosis Result",
-          text: result.prediction === "1" ? "There is a possibility of ADHD" : "ADHD is less likely",
-          icon: result.prediction === "1" ? "warning" : "success",
-          showCancelButton: true,
-          confirmButtonText: "Go to Finalized Report",
-          cancelButtonText: "Close",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            navigate("/finalized-report"); // Navigate to the finalized report page
-          }
-        });
-      } else {
-        throw new Error("Invalid response format");
       }
-    } catch (error) {
+    );
+
+    if (response.headers["content-type"].includes("application/json")) {
+      const result = response.data;
+
+      // Save the prediction result as a number in localStorage
+      localStorage.setItem("result", result.prediction);
+
       Swal.fire({
-        title: "Error!",
-        text: "Failed to get diagnosis. Please check if the backend is running.",
-        icon: "error",
+        title: "Diagnosis Result",
+        text:
+          result.prediction === "1"
+            ? "There is a possibility of ADHD"
+            : "ADHD is less likely",
+        icon: result.prediction === "1" ? "warning" : "success",
+        showCancelButton: true,
+        confirmButtonText: "Go to Finalized Report",
+        cancelButtonText: "Close",
+      }).then((swalResult) => {
+        if (swalResult.isConfirmed) {
+          setTimeout(() => {
+            navigate("/finalized-report"); // Navigate after modal closes
+          }, 100);
+        }
       });
+    } else {
+      throw new Error("Invalid response format");
     }
-  };
+  } catch (error) {
+    Swal.fire({
+      title: "Error!",
+      text: "Failed to get diagnosis. Please check if the backend is running.",
+      icon: "error",
+    });
+  }
+};
+
+  
 
   // Handle "Start Game" button click
   const handleStartGame = () => {

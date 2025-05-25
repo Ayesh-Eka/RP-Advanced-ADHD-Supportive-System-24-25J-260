@@ -212,9 +212,9 @@ const ImproveAttentionTask = () => {
       {!isGameRunning && !gameOver && (
         <div className="start-screen3">
           {/* Back Icon */}
-    <div className="back-container3" onClick={() => window.history.back()}>
+    {/* <div className="back-container3" onClick={() => window.history.back()}>
       <span className="back-icon"><FaArrowLeft /></span>
-    </div>
+    </div> */}
     <br></br>
           <b><h1>Attention Improving Game </h1></b>
           <div className="go-stimulus-container3"> 

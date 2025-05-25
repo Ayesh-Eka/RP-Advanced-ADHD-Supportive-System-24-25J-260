@@ -1,6 +1,3 @@
-
-
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -8,16 +5,17 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { motion, AnimatePresence } from "framer-motion"; // Import framer-motion
 
+
 const TaskForm = () => {
   const [formData, setFormData] = useState({
     task_name: "",
-    category: "1",
+    category: "", //enter 1
     deadline_date: "",
     days_to_deadline: "",
     interest_level: "",
     duration: "",
     age: "",
-    gender: "1",
+    gender: "",
   });
 
   const [taskList, setTaskList] = useState([]);
@@ -86,7 +84,7 @@ const TaskForm = () => {
 
       Swal.fire({
         title: "Task Prioritized to Eisenhower matrix!",
-        html: `The predicted priority for <strong>${formData.task_name}</strong> is: <br><br>
+        html: `The predicted priority for <strong>${formData.task_name}</strong> - <br><br>
                <span class="text-2xl text-green-600">${predictedPriority}</span>`,
         icon: "success",
         confirmButtonText: "OK",
@@ -172,8 +170,9 @@ const TaskForm = () => {
               onChange={handleCategoryChange}
               className="p-3 border-2 border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
             >
-              <option value="1">Educational</option>
-              <option value="0">Other</option>
+              <option value="">Select Category</option>
+              <option value="1">Structured Tasks(Educational)</option>
+              <option value="0">Relaxing Tasks(Non-Educational)</option>
             </select>
           </div>
 
@@ -229,6 +228,8 @@ const TaskForm = () => {
             <input
               type="number"
               name="age"
+              min="6"
+              max="12"
               value={formData.age}
               onChange={handleChange}
               className="p-3 border-2 border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
@@ -244,6 +245,7 @@ const TaskForm = () => {
               onChange={handleChange}
               className="p-3 border-2 border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
             >
+              <option value="" >Select Gender</option>
               <option value="1">Male</option>
               <option value="2">Female</option>
             </select>
@@ -251,109 +253,109 @@ const TaskForm = () => {
 
           <button
             type="submit"
-            className="col-span-full bg-gradient-to-r from-purple-500 to-pink-500 text-white p-4 rounded-full font-semibold hover:from-purple-600 hover:to-pink-600 transition-all shadow-lg"
+            className="col-span-full  text-white p-4 rounded-full font-semibold  transition-all shadow-lg bg-purple-500 hover:bg-purple-600" 
           >
             Prioritize
           </button>
         </form>
       </div>
 
+
+
       {taskList.length > 0 && (
-        <div className="mt-8 max-w-6xl mx-auto bg-gradient-to-r from-yellow-100 to-pink-100 p-6 rounded-2xl shadow-2xl">
-          <h3 className="text-3xl font-bold text-center text-purple-800 mb-6">Eisenhower Matrix 📊</h3>
-          <button
-            onClick={downloadPdf}
-            className="bg-gradient-to-r from-green-500 to-cyan-500 text-white p-3 rounded-full font-semibold hover:from-green-600 hover:to-cyan-600 transition-all shadow-lg block mx-auto mb-6"
-          >
-            Download as PDF 📄
-          </button>
-          <table id="eisenhower-matrix-table" className="w-full text-center border-collapse">
-            <thead>
-              <tr className="bg-gradient-to-r from-blue-500 to-purple-500 text-white">
-                <th className="p-4">Urgent & Important (High)</th>
-                <th className="p-4">Important but Not Urgent (Medium)</th>
-                <th className="p-4">Neither Urgent Nor Important (Low)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="p-4 border-2 border-purple-300">
-                  {taskList
-                    .filter((task) => task.priority === "Predicted priority: High")
-                    .map((task, index) => (
-                      <div
-                        key={index}
-                        className="flex justify-between items-center p-3 mb-2 bg-red-100 rounded-lg"
-                      >
-                        <span
-                          className={`text-purple-800 ${
-                            task.completed ? "line-through" : ""
-                          }`}
-                        >
-                          {task.taskName}
-                        </span>
-                        <input
-                          type="checkbox"
-                          checked={task.completed}
-                          onChange={() => toggleTaskCompletion(index)}
-                          className="w-5 h-5 accent-purple-500"
-                        />
-                      </div>
-                    ))}
-                </td>
-                <td className="p-4 border-2 border-purple-300">
-                  {taskList
-                    .filter((task) => task.priority === "Predicted priority: Medium")
-                    .map((task, index) => (
-                      <div
-                        key={index}
-                        className="flex justify-between items-center p-3 mb-2 bg-yellow-100 rounded-lg"
-                      >
-                        <span
-                          className={`text-purple-800 ${
-                            task.completed ? "line-through" : ""
-                          }`}
-                        >
-                          {task.taskName}
-                        </span>
-                        <input
-                          type="checkbox"
-                          checked={task.completed}
-                          onChange={() => toggleTaskCompletion(index)}
-                          className="w-5 h-5 accent-purple-500"
-                        />
-                      </div>
-                    ))}
-                </td>
-                <td className="p-4 border-2 border-purple-300">
-                  {taskList
-                    .filter((task) => task.priority === "Predicted priority: Low")
-                    .map((task, index) => (
-                      <div
-                        key={index}
-                        className="flex justify-between items-center p-3 mb-2 bg-green-100 rounded-lg"
-                      >
-                        <span
-                          className={`text-purple-800 ${
-                            task.completed ? "line-through" : ""
-                          }`}
-                        >
-                          {task.taskName}
-                        </span>
-                        <input
-                          type="checkbox"
-                          checked={task.completed}
-                          onChange={() => toggleTaskCompletion(index)}
-                          className="w-5 h-5 accent-purple-500"
-                        />
-                      </div>
-                    ))}
-                </td>
-              </tr>
-            </tbody>
-          </table>
+  <div className="mt-8 max-w-5xl mx-auto bg-gradient-to-r from-yellow-100 to-pink-100 p-6 rounded-2xl shadow-2xl">
+    <h3 className="text-3xl font-bold text-center text-purple-800 mb-6">Eisenhower Chart 📊</h3>
+
+    <button
+      onClick={downloadPdf}
+      className="bg-gradient-to-r from-green-500 to-cyan-500 text-white p-3 rounded-full font-semibold hover:from-green-600 hover:to-cyan-600 transition-all shadow-lg block mx-auto mb-6"
+    >
+      Download as PDF 📄
+    </button>
+
+    {/* Matrix Layout */}
+    <div className="relative w-full h-auto min-h-[500px]" id="eisenhower-matrix-table">
+{/* Vertical line - only top half */}
+<div className="absolute top-0 left-1/2 h-1/2 w-0.5 bg-purple-500 z-0"></div>
+
+{/* Horizontal line - full width */}
+<div className="absolute top-1/2 left-0 right-0 h-0.5 bg-purple-500 z-0"></div>
+
+
+      {/* High Priority - Top Left */}
+      <div className="absolute top-0 left-0 w-1/2 h-1/2 p-4 z-10">
+        <h4 className="text-xl font-bold text-center text-red-600 mb-2">Urgent & Important | High</h4>
+        {taskList
+          .filter((task) => task.priority === "Predicted priority: High")
+          .map((task, index) => (
+            <div
+              key={index}
+              className="flex justify-between items-center p-2 mb-2 bg-red-100 rounded-md"
+            >
+              <span className={`text-purple-800 ${task.completed ? "line-through" : ""}`}>
+                {task.taskName}
+              </span>
+              <input
+                type="checkbox"
+                checked={task.completed}
+                onChange={() => toggleTaskCompletion(index)}
+                className="w-5 h-5 accent-purple-500"
+              />
+            </div>
+          ))}
+      </div>
+
+      {/* Medium Priority - Top Right */}
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 p-4 z-10">
+        <h4 className="text-xl font-bold text-center text-yellow-600 mb-2">Important but Not Urgent | Medium</h4>
+        {taskList
+          .filter((task) => task.priority === "Predicted priority: Medium")
+          .map((task, index) => (
+            <div
+              key={index}
+              className="flex justify-between items-center p-2 mb-2 bg-yellow-100 rounded-md"
+            >
+              <span className={`text-purple-800 ${task.completed ? "line-through" : ""}`}>
+                {task.taskName}
+              </span>
+              <input
+                type="checkbox"
+                checked={task.completed}
+                onChange={() => toggleTaskCompletion(index)}
+                className="w-5 h-5 accent-purple-500"
+              />
+            </div>
+          ))}
+      </div>
+
+      {/* Low Priority - Bottom Center */}
+      <div className="absolute bottom-0 left-0 w-full h-1/2 p-4 z-10">
+        <h4 className="text-xl font-bold text-center text-green-600 mb-2">Neither Urgent Nor Important | Low</h4>
+        <div className="w-3/4 mx-auto">
+          {taskList
+            .filter((task) => task.priority === "Predicted priority: Low")
+            .map((task, index) => (
+              <div
+                key={index}
+                className="flex justify-between items-center p-2 mb-2 bg-green-100 rounded-md"
+              >
+                <span className={`text-purple-800 ${task.completed ? "line-through" : ""}`}>
+                  {task.taskName}
+                </span>
+                <input
+                  type="checkbox"
+                  checked={task.completed}
+                  onChange={() => toggleTaskCompletion(index)}
+                  className="w-5 h-5 accent-purple-500"
+                />
+              </div>
+            ))}
         </div>
-      )}
+      </div>
+    </div>
+  </div>
+)}
+
 
       {/* Wallet Balance */}
       <div className="fixed bottom-4 right-4 bg-gradient-to-r from-purple-500 to-pink-500 p-4 rounded-2xl shadow-lg">

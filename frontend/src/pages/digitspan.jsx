@@ -62,22 +62,26 @@ const DigitSpanTest = () => {
     }
   };
 
-  // Show the final result and save it to local storage
-  const showFinalResult = () => {
-    const percentage = (score / sequences.length) * 100;
-    const difficultyFocusing = percentage < 50 ? 1 : 0; // 1 if score < 50%, else 0
-    setResult({
-      emoji: percentage >= 50 ? "😊" : "😢",
-      message: percentage >= 50 ? "Very Good!" : "Let's try again!",
-      value: difficultyFocusing,
-    });
+      const showFinalResult = () => {
+        const percentage = (score / sequences.length) * 100;
+        const roundedPercentage = `${Math.round(percentage)}%`; // e.g., "80%"
+        const difficultyFocusing = percentage < 50 ? 1 : 0;
 
-    // Save the result to local storage
-    const storedData = JSON.parse(localStorage.getItem("userInputs")) || {};
-    storedData.focus_difficulty = difficultyFocusing; // Add the result to the stored data
-    localStorage.setItem("userInputs", JSON.stringify(storedData));
-    console.log("DigitSpan Test result saved to local storage:", storedData);
-  };
+        setResult({
+          emoji: percentage >= 50 ? "😊" : "😢",
+          message: percentage >= 50 ? "Very Good!" : "Let's try again!",
+          value: difficultyFocusing,
+        });
+
+        // Save the result to local storage
+        const storedData = JSON.parse(localStorage.getItem("userInputs")) || {};
+        storedData.focus_difficulty = difficultyFocusing;
+        storedData.digit_span_score = roundedPercentage; // ✅ Save the score percentage
+        localStorage.setItem("userInputs", JSON.stringify(storedData));
+
+        console.log("DigitSpan Test result saved to local storage:", storedData);
+      };
+
 
   // Handle "Next Game" button click
   const handleNextButtonClick = () => {

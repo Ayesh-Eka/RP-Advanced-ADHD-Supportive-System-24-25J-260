@@ -46,14 +46,19 @@ const StroopTest = () => {
     setCurrentQuestion(currentQuestion + 1);
   };
 
-  // Save the result to local storage
-  const saveResultToLocalStorage = () => {
-    const EasilyDistracted = score / totalQuestions < 0.5 ? 1 : 0; // 1 if score < 50%, else 0
-    const storedData = JSON.parse(localStorage.getItem("userInputs")) || {};
-    storedData.easily_distracted = EasilyDistracted; // Add the result to the stored data
-    localStorage.setItem("userInputs", JSON.stringify(storedData));
-    console.log("Stroop Test result saved to local storage:", storedData);
-  };
+      // Save the result to local storage// Save the result to local storage
+    const saveResultToLocalStorage = () => {
+      const EasilyDistracted = score / totalQuestions < 0.5 ? 1 : 0; // 1 if score < 50%, else 0
+      const scorePercentage = `${Math.round((score / totalQuestions) * 100)}%`; // e.g., "80%"
+
+      const storedData = JSON.parse(localStorage.getItem("userInputs")) || {};
+      storedData.easily_distracted = EasilyDistracted;
+      storedData.stroop_score = scorePercentage; // ✅ Save the score percentage
+      localStorage.setItem("userInputs", JSON.stringify(storedData));
+
+      console.log("Stroop Test result saved to local storage:", storedData);
+    };
+
 
   // Handle "Next Game" button click
   const handleNextButtonClick = () => {

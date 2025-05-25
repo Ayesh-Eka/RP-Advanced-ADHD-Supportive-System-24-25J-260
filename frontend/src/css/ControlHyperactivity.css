@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 100vh;
     background: linear-gradient(to right, #ffadad, #ffd6a5, #fdffb6, #caffbf, #9bf6ff, #a0c4ff, #bdb2ff);
   }
   
@@ -340,8 +340,8 @@
   
   /* Positioning */
   position: absolute;
-  top: 170px;  /* Distance from the top */
-  left: 570px; /* Distance from the left */
+  top: 280px;  /* Distance from the top */
+  left: 655px; /* Distance from the left */
 }
 
 /* Hover effect */
