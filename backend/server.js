@@ -10,6 +10,7 @@ const TaskPrioritizationRoutes = require('./routes/TaskPrioritizationRoutes');
 const CognitiveTrainingRoutes = require('./routes/cognitiveTrainingRoute');
 const authRoutes = require('./routes/authRoutes'); // Import authRoutes
 const chatRoutes = require('./routes/chatRoutes'); // Import chatRoutes
+const getAdvice = require("./routes/getAdvice");
 
 
 const app = express();
@@ -35,6 +36,7 @@ const testDatabaseConnection = async () => {
 
 // Routes
 app.use('/api/social-skills', socialSkillsRoutes); // Add socialSkillsRoutes
+app.use('/api/social-skills', getAdvice); 
 app.use('/api/task-prioritize', TaskPrioritizationRoutes);
 app.use('/api/cognitive-training', CognitiveTrainingRoutes);
 app.use('/api/diagnose',diagnoseRoutes);

@@ -21,7 +21,7 @@ import TrainAttentionHyperactivity from "./components/TrainAttentionHyperactivit
 import FeedbackPage from './pages/FeedbackPage';
 import ChatPopup from './components/ChatPopup'; // Import ChatPopup
 import FinalizedReport from './pages/FinalizedRepost';
-import ChatPopup from './components/ChatPopup';
+
 
 
 

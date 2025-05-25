@@ -195,9 +195,9 @@ const handleKeyUp = (event) => {
       {!isGameRunning && !gameOver && !showCalmPopup && (
         <div className="start-screen2">
           {/* Back Icon */}
-              <div className="back-container2" onClick={() => window.history.back()}>
+              {/* <div className="back-container2" onClick={() => window.history.back()}>
                 <span className="back-icon"><FaArrowLeft /></span> 
-              </div><br/>
+              </div><br/> */}
          <b> <h1>Control Hyperactivity Task</h1></b>
           <div className="go-stimulus-container2"> 
       <img className="go-stimulus2" src={goImage} alt="Go Stimulus" />

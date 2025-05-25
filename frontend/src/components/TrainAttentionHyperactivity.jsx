@@ -10,9 +10,9 @@ const TrainAttentionHyperactivity = () => {
     <div className="train-container">
       <div className="train-box"> 
          {/* Back Icon */}
-         <div className="back-container4" onClick={() => window.history.back()}>
+         {/* <div className="back-container4" onClick={() => window.history.back()}>
         <span className="back-icon"><FaArrowLeft /></span> 
-        </div>
+        </div> */}
         <br></br>
         <div className="training-box">
         <b><h2 style={{color:"#6a5acd"}}>Boost Attention and Impulse Regulation</h2></b>

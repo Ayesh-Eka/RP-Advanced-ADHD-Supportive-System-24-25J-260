@@ -75,34 +75,65 @@ const PredictionForm = () => {
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Age Input */}
           <div>
-            <label className="block text-sm font-medium text-gray-700">
-              What is the child's age?
-            </label>
-            <input
-              type="number"
-              name="age"
-              value={formData.age}
-              onChange={(e) => setFormData({ ...formData, age: e.target.value })}
-              required
-              className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+  <label className="block text-sm font-medium text-gray-700">
+    What is the child's age? (6-12)
+  </label>
+  <input
+    type="number"
+    name="age"
+    min="6"
+    max="12"
+    value={formData.age}
+    onChange={(e) => {
+      const age = Math.max(6, Math.min(12, Number(e.target.value)));
+      setFormData({ ...formData, age: isNaN(age) ? '' : age });
+    }}
+    required
+    className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+  />
+  {formData.age && (formData.age < 6 || formData.age > 12) && (
+    <p className="mt-1 text-sm text-red-600">Age must be between 6 and 12</p>
+  )}
+</div>
 
           {/* Behavior Age Input */}
           <div>
-            <label className="block text-sm font-medium text-gray-700">
-              At what age did you start noticing these behaviors?
-            </label>
-            <input
-              type="number"
-              name="behavior_age"
-              value={formData.behavior_age}
-              onChange={(e) =>
-                setFormData({ ...formData, behavior_age: e.target.value })
-              }
-              className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+  <label className="block text-sm font-medium text-gray-700">
+    At what age did you start noticing these behaviors? (1-12, and ≤ child's age)
+  </label>
+  <input
+    type="number"
+    name="behavior_age"
+    min="1"
+    max="12"
+    value={formData.behavior_age}
+    onChange={(e) => {
+      const behaviorAge = parseInt(e.target.value, 10);
+      const currentAge = parseInt(formData.age, 10); // Assuming `formData.age` holds the child's current age
+
+      // Validate: Must be between 1-12 AND ≤ current age (if current age is set)
+      if (
+        (behaviorAge >= 1 && behaviorAge <= 12) &&
+        (isNaN(currentAge) || behaviorAge <= currentAge)
+      ) {
+        setFormData({ ...formData, behavior_age: behaviorAge });
+      } else if (e.target.value === "") {
+        // Allow clearing the field
+        setFormData({ ...formData, behavior_age: "" });
+      }
+    }}
+    className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+  />
+  {formData.behavior_age && 
+    ((formData.behavior_age < 1 || formData.behavior_age > 12) ? (
+      <p className="mt-1 text-sm text-red-600">Age must be between 1 and 12</p>
+    ) : (
+      formData.age && formData.behavior_age > formData.age && (
+        <p className="mt-1 text-sm text-red-600">Behavior age cannot exceed the child's current age</p>
+      )
+    ))
+  }
+</div>
 
           {/* Grouped questions */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
