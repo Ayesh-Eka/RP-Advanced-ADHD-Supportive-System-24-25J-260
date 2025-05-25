@@ -74,7 +74,7 @@ const PredictionForm = () => {
         </h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Age Input */}
-          <div>
+         <div>
   <label className="block text-sm font-medium text-gray-700">
     What is the child's age? (6-12)
   </label>
@@ -85,12 +85,16 @@ const PredictionForm = () => {
     max="12"
     value={formData.age}
     onChange={(e) => {
-      const age = Math.max(6, Math.min(12, Number(e.target.value)));
-      setFormData({ ...formData, age: isNaN(age) ? '' : age });
+      const value = e.target.value;
+      const age = Number(value);
+      setFormData({ ...formData, age: value === '' ? '' : age });
     }}
     required
     className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
   />
+  {!formData.age && (
+    <p className="mt-1 text-sm text-red-600">Age is required</p>
+  )}
   {formData.age && (formData.age < 6 || formData.age > 12) && (
     <p className="mt-1 text-sm text-red-600">Age must be between 6 and 12</p>
   )}
@@ -99,7 +103,7 @@ const PredictionForm = () => {
           {/* Behavior Age Input */}
           <div>
   <label className="block text-sm font-medium text-gray-700">
-    At what age did you start noticing these behaviors? (1-12, and ≤ child's age)
+    At what age did you start noticing these behaviors? (1–12, and ≤ child's age)
   </label>
   <input
     type="number"
@@ -108,31 +112,44 @@ const PredictionForm = () => {
     max="12"
     value={formData.behavior_age}
     onChange={(e) => {
-      const behaviorAge = parseInt(e.target.value, 10);
-      const currentAge = parseInt(formData.age, 10); // Assuming `formData.age` holds the child's current age
+      const value = e.target.value;
+      const behaviorAge = parseInt(value, 10);
+      const currentAge = parseInt(formData.age, 10);
 
-      // Validate: Must be between 1-12 AND ≤ current age (if current age is set)
+      if (value === "") {
+        setFormData({ ...formData, behavior_age: "" });
+        return;
+      }
+
       if (
-        (behaviorAge >= 1 && behaviorAge <= 12) &&
+        behaviorAge >= 1 &&
+        behaviorAge <= 12 &&
         (isNaN(currentAge) || behaviorAge <= currentAge)
       ) {
         setFormData({ ...formData, behavior_age: behaviorAge });
-      } else if (e.target.value === "") {
-        // Allow clearing the field
-        setFormData({ ...formData, behavior_age: "" });
+      } else {
+        setFormData({ ...formData, behavior_age: behaviorAge });
       }
     }}
+    required
     className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
   />
-  {formData.behavior_age && 
-    ((formData.behavior_age < 1 || formData.behavior_age > 12) ? (
-      <p className="mt-1 text-sm text-red-600">Age must be between 1 and 12</p>
-    ) : (
-      formData.age && formData.behavior_age > formData.age && (
-        <p className="mt-1 text-sm text-red-600">Behavior age cannot exceed the child's current age</p>
-      )
-    ))
-  }
+  {!formData.behavior_age && (
+    <p className="mt-1 text-sm text-red-600">This field is required</p>
+  )}
+  {formData.behavior_age && (
+    <>
+      {(formData.behavior_age < 1 || formData.behavior_age > 12) && (
+        <p className="mt-1 text-sm text-red-600">Age must be between 1 and 12</p>
+      )}
+      {formData.age &&
+        formData.behavior_age > formData.age && (
+          <p className="mt-1 text-sm text-red-600">
+            Behavior age cannot exceed the child's current age
+          </p>
+        )}
+    </>
+  )}
 </div>
 
           {/* Grouped questions */}
@@ -511,15 +528,20 @@ const PredictionForm = () => {
           </div>
 
           {/* Submit Button */}
-          <div className="flex justify-center">
-            <button
-              type="submit"
-              onClick={handleNextButtonClick}
-              className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition duration-300"
-            >
-              Submit & Next
-            </button>
-          </div>
+          {formData.age && formData.behavior_age &&
+  formData.age >= 6 && formData.age <= 12 &&
+  formData.behavior_age >= 1 && formData.behavior_age <= 12 &&
+  formData.behavior_age <= formData.age && (
+    <div className="flex justify-center">
+      <button
+        type="submit"
+        onClick={handleNextButtonClick}
+        className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition duration-300"
+      >
+        Submit & Next
+      </button>
+    </div>
+)}
         </form>
       </div>
     </div>

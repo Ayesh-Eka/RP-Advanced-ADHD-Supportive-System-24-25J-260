@@ -1,28 +1,60 @@
-// src/components/FinalizedReportPDF.jsx
 import React from "react";
-import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
+import {
+  Page,
+  Text,
+  View,
+  Document,
+  StyleSheet,
+  Image,
+} from "@react-pdf/renderer";
 
 // ---------- styles ----------
 const styles = StyleSheet.create({
-  page: { padding: 30 },
-  section: { marginBottom: 20 },
+  page: {
+    padding: 30,
+    border: "2px solid #000",
+    fontFamily: "Helvetica",
+  },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 20,
+  },
+  logo: {
+    width: 60,
+    height: 60,
+  },
+  letterheadRight: {
+    textAlign: "right",
+    fontSize: 10,
+  },
   title: {
     fontSize: 24,
     marginBottom: 20,
     textAlign: "center",
     fontWeight: "bold",
+    borderBottom: "1px solid #000",
+    paddingBottom: 5,
   },
-  heading: { fontSize: 18, marginBottom: 10, fontWeight: "bold" },
-  text: { fontSize: 12, marginBottom: 5 },
+  section: {
+    marginBottom: 20,
+    paddingBottom: 10,
+    borderBottom: "1px solid #ccc",
+  },
+  heading: {
+    fontSize: 16,
+    marginBottom: 10,
+    fontWeight: "bold",
+    color: "#003366",
+  },
+  text: {
+    fontSize: 12,
+    marginBottom: 4,
+  },
 });
 
 // ---------- component ----------
-/**
- * @param {Object} props
- * @param {Object} props.personalDetails – all user-entered personal fields
- * @param {Object} props.practicalScores – { following_instructions_score, digit_span_score, stroop_score }
- * @param {number|null} props.result – model prediction (1 = ADHD possible, 0 = unlikely, null = N/A)
- */
 const FinalizedReportPDF = ({
   personalDetails = {},
   practicalScores = {},
@@ -34,33 +66,49 @@ const FinalizedReportPDF = ({
     stroop_score = "N/A",
   } = practicalScores;
 
+  const currentDateTime = new Date();
+  const formattedDate = currentDateTime.toLocaleDateString();
+  const formattedTime = currentDateTime.toLocaleTimeString();
+
+  // Placeholder logo (replace with actual URL or base64)
+  const logoSrc = "/path-to-your-logo.png"; // Can also use base64 if needed
+
   return (
     <Document>
       <Page size="A4" style={styles.page}>
-        {/* title */}
-        <Text style={styles.title}>Finalized Report</Text>
+        {/* Header Section */}
+        <View style={styles.header}>
+          <Image style={styles.logo} src={logoSrc} />
+          <View style={styles.letterheadRight}>
+            <Text>NeuroAssist</Text>
+            <Text>SLIIT, New Kandy Rd, Malabe</Text>
+            <Text>{formattedDate}</Text>
+            <Text>{formattedTime}</Text>
+          </View>
+        </View>
+
+        {/* Title */}
+        <Text style={styles.title}>NeuroAssist Diagnosis Report</Text>
 
         {/* Personal Details */}
-          <View style={styles.section}>
-            <Text style={styles.heading}>Personal Details</Text>
-            {Object.entries(personalDetails).map(([key, value]) => {
-              // Convert value to boolean and then to "Yes"/"No"
-              const isYes = (val) => {
-                if (typeof val === "string") {
-                  return val.toLowerCase() === "true" || val === "1";
-                }
-                return Boolean(val);
-              };
-              const yesNo = isYes(value) ? "Yes" : "No";
+        <View style={styles.section}>
+          <Text style={styles.heading}>Personal Details</Text>
+          {Object.entries(personalDetails).map(([key, value]) => {
+            const isYes = (val) => {
+              if (typeof val === "string") {
+                return val.toLowerCase() === "true" || val === "1";
+              }
+              return Boolean(val);
+            };
+            const yesNo = isYes(value) ? "Yes" : "No";
 
-              return (
-                <Text key={key} style={styles.text}>
-                  {key.replace(/_/g, " ")}: {yesNo}
-                </Text>
-              );
-            })}
-          </View>
-
+            return (
+              <Text key={key} style={styles.text}>
+                {key.replace(/_/g, " ")}: {yesNo}
+              </Text>
+            );
+          })}
+        </View>
 
         {/* Practical Test Scores */}
         <View style={styles.section}>
